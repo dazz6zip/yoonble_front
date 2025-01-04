@@ -1,0 +1,5 @@
+`npm install styled-components`
+`npm install react-modal`
+`npm install react-router-dom@^6.0.0`
+`npm install --save-dev @types/react-router-dom`
+`npm install recoil`
