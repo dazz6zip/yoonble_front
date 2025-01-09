@@ -37,19 +37,18 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   width: 100%;
-  max-width: 428px; /* 최대 가로 길이 고정 */
   margin: 0 auto; /* 페이지를 가운데 정렬 */
   overflow-x: hidden; /* 가로 스크롤 방지 */
   box-sizing: border-box;
 }
-  body {
+  body {rg
     line-height: 1;
     justify-content: center;
     align-items: flex-start;
     margin: 0;
     padding: 0;
     display: flex;
-    background-color: #BCCBD2;
+    background-color:rgb(214, 207, 202);
   }
   menu, ol, ul {
     list-style: none;
@@ -74,9 +73,6 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: 'Gothic A1', sans-serif;
-    background-color:${(props) => props.theme.bgColor};
-    color:${(props) => props.theme.textColor};
-
   }
   a {
     text-decoration:none;

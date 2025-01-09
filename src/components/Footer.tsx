@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
 const FooterContainer = styled.footer`
-  height: 13vh;
+  width: 100vw;
+  height: 15vh;
   font-size: 15px;
   font-family: Nanum Pen Script;
   color: black;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: rgb(180, 169, 159);
 
   @media (min-width: 768px) {
     font-size: 17px;
@@ -19,8 +26,12 @@ const FooterContainer = styled.footer`
 function Footer() {
   return (
     <FooterContainer>
-      Contact
-      <p>hyo_00@gmail.com</p>
+      <div>♡ Contact ♡</div>
+      <div>
+        Instagram | @yoonble_studio &nbsp;&nbsp;&nbsp; KakaoTalk | 윤블스튜디오
+      </div>
+      <br />
+      <div>WEBSITE | lovellehyo@gmail.com</div>
     </FooterContainer>
   );
 }
