@@ -1,6 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+import Artist from "./components/Artist";
+import Artmake from "./components/Artmake";
+import Faq from "./components/FAQ";
 import Home from "./components/Home";
+import Reservation from "./components/Reservation";
+import Review from "./components/Review";
+import Shop from "./components/Shop";
 
 const Container = styled.div`
   display: flex;
@@ -26,7 +32,13 @@ export default function Router() {
     <>
       <Container>
         <Routes>
-          <Route path="/" Component={Home} />
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/artist" element={<Artist />} />
+          <Route path="/artmake" element={<Artmake />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/review" element={<Review />} />
         </Routes>
       </Container>
     </>

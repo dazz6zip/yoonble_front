@@ -36,7 +36,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const CustomIcon = styled.b`
-  color: rgb(195, 186, 180);
+  color: rgb(234, 224, 217);
   padding-right: 10px;
 `;
 
@@ -47,9 +47,6 @@ export const MenuStyles = {
     height: "20px",
     top: "15px",
     transform: "translateX(20px)", // 왼쪽으로 20px 이동
-  },
-  bmBurgerBars: {
-    background: "#373a47",
   },
   bmCrossButton: {
     width: "20px",
@@ -64,7 +61,7 @@ export const MenuStyles = {
     top: "0", // 상단에서 시작
   },
   bmMenu: {
-    background: "#f5f5f5",
+    background: "#D1B7A1",
     padding: "20px",
     fontSize: "1em",
     height: "100%",
@@ -97,25 +94,25 @@ function Header() {
           <StyledMenuItem to="/" onClick={closeMenu}>
             ABOUT
           </StyledMenuItem>
-          <StyledMenuItem to="/" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/shop" onClick={closeMenu} $isSubMenu>
+            <CustomIcon>✷</CustomIcon>SHOP
+          </StyledMenuItem>
+          <StyledMenuItem to="/artist" onClick={closeMenu} $isSubMenu>
             <CustomIcon>✶</CustomIcon>ARTIST
           </StyledMenuItem>
-          <StyledMenuItem to="/" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/artmake" onClick={closeMenu} $isSubMenu>
             <CustomIcon>✷</CustomIcon>ARTMAKE
           </StyledMenuItem>
-          <StyledMenuItem to="/" onClick={closeMenu} $isSubMenu>
-            <CustomIcon>✶</CustomIcon>NOTICE/EVENT
-          </StyledMenuItem>
-          <StyledMenuItem to="/" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/faq" onClick={closeMenu} $isSubMenu>
             <CustomIcon>✶</CustomIcon>FAQ
           </StyledMenuItem>
           <StyledMenuItem to="/" onClick={closeMenu}>
             BOOKING
           </StyledMenuItem>
-          <StyledMenuItem to="/" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/reservation" onClick={closeMenu} $isSubMenu>
             <CustomIcon>✶</CustomIcon>RESERVATION
           </StyledMenuItem>
-          <StyledMenuItem to="/" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/review" onClick={closeMenu} $isSubMenu>
             <CustomIcon>✷</CustomIcon>REVIEW
           </StyledMenuItem>
         </Menu>

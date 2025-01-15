@@ -11,8 +11,9 @@ const FooterContainer = styled.footer`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  color: #dbc2ad;
 
-  background-color: rgb(180, 169, 159);
+  background-color: #a18167;
 
   @media (min-width: 768px) {
     font-size: 17px;
@@ -26,9 +27,8 @@ const FooterContainer = styled.footer`
 function Footer() {
   return (
     <FooterContainer>
-      <div>♡ Contact ♡</div>
       <div>
-        Instagram | @yoonble_studio &nbsp;&nbsp;&nbsp; KakaoTalk | 윤블스튜디오
+        Instagram | @yoonble_studio &nbsp;♡&nbsp; KakaoTalk | 윤블스튜디오
       </div>
       <br />
       <div>WEBSITE | lovellehyo@gmail.com</div>
