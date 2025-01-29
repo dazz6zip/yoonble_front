@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     display: flex;
-    background-color:#DBC2AD;
+    background-color:#ead8c4;
   }
   menu, ol, ul {
     list-style: none;

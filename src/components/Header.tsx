@@ -13,17 +13,29 @@ export const HeaderAndMenu = styled.div`
   height: 10vh;
 `;
 
-export const StyledMenuItem = styled(Link)<{ $isSubMenu?: boolean }>`
+export const StyledMenu = styled(Link)`
   display: block;
   text-decoration: none;
-  color: ${(props) => (props.$isSubMenu ? "#888" : "#3A3B42")};
-  font-size: ${(props) => (props.$isSubMenu ? "16px" : "18px")};
-
-  padding-left: ${(props) => (props.$isSubMenu ? "20px" : "0")};
-  margin-top: ${(props) => (props.$isSubMenu ? "20px" : "30px")};
-
+  color: rgb(201, 193, 187);
+  font-size: 18px;
+  padding-left: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   &:hover {
-    color: ${(props) => (props.$isSubMenu ? "#666" : "#333")};
+    color: rgb(234, 224, 217);
+  }
+`;
+
+export const StyledMenuItem = styled(Link)`
+  display: block;
+  text-decoration: none;
+  color: rgb(234, 224, 217);
+  font-size: 14px;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  &:hover {
+    color: rgb(234, 224, 217);
   }
 `;
 
@@ -61,7 +73,7 @@ export const MenuStyles = {
     top: "0", // 상단에서 시작
   },
   bmMenu: {
-    background: "#D1B7A1",
+    background: "rgb(164, 152, 140)",
     padding: "20px",
     fontSize: "1em",
     height: "100%",
@@ -91,35 +103,35 @@ function Header() {
           styles={MenuStyles}
         >
           <br />
-          <StyledMenuItem to="/" onClick={closeMenu}>
+          <StyledMenu to="/" onClick={closeMenu}>
             ABOUT
-          </StyledMenuItem>
-          <StyledMenuItem to="/shop" onClick={closeMenu} $isSubMenu>
+          </StyledMenu>
+          <StyledMenuItem to="/shop" onClick={closeMenu}>
             <CustomIcon>✷</CustomIcon>SHOP
           </StyledMenuItem>
-          <StyledMenuItem to="/artist" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/artist" onClick={closeMenu}>
             <CustomIcon>✶</CustomIcon>ARTIST
           </StyledMenuItem>
-          <StyledMenuItem to="/artmake" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/artmake" onClick={closeMenu}>
             <CustomIcon>✷</CustomIcon>ARTMAKE
           </StyledMenuItem>
-          <StyledMenuItem to="/faq" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/faq" onClick={closeMenu}>
             <CustomIcon>✶</CustomIcon>FAQ
           </StyledMenuItem>
-          <StyledMenuItem to="/" onClick={closeMenu}>
+          <StyledMenu to="/" onClick={closeMenu}>
             BOOKING
-          </StyledMenuItem>
-          <StyledMenuItem to="/reservation" onClick={closeMenu} $isSubMenu>
+          </StyledMenu>
+          <StyledMenuItem to="/reservation" onClick={closeMenu}>
             <CustomIcon>✶</CustomIcon>RESERVATION
           </StyledMenuItem>
-          <StyledMenuItem to="/review" onClick={closeMenu} $isSubMenu>
+          <StyledMenuItem to="/review" onClick={closeMenu}>
             <CustomIcon>✷</CustomIcon>REVIEW
           </StyledMenuItem>
         </Menu>
 
         <HeaderContainer>
           <Link to="/">
-            <img width={"500px"} src={logo} alt="Logo" />
+            <img width={"200px"} src={logo} alt="Logo" />
           </Link>
         </HeaderContainer>
       </HeaderAndMenu>

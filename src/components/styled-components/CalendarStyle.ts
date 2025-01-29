@@ -1,4 +1,7 @@
+import dayjs from "dayjs";
 import styled from "styled-components";
+
+const today = dayjs().date();
 
 export const CalendarContainer = styled.div`
   display: flex;
@@ -6,7 +9,7 @@ export const CalendarContainer = styled.div`
   align-items: center;
 `;
 
-export const CalenderHeader = styled.div`
+export const CalendarHeader = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -28,15 +31,17 @@ export const DaysGrid = styled.div`
   gap: 5px;
 `;
 
-export const Day = styled.div<{ isCurrentMonth: boolean }>`
-  background-color: ${({ isCurrentMonth }) =>
-    isCurrentMonth ? "#fff" : "#f0f0f0"};
+export const Day = styled.div<{ isAbled: boolean; isBlank: boolean }>`
+  background-color: ${({ isBlank, isAbled }) =>
+    isBlank ? "black" : isAbled ? "#fff" : "#e0e0e0"};
   padding: 10px;
   text-align: center;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${({ isAbled }) =>
+    isAbled ? "pointer" : "default"}; // 오늘 이전이면 커서 비활성화
+  pointer-events: ${({ isAbled }) => (isAbled ? "auto" : "none")}; // hover 막기
 
   &:hover {
-    background-color: #e0e0e0;
+    background-color: ${({ isAbled }) => (isAbled ? "pink" : "inherit")};
   }
 `;

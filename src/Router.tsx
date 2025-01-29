@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import Artist from "./components/Artist";
 import Artmake from "./components/Artmake";
-import { Calender } from "./components/Calender";
+import { Calendar } from "./components/Calendar";
 import Faq from "./components/FAQ";
 import Home from "./components/Home";
 import Reservation from "./components/Reservation";
@@ -40,7 +40,7 @@ export default function Router() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/review" element={<Review />} />
-          <Route path="/cal" element={<Calender />} />
+          <Route path="/book" element={<Calendar />} />
         </Routes>
       </Container>
     </>

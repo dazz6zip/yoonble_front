@@ -11,9 +11,9 @@ const FooterContainer = styled.footer`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: #dbc2ad;
+  color: #ead8c4;
 
-  background-color: #a18167;
+  background-color: rgb(135, 121, 108);
 
   @media (min-width: 768px) {
     font-size: 17px;
