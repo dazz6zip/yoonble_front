@@ -3,8 +3,6 @@ import styled from "styled-components";
 const FooterContainer = styled.footer`
   width: 100vw;
   height: 15vh;
-  font-size: 15px;
-  font-family: Nanum Pen Script;
   color: black;
   text-align: center;
   display: flex;

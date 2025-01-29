@@ -4,7 +4,18 @@ import { FaArrowLeft } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo from "../images/long.jpg";
+
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const Title = styled.h1`
+  color: rgb(135, 121, 108);
+  font-size: 50px;
+`;
 
 export const HeaderAndMenu = styled.div`
   display: flex;
@@ -13,7 +24,7 @@ export const HeaderAndMenu = styled.div`
   height: 10vh;
 `;
 
-export const StyledMenu = styled(Link)`
+export const StyledMenu = styled.div`
   display: block;
   text-decoration: none;
   color: rgb(201, 193, 187);
@@ -21,9 +32,6 @@ export const StyledMenu = styled(Link)`
   padding-left: 20px;
   margin-top: 30px;
   margin-bottom: 20px;
-  &:hover {
-    color: rgb(234, 224, 217);
-  }
 `;
 
 export const StyledMenuItem = styled(Link)`
@@ -35,7 +43,7 @@ export const StyledMenuItem = styled(Link)`
   margin-top: 20px;
   margin-bottom: 20px;
   &:hover {
-    color: rgb(234, 224, 217);
+    color: rgb(201, 193, 187);
   }
 `;
 
@@ -103,9 +111,7 @@ function Header() {
           styles={MenuStyles}
         >
           <br />
-          <StyledMenu to="/" onClick={closeMenu}>
-            ABOUT
-          </StyledMenu>
+          <StyledMenu>ABOUT</StyledMenu>
           <StyledMenuItem to="/shop" onClick={closeMenu}>
             <CustomIcon>✷</CustomIcon>SHOP
           </StyledMenuItem>
@@ -118,9 +124,7 @@ function Header() {
           <StyledMenuItem to="/faq" onClick={closeMenu}>
             <CustomIcon>✶</CustomIcon>FAQ
           </StyledMenuItem>
-          <StyledMenu to="/" onClick={closeMenu}>
-            BOOKING
-          </StyledMenu>
+          <StyledMenu>BOOKING</StyledMenu>
           <StyledMenuItem to="/reservation" onClick={closeMenu}>
             <CustomIcon>✶</CustomIcon>RESERVATION
           </StyledMenuItem>
@@ -131,7 +135,9 @@ function Header() {
 
         <HeaderContainer>
           <Link to="/">
-            <img width={"200px"} src={logo} alt="Logo" />
+            <TitleContainer>
+              <Title>YOONBLE</Title>
+            </TitleContainer>
           </Link>
         </HeaderContainer>
       </HeaderAndMenu>

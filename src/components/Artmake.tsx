@@ -6,18 +6,18 @@ const Container = styled.div`
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const ContentBox = styled.div`
-  flex: 1 1 calc(50% - 20px);
+  flex: 1 1 calc(33.333% - 20px);
   box-sizing: border-box;
   padding: 20px;
   border: 1px solid #ddd;
@@ -57,8 +57,6 @@ export default function Artmake() {
             색감을 부여하여 건강하고 또렷한 인상을 연출하는 시술입니다.
           </Description>
         </ContentBox>
-      </ContentWrapper>
-      <ContentWrapper>
         <ContentBox>
           <Title>미인점</Title>
           <Description>
@@ -73,8 +71,6 @@ export default function Artmake() {
             넣는 헤어라인 시술입니다.
           </Description>
         </ContentBox>
-      </ContentWrapper>
-      <ContentWrapper>
         <ContentBox>
           <Title>눈</Title>
           <Description>

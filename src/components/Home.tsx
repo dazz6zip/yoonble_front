@@ -1,9 +1,9 @@
-import img from "../images/img5.jpg";
+import logo from "../images/logo.png";
 
 export default function Home() {
   return (
     <>
-      <img src={img} height="300px" />
+      <img src={logo} height="300px" />
     </>
   );
 }
