@@ -1,146 +1,85 @@
-import { useState } from "react";
-import { slide as Menu } from "react-burger-menu";
-import { FaArrowLeft } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-const TitleContainer = styled.div`
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-  margin-top: 20px;
-`;
 
 const Title = styled.h1`
   color: rgb(135, 121, 108);
   font-size: 50px;
+  margin: 20px;
+  border-bottom: 2px solid rgb(117, 105, 94);
+  display: inline-block;
 `;
 
-export const HeaderAndMenu = styled.div`
+const Sidebar = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: rgb(164, 152, 140);
+  padding: 20px;
   display: flex;
-  align-items: center;
-  width: 100vw;
-  height: 10vh;
+  flex-direction: column;
+  box-shadow: none;
 `;
 
-export const StyledMenu = styled.div`
-  display: block;
-  text-decoration: none;
+const StyledMenu = styled.div`
   color: rgb(201, 193, 187);
   font-size: 18px;
-  padding-left: 20px;
   margin-top: 30px;
-  margin-bottom: 20px;
 `;
 
-export const StyledMenuItem = styled(Link)`
-  display: block;
+const StyledMenuItem = styled(Link)`
   text-decoration: none;
   color: rgb(234, 224, 217);
   font-size: 14px;
-  padding-left: 20px;
   margin-top: 20px;
-  margin-bottom: 20px;
   &:hover {
     color: rgb(201, 193, 187);
   }
 `;
 
-export const HeaderContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 10px 0;
-`;
-
-export const CustomIcon = styled.b`
+const CustomIcon = styled.b`
   color: rgb(234, 224, 217);
   padding-right: 10px;
 `;
 
-export const MenuStyles = {
-  bmBurgerButton: {
-    position: "fixed",
-    width: "20px",
-    height: "20px",
-    top: "15px",
-    transform: "translateX(20px)", // 왼쪽으로 20px 이동
-  },
-  bmCrossButton: {
-    width: "20px",
-    height: "20px",
-    left: "20px",
-    top: "15px",
-  },
-  bmMenuWrap: {
-    position: "absolute", // 부모 컨테이너 기준으로 설정
-    overflow: "hidden", // 넘치는 애니메이션 숨김
-    height: "100vh", // 세로 높이 전체를 덮기
-    top: "0", // 상단에서 시작
-  },
-  bmMenu: {
-    background: "rgb(164, 152, 140)",
-    padding: "20px",
-    fontSize: "1em",
-    height: "100%",
-    boxShadow: "none",
-    transform: "translateX(0)",
-    transition: "transform 0.3s ease-in-out",
-  },
-  bmOverlay: {
-    display: "none",
-  },
-};
+const Content = styled.div`
+  margin-left: 250px; /* 사이드바 넓이만큼 왼쪽 여백 추가 */
+  height: 10vh;
+  align-items: center; /* 세로 중앙 정렬 */
+`;
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const closeMenu = () => setIsMenuOpen(false);
-
   return (
     <>
-      <HeaderAndMenu>
-        <Menu
-          customBurgerIcon={<GiHamburgerMenu size={"30"} />}
-          customCrossIcon={<FaArrowLeft size={"30"} />}
-          width={"250px"}
-          isOpen={isMenuOpen}
-          onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}
-          styles={MenuStyles}
-        >
-          <br />
-          <StyledMenu>ABOUT</StyledMenu>
-          <StyledMenuItem to="/shop" onClick={closeMenu}>
-            <CustomIcon>✷</CustomIcon>SHOP
-          </StyledMenuItem>
-          <StyledMenuItem to="/artist" onClick={closeMenu}>
-            <CustomIcon>✶</CustomIcon>ARTIST
-          </StyledMenuItem>
-          <StyledMenuItem to="/artmake" onClick={closeMenu}>
-            <CustomIcon>✷</CustomIcon>ARTMAKE
-          </StyledMenuItem>
-          <StyledMenuItem to="/faq" onClick={closeMenu}>
-            <CustomIcon>✶</CustomIcon>FAQ
-          </StyledMenuItem>
-          <StyledMenu>BOOKING</StyledMenu>
-          <StyledMenuItem to="/reservation" onClick={closeMenu}>
-            <CustomIcon>✶</CustomIcon>RESERVATION
-          </StyledMenuItem>
-          <StyledMenuItem to="/review" onClick={closeMenu}>
-            <CustomIcon>✷</CustomIcon>REVIEW
-          </StyledMenuItem>
-        </Menu>
+      <Sidebar>
+        <StyledMenu>ABOUT</StyledMenu>
+        <StyledMenuItem to="/shop">
+          <CustomIcon>✷</CustomIcon>SHOP
+        </StyledMenuItem>
+        <StyledMenuItem to="/artist">
+          <CustomIcon>✶</CustomIcon>ARTIST
+        </StyledMenuItem>
+        <StyledMenuItem to="/artmake">
+          <CustomIcon>✷</CustomIcon>ARTMAKE
+        </StyledMenuItem>
+        <StyledMenuItem to="/faq">
+          <CustomIcon>✶</CustomIcon>FAQ
+        </StyledMenuItem>
+        <StyledMenu>BOOKING</StyledMenu>
+        <StyledMenuItem to="/reservation">
+          <CustomIcon>✶</CustomIcon>RESERVATION
+        </StyledMenuItem>
+        <StyledMenuItem to="/review">
+          <CustomIcon>✷</CustomIcon>REVIEW
+        </StyledMenuItem>
+      </Sidebar>
 
-        <HeaderContainer>
-          <Link to="/">
-            <TitleContainer>
-              <Title>YOONBLE</Title>
-            </TitleContainer>
-          </Link>
-        </HeaderContainer>
-      </HeaderAndMenu>
+      <Content>
+        <Link to="/">
+          <Title>YOONBLE</Title>
+        </Link>
+      </Content>
     </>
   );
 }
