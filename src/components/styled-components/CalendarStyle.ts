@@ -33,7 +33,7 @@ export const DaysGrid = styled.div`
 
 export const Day = styled.div<{ isAbled: boolean; isBlank: boolean }>`
   background-color: ${({ isBlank, isAbled }) =>
-    isBlank ? "black" : isAbled ? "#fff" : "#e0e0e0"};
+    isBlank ? "transparent" : isAbled ? "#fff" : "#e0e0e0"};
   padding: 10px;
   text-align: center;
   border-radius: 5px;

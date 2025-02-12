@@ -65,49 +65,51 @@ export const Calendar = () => {
   };
 
   return (
-    <CalendarContainer>
-      <CalendarHeader>
-        <button
-          onClick={() => calendar.previousMonth()}
-          disabled={calendar.currentMonth.isSame(dayjs(), "month")}
-        >
-          이전달
-        </button>
-        <h2>{calendar.currentMonth.format("YYYY년 MM월")}</h2>
-        <button
-          onClick={() => calendar.nextMonth()}
-          disabled={calendar.currentMonth.isSame(
-            dayjs().add(2, "month"),
-            "month"
-          )}
-        >
-          다음달
-        </button>
-      </CalendarHeader>
+    <>
+      <CalendarContainer>
+        <CalendarHeader>
+          <button
+            onClick={() => calendar.previousMonth()}
+            disabled={calendar.currentMonth.isSame(dayjs(), "month")}
+          >
+            이전달
+          </button>
+          <h2>{calendar.currentMonth.format("YYYY년 MM월")}</h2>
+          <button
+            onClick={() => calendar.nextMonth()}
+            disabled={calendar.currentMonth.isSame(
+              dayjs().add(2, "month"),
+              "month"
+            )}
+          >
+            다음달
+          </button>
+        </CalendarHeader>
 
-      <Weekdays>
-        {DAY_LIST.map((day) => (
-          <div key={day}>{day}</div>
-        ))}
-      </Weekdays>
+        <Weekdays>
+          {DAY_LIST.map((day) => (
+            <div key={day}>{day}</div>
+          ))}
+        </Weekdays>
 
-      <DaysGrid>
-        {calendar.weekCalendarList.flat().map((day, index) => {
-          const isAbled =
-            day > 0 &&
-            dayjs(calendar.currentMonth).date(day).isAfter(dayjs(), "day");
-          return (
-            <Day
-              onClick={() => showTimes(calendar.currentMonth.month(), day)}
-              key={index}
-              isAbled={isAbled}
-              isBlank={day === BLANK_DATE}
-            >
-              {day > 0 ? day : ""}
-            </Day>
-          );
-        })}
-      </DaysGrid>
-    </CalendarContainer>
+        <DaysGrid>
+          {calendar.weekCalendarList.flat().map((day, index) => {
+            const isAbled =
+              day > 0 &&
+              dayjs(calendar.currentMonth).date(day).isAfter(dayjs(), "day");
+            return (
+              <Day
+                onClick={() => showTimes(calendar.currentMonth.month(), day)}
+                key={index}
+                isAbled={isAbled}
+                isBlank={day === BLANK_DATE}
+              >
+                {day > 0 ? day : ""}
+              </Day>
+            );
+          })}
+        </DaysGrid>
+      </CalendarContainer>
+    </>
   );
 };

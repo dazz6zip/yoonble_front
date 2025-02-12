@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import styled from "styled-components";
-import img1 from "../images/Notice.png";
 
 const Container = styled.div`
   max-width: 90%;
@@ -12,18 +11,18 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const ImageWrapper = styled.div`
-  flex: 1;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const ImageWrapper = styled.div`
+//   flex: 1;
+//   text-align: center;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
-const Image = styled.img`
-  width: 100%;
-  border-radius: 10px;
-`;
+// const Image = styled.img`
+//   width: 100%;
+//   border-radius: 10px;
+// `;
 
 const Content = styled.div`
   flex: 2;
@@ -109,10 +108,11 @@ export default function FAQ() {
 
   return (
     <Container>
-      <ImageWrapper>
+      {/* <ImageWrapper>
         <Image src={img1} alt="shop" />
-      </ImageWrapper>
+      </ImageWrapper> */}
       <Content>
+        자주 묻는 질문
         {faqData.map((faq, index) => (
           <FAQItem key={index}>
             <Question onClick={() => toggleFAQ(index)}>

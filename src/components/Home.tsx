@@ -12,7 +12,6 @@ export default function Home() {
   return (
     <>
       <img src={logo} height="300px" />
-      <button onClick={() => apiTest()}>API 테스트</button>
     </>
   );
 }
