@@ -9,7 +9,8 @@ import Reservation from "./components/Reservation";
 import Review from "./components/Review";
 import Shop from "./components/Shop";
 
-const Container = styled.div`
+const MainContainer = styled.div`
+  height: 73vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +30,7 @@ const Container = styled.div`
 export default function Router() {
   return (
     <>
-      <Container>
+      <MainContainer>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -40,7 +41,7 @@ export default function Router() {
           <Route path="/review" element={<Review />} />
           <Route path="/book" element={<Calendar />} />
         </Routes>
-      </Container>
+      </MainContainer>
     </>
   );
 }
