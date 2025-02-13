@@ -4,7 +4,6 @@ import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
 
 const FooterContainer = styled.footer`
-  width: 100%;
   height: 15vh;
   color: #ead8c4;
   text-align: center;

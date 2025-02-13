@@ -10,9 +10,6 @@ import Review from "./components/Review";
 import Shop from "./components/Shop";
 
 const Container = styled.div`
-  margin-left: 250px; /* 사이드바 넓이만큼 왼쪽 여백 추가 */
-  width: calc(100vw - 250px); /* 사이드바 제외한 나머지 너비 */
-  min-height: 75vh; /* 최소 높이를 화면 높이만큼 유지 */
   display: flex;
   flex-direction: column;
   align-items: center;

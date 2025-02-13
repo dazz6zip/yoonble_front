@@ -1,16 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Router from "./Router";
+import Layout from "./components/Layout";
+import ResponsiveProvider from "./components/ResponsiveProvider";
 
 function App() {
   return (
     <BrowserRouter>
       <RecoilRoot>
+        <ResponsiveProvider />
         <Header />
-        <Router />
-        <Footer />
+        <Layout />
       </RecoilRoot>
     </BrowserRouter>
   );
