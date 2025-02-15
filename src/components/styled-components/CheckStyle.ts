@@ -27,7 +27,8 @@ export const ServiceItem = styled.div<{ selected: boolean }>`
   gap: 10px;
   padding: 12px;
   border-radius: 8px;
-  background-color: ${({ selected }) => (selected ? "#ead8c4" : "#f5f5f5")};
+  background-color: ${({ selected }) =>
+    selected ? "rgb(169, 161, 154)" : "rgb(214, 201, 189)"};
   color: ${({ selected }) => (selected ? "#333" : "#666")};
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
@@ -35,11 +36,11 @@ export const ServiceItem = styled.div<{ selected: boolean }>`
   font-weight: 500;
 
   &:hover {
-    background-color: #e0c9af;
+    background-color: rgb(167, 155, 143);
     transform: scale(1.02);
   }
 
   svg {
-    color: ${({ selected }) => (selected ? "#c07d50" : "#999")};
+    color: ${({ selected }) => (selected ? "black" : "#999")};
   }
 `;

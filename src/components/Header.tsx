@@ -28,7 +28,7 @@ export default function Header() {
     <HeaderContainer>
       <Link to="/">
         <TitleContainer>
-          <Title>HEADER</Title>
+          <Title>YOONBLE</Title>
         </TitleContainer>
       </Link>
     </HeaderContainer>

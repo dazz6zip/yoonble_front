@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { AiOutlineBorder, AiOutlineCheckSquare } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import { getArtmakes, IArtmake } from "../fetcher";
 import img1 from "../images/Notice.png";
+import { selectedArtsState } from "../recoil/atom";
+import { Button } from "./styled-components/ButtonStyle";
 import {
   ServiceItem,
   ServiceItemContainer,
@@ -11,14 +14,14 @@ import {
 export default function Reservation() {
   const navigate = useNavigate();
   const [artmakes, setArtmakes] = useState<IArtmake[]>([]);
-  const [selected, setSelected] = useState<IArtmake[]>([]);
+  const [selectedArts, setSelectedArts] = useRecoilState(selectedArtsState);
 
+  // some(): 배열 속 존재 여부 반환
   const toggleSelection = (artmake: IArtmake) => {
-    setSelected(
-      (prev) =>
-        prev.includes(artmake)
-          ? prev.filter((item) => item !== artmake) // 선택 해제
-          : [...prev, artmake] // 선택 추가
+    setSelectedArts((prevItems) =>
+      prevItems.some((item) => item.id === artmake.id)
+        ? prevItems.filter((item) => item.id !== artmake.id)
+        : [...prevItems, artmake]
     );
   };
 
@@ -40,10 +43,10 @@ export default function Reservation() {
         {artmakes.map((artmake) => (
           <ServiceItem
             key={artmake.id}
-            selected={selected.includes(artmake)}
+            selected={selectedArts.includes(artmake)}
             onClick={() => toggleSelection(artmake)}
           >
-            {selected.includes(artmake) ? (
+            {selectedArts.some((item) => item.id === artmake.id) ? (
               <AiOutlineCheckSquare size={24} />
             ) : (
               <AiOutlineBorder size={24} />
@@ -54,7 +57,12 @@ export default function Reservation() {
           </ServiceItem>
         ))}
       </ServiceItemContainer>
-      <button onClick={() => navigate("/book")}>예약하기</button>
+      <Button
+        onClick={() => navigate("/book")}
+        disabled={selectedArts.length === 0}
+      >
+        {selectedArts.length > 0 ? "예약하기" : "예약하실 시술을 선택해주세요"}
+      </Button>
     </>
   );
 }

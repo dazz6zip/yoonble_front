@@ -1,37 +1,32 @@
 import styled from "styled-components";
 
-interface ButtonProps {
-  category: string;
-}
-
-const variantStyles: Record<
-  string,
-  { backgroundColor: string; color?: string }
-> = {
-  hotpink: { backgroundColor: "#ed798d" },
-  blue: { backgroundColor: "#87b9ce" },
-};
-
-const defaultStyle = {
-  color: "#fff",
-  backgroundColor: "#ed798d",
-};
-
-export const Button = styled.button<ButtonProps>`
+export const Button = styled.button`
+  background-color: rgb(135, 118, 110); /* 깊은 브라운 */
+  color: #f5e9dc; /* 부드러운 베이지 */
   border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 15px;
-  padding: 8px;
-  font-size: 11px;
-
-  color: ${({ category }) =>
-    variantStyles[category]?.color || defaultStyle.color};
-  background-color: ${({ category }) =>
-    variantStyles[category]?.backgroundColor || defaultStyle.backgroundColor};
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    opacity: 0.9;
+    background-color: #4a3228; /* 어두운 브라운 */
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background-color: transparent; /* 흐린 베이지 */
+    color: rgb(108, 102, 93);
+    border: none;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
   }
 `;
-
-export default Button;

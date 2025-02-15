@@ -8,6 +8,7 @@ export default function ResponsiveProvider() {
   const setIsDesktop = useSetRecoilState<boolean>(isDesktopState);
 
   // 창 크기 변경 시
+  // todo: 디바운싱?
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768);
