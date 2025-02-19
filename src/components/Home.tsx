@@ -1,5 +1,6 @@
 import axios from "axios";
 import logo from "../images/logo.png";
+import React from "react";
 
 export default function Home() {
   const apiTest = async () => {

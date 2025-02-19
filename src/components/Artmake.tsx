@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getArtmakes, IArtmake } from "../fetcher";
+import React from "react";
 
 const Container = styled.div`
   max-width: 90%;

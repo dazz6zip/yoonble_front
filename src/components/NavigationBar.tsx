@@ -7,6 +7,7 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { isDesktopState } from "../recoil/atom";
 import Translater from "../Translater";
+import React from "react";
 
 export const StyledMenu = styled.div`
   display: block;

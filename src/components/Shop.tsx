@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import img1 from "../images/img1.jpg";
+import React from "react";
 
 const Container = styled.div`
   max-width: 80%;

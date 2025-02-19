@@ -10,6 +10,7 @@ import {
   ServiceItem,
   ServiceItemContainer,
 } from "./styled-components/CheckStyle";
+import React from "react";
 
 export default function Reservation() {
   const navigate = useNavigate();

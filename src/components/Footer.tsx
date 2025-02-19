@@ -2,6 +2,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
+import React from "react";
 
 const FooterContainer = styled.footer`
   height: 15vh;

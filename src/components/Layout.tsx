@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { isDesktopState } from "../recoil/atom";
 import Router from "../Router";
 import Footer from "./Footer";
+import React from "react";
 
 const LayoutContainer = styled.div<{ isDesktop: boolean }>`
   margin-left: ${(props) => (props.isDesktop ? "15vw" : "0")};

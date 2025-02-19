@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import styled from "styled-components";
+import React from "react";
 
 const Container = styled.div`
   max-width: 90%;

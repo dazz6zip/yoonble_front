@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from "react";
 
 export const Button = styled.button`
   background-color: rgb(135, 118, 110); /* 깊은 브라운 */

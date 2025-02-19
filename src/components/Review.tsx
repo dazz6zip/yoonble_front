@@ -1,4 +1,5 @@
 import img1 from "../images/Review.png";
+import React from "react";
 
 export default function Review() {
   return (

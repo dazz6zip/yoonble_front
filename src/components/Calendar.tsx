@@ -7,6 +7,7 @@ import {
   DaysGrid,
   Weekdays,
 } from "./styled-components/CalendarStyle";
+import React from "react";
 
 const CALENDAR_LENGTH = 35; // 7일 * 5주
 const BLANK_DATE = 0;
