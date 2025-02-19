@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { isDesktopState } from "../recoil/atom";
+import Translater from "../Translater";
 
 export const StyledMenu = styled.div`
   display: block;
@@ -107,6 +108,10 @@ function NavigationBar() {
         </StyledMenuItem>
         <StyledMenuItem to="/review" onClick={closeMenu}>
           <CustomIcon>✷</CustomIcon>REVIEW
+        </StyledMenuItem>
+        <br />
+        <StyledMenuItem to="">
+          <Translater />
         </StyledMenuItem>
       </Menu>
     </>
