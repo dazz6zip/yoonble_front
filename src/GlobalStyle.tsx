@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
     align-items: flex-start;
     display: flex;
     background-color: #ead8c4;
-    font-family: "Playfair Display";
+    font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
     font-weight: 400;
     font-style: normal;
   }

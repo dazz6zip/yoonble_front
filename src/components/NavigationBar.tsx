@@ -84,7 +84,7 @@ function NavigationBar() {
           isDesktop ? <></> : <GiHamburgerMenu size={"2.5vw"} />
         }
         customCrossIcon={isDesktop ? <></> : <FaArrowLeft size={"2.5vw"} />}
-        width={isDesktop ? "15vw" : "35vw"} /* 반응형 너비 */
+        width={isDesktop ? "20vw" : "35vw"} /* 반응형 너비 */
         isOpen={isDesktop ? true : isMenuOpen}
         onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}
         styles={MenuStyles}
@@ -92,20 +92,20 @@ function NavigationBar() {
         <br />
         <StyledMenu>ABOUT</StyledMenu>
         <StyledMenuItem to="/shop" onClick={closeMenu}>
-          <CustomIcon>✷</CustomIcon>SHOP
+          <CustomIcon>✶</CustomIcon>SHOP
         </StyledMenuItem>
         <StyledMenuItem to="/artist" onClick={closeMenu}>
           <CustomIcon>✶</CustomIcon>ARTIST
         </StyledMenuItem>
         <StyledMenuItem to="/artmake" onClick={closeMenu}>
-          <CustomIcon>✷</CustomIcon>ARTMAKE
+          <CustomIcon>✶</CustomIcon>ARTMAKE
         </StyledMenuItem>
         <StyledMenuItem to="/faq" onClick={closeMenu}>
           <CustomIcon>✶</CustomIcon>FAQ
         </StyledMenuItem>
         <StyledMenu>BOOKING</StyledMenu>
         <StyledMenuItem to="/reservation" onClick={closeMenu}>
-          <CustomIcon>✶</CustomIcon>RESERVATION
+          <CustomIcon>✷</CustomIcon>RESERVATION
         </StyledMenuItem>
         <StyledMenuItem to="/review" onClick={closeMenu}>
           <CustomIcon>✷</CustomIcon>REVIEW
