@@ -41,21 +41,24 @@ export const CustomIcon = styled.b`
 export const MenuStyles = {
   bmBurgerButton: {
     position: "fixed",
-    width: "4vw",
-    height: "4vw",
-    top: "4vh",
+    width: "25px",
+    height: "25px",
+    top: "3vh",
+    left: "1.5vh",
     transform: "translateX(2vw)",
+    color: "rgb(101, 90, 79)",
   },
   bmCrossButton: {
     width: "2vw",
     height: "2vw",
     left: "2vw",
     top: "2vh",
+    color: "rgb(234, 224, 217)",
   },
   bmMenuWrap: {
     position: "fixed",
-    height: "88vh",
-    top: "12vh",
+    height: "91vh",
+    top: "9vh",
   },
   bmMenu: {
     background: "rgb(164, 152, 140)",
@@ -76,6 +79,10 @@ function NavigationBar() {
   const isDesktop = useRecoilValue(isDesktopState);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  if (isDesktop) {
+    return null;
+  }
 
   return (
     <>

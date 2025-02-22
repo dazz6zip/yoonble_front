@@ -6,23 +6,15 @@ import React from "react";
 
 const FooterContainer = styled.footer`
   height: 15vh;
-  color: #ead8c4;
+  color: rgb(171, 157, 136);
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(135, 121, 108);
+  /* background-color: rgb(135, 121, 108); */
   font-size: 14px;
   padding: 20px 0;
-
-  @media (min-width: 768px) {
-    font-size: 16px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 18px;
-  }
 `;
 
 const SocialLinks = styled.div`
@@ -33,7 +25,7 @@ const SocialLinks = styled.div`
   margin-bottom: 8px;
 
   a {
-    color: #ead8c4;
+    color: rgb(171, 157, 136);
     display: flex;
     align-items: center;
     gap: 6px;
@@ -42,13 +34,19 @@ const SocialLinks = styled.div`
     transition: color 0.3s ease;
 
     &:hover {
-      color: #f5e6d8;
+      color: rgb(135, 121, 108);
     }
 
     svg {
       font-size: 20px;
     }
   }
+`;
+
+const Copyright = styled.div`
+  padding-top: 1%;
+  font-size: 0.7rem;
+  color: rgb(101 90, 79);
 `;
 
 function Footer() {
@@ -59,16 +57,17 @@ function Footer() {
           <AiFillInstagram />
           yoonble_studio
         </a>
-        <span>♡</span>
+
         <a href="https://pf.kakao.com/윤블스튜디오" target="_blank">
           <RiKakaoTalkFill />
           윤블스튜디오
         </a>
+        <a href="mailto:lovellehyo@gmail.com" target="_blank">
+          <MdEmail />
+          lovellehyo@gmail.com
+        </a>
       </SocialLinks>
-      <SocialLinks>
-        WEBSITE <MdEmail />
-        <a href="mailto:lovellehyo@gmail.com">lovellehyo@gmail.com</a>
-      </SocialLinks>
+      <Copyright>© 2025 YOONBLE</Copyright>
     </FooterContainer>
   );
 }

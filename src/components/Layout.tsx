@@ -6,8 +6,8 @@ import Footer from "./Footer";
 import React from "react";
 
 const LayoutContainer = styled.div<{ isDesktop: boolean }>`
-  margin-left: ${(props) => (props.isDesktop ? "15vw" : "0")};
-  width: ${(props) => (props.isDesktop ? "85vw" : "100vw")};
+  /* margin-left: ${(props) => (props.isDesktop ? "15vw" : "0")}; */
+  width: 100vw;
   transition: all 0.3s ease-in-out;
 `;
 
