@@ -9,7 +9,7 @@ export const ServiceItemContainer = styled.div`
   margin: 20px auto;
 
   /* 모바일 (기본) → 1x6 */
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
 
   /* 태블릿 (768px 이상) → 2x3 */
   @media (min-width: 768px) {

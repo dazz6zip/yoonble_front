@@ -5,14 +5,14 @@ import styled from "styled-components";
 import React from "react";
 
 const FooterContainer = styled.footer`
-  height: 15vh;
-  color: rgb(171, 157, 136);
+  height: 9vh;
+  color: rgb(101, 90, 79);
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* background-color: rgb(135, 121, 108); */
+  background-color: rgb(135, 121, 108);
   font-size: 14px;
   padding: 20px 0;
 `;
@@ -22,10 +22,10 @@ const SocialLinks = styled.div`
   gap: 20px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 
   a {
-    color: rgb(171, 157, 136);
+    color: rgb(214, 201, 189);
     display: flex;
     align-items: center;
     gap: 6px;
@@ -34,7 +34,7 @@ const SocialLinks = styled.div`
     transition: color 0.3s ease;
 
     &:hover {
-      color: rgb(135, 121, 108);
+      color: rgb(101, 90, 79);
     }
 
     svg {

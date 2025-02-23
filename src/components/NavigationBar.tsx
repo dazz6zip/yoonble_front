@@ -46,14 +46,14 @@ export const MenuStyles = {
     top: "3vh",
     left: "1.5vh",
     transform: "translateX(2vw)",
-    color: "rgb(101, 90, 79)",
+    color: "rgb(184,145,140)",
   },
   bmCrossButton: {
     width: "2vw",
     height: "2vw",
     left: "2vw",
     top: "2vh",
-    color: "rgb(234, 224, 217)",
+    color: "rgb(214,201,189)",
   },
   bmMenuWrap: {
     position: "fixed",
@@ -61,7 +61,8 @@ export const MenuStyles = {
     top: "9vh",
   },
   bmMenu: {
-    background: "rgb(164, 152, 140)",
+    background:
+      "linear-gradient(to right, rgb(135, 121, 108, 0.8) 20%, rgba(164, 152, 140, 0))",
     padding: "2vw",
     fontSize: "1rem",
     height: "100%",

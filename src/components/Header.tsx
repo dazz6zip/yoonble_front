@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import React from "react";
 import Translater from "../Translater";
+import logo from "../images/yb_logo.png";
+import logoIcon from "../images/yb_logo_icon.png";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 
@@ -10,13 +12,14 @@ interface MenuProps {
 }
 
 export const HeaderContainer = styled.div`
-  height: 9vh;
+  height: 12vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
   margin: 0 auto;
   padding: 1vh 0;
+  z-index: 100;
 `;
 
 const TitleContainer = styled.div<MenuProps>`
@@ -30,12 +33,17 @@ const TitleContainer = styled.div<MenuProps>`
 `;
 
 const Title = styled.h1`
-  color: rgb(101, 90, 79);
+  /* color: rgb(101, 90, 79); */
   font-size: 2rem;
 `;
 
+const TitleImg = styled.img`
+  width: 20vw;
+  max-width: 80px;
+`;
+
 const Menu = styled.div<MenuProps>`
-  margin-top: 3%;
+  margin-top: 1%;
   display: ${(props) => (props.isDesktop ? "flex" : "none")};
   gap: 2vw;
   flex: 2;
@@ -69,7 +77,9 @@ export default function Header() {
     <HeaderContainer>
       <Link to="/">
         <TitleContainer isDesktop={isDesktop}>
-          <Title>YOONBLE</Title>
+          <Title>
+            <TitleImg src={isDesktop ? logoIcon : logo}></TitleImg>
+          </Title>
         </TitleContainer>
         <Menu isDesktop={isDesktop}>
           <MenuTitle>ABOUT</MenuTitle>

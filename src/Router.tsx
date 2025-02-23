@@ -10,7 +10,7 @@ import Review from "./components/Review";
 import Shop from "./components/Shop";
 
 const MainContainer = styled.div`
-  height: 73vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
