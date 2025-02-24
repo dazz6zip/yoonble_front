@@ -11,6 +11,7 @@ import {
   ServiceItemContainer,
 } from "./styled-components/CheckStyle";
 import React from "react";
+import { SubTitle } from "./FAQ";
 
 export default function Reservation() {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ export default function Reservation() {
 
   return (
     <>
+      <SubTitle>예약하기</SubTitle>
       <img width={"300"} src={img1} alt="Logo" />
       <ServiceItemContainer>
         {artmakes.map((artmake) => (
@@ -62,7 +64,7 @@ export default function Reservation() {
         onClick={() => navigate("/book")}
         disabled={selectedArts.length === 0}
       >
-        {selectedArts.length > 0 ? "예약하기" : "예약하실 시술을 선택해주세요"}
+        {selectedArts.length > 0 ? "예약하기" : "예약할 시술을 선택해 주세요"}
       </Button>
     </>
   );

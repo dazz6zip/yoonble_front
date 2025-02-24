@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import img1 from "../images/artist.jpg";
 import React from "react";
+import { SubTitle } from "./FAQ";
 
 const Container = styled.div`
   max-width: 80%;

@@ -29,19 +29,23 @@ export const ServiceItem = styled.div<{ selected: boolean }>`
   padding: 12px;
   border-radius: 8px;
   background-color: ${({ selected }) =>
-    selected ? "rgb(169, 161, 154)" : "rgb(214, 201, 189)"};
-  color: ${({ selected }) => (selected ? "#333" : "#666")};
+    selected ? "rgb(169, 161, 154)" : "rgb(230, 220, 212)"};
+  color: ${({ selected }) => (selected ? "rgb(241, 235, 227)" : "#666")};
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.1s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
   font-size: 16px;
   font-weight: 500;
 
   &:hover {
     background-color: rgb(167, 155, 143);
-    transform: scale(1.02);
+    color: rgb(241, 235, 227);
+  }
+
+  &:hover svg {
+    color: rgb(241, 235, 227);
   }
 
   svg {
-    color: ${({ selected }) => (selected ? "black" : "#999")};
+    color: ${({ selected }) => (selected ? "rgb(241, 235, 227)" : "#666")};
   }
 `;

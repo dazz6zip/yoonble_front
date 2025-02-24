@@ -10,11 +10,11 @@ import Review from "./components/Review";
 import Shop from "./components/Shop";
 
 const MainContainer = styled.div`
-  height: 80vh;
+  height: 79vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   padding: 15px 10px 25px 10px;
   box-sizing: border-box;
 

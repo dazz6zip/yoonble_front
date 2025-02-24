@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getArtmakes, IArtmake } from "../fetcher";
 import React from "react";
+import { SubTitle } from "./FAQ";
 
 const Container = styled.div`
   max-width: 90%;
@@ -57,6 +58,7 @@ export default function Artmake() {
 
   return (
     <Container>
+      <SubTitle>시술 종류</SubTitle>
       <ContentWrapper>
         {artmakes.map((artmake) => (
           <ContentBox key={artmake.id}>

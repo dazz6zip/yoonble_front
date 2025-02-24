@@ -12,7 +12,7 @@ import React from "react";
 export const StyledMenu = styled.div`
   display: block;
   text-decoration: none;
-  color: rgb(201, 193, 187);
+  color: rgb(241, 235, 227);
   font-size: 20px;
   padding-left: 1vw;
   margin-top: 3vh;
@@ -22,19 +22,20 @@ export const StyledMenu = styled.div`
 export const StyledMenuItem = styled(Link)`
   display: block;
   text-decoration: none;
-  color: rgb(234, 224, 217);
+  color: rgb(221, 208, 199);
   font-size: 15px;
   padding-left: 2vw;
   margin-top: 2vh;
   margin-bottom: 2vh;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: rgb(201, 193, 187);
+    color: rgb(241, 235, 227);
   }
 `;
 
 export const CustomIcon = styled.b`
-  color: rgb(234, 224, 217);
+  color: rgb(221, 208, 199);
   padding-right: 1vw;
 `;
 
@@ -62,7 +63,7 @@ export const MenuStyles = {
   },
   bmMenu: {
     background:
-      "linear-gradient(to right, rgb(135, 121, 108, 0.8) 20%, rgba(164, 152, 140, 0))",
+      "linear-gradient(to right, rgb(135, 121, 108, 0.8) 60%, rgb(135, 121, 108, 0.5) 80%, rgba(164, 152, 140, 0))",
     padding: "2vw",
     fontSize: "1rem",
     height: "100%",

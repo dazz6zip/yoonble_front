@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import img1 from "../images/img1.jpg";
 import React from "react";
+import { SubTitle } from "./FAQ";
 
 const Container = styled.div`
   max-width: 80%;
@@ -47,6 +48,7 @@ const Description = styled.p`
 export default function Shop() {
   return (
     <Container>
+      <SubTitle>About YOONBLE</SubTitle>
       <ImageWrapper>
         <Image src={img1} alt="shop" />
       </ImageWrapper>

@@ -40,8 +40,9 @@
     "@types/react-burger-menu": "^2.8.7",
     "@types/react-calendar": "^4.1.0",
     "@types/react-dom": "^18.3.5",
-    "@types/react-icons": "^2.2.7",
+    "@types/react-icons": "^3.0.0",
     "@types/react-router-dom": "^5.3.3",
+    "@types/react-transition-group": "^4.4.12",
     "axios": "^1.7.9",
     "dayjs": "^1.11.13",
     "install": "^0.13.0",
@@ -49,6 +50,7 @@
     "react-icons": "^5.5.0",
     "react-modal": "^3.16.3",
     "react-router-dom": "^6.29.0",
+    "react-transition-group": "^4.4.5",
     "recoil": "^0.7.7",
     "styled-components": "^6.1.15"
   },

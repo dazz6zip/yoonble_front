@@ -3,9 +3,12 @@ import { MdEmail } from "react-icons/md";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
 import React from "react";
+import { useRecoilValue } from "recoil";
+import { isDesktopState } from "../recoil/atom";
+import { MenuProps } from "./Header";
 
-const FooterContainer = styled.footer`
-  height: 9vh;
+const FooterContainer = styled.footer<MenuProps>`
+  height: ${(props) => (props.isDesktop ? "9vh" : "12vh")};
   color: rgb(101, 90, 79);
   text-align: center;
   display: flex;
@@ -17,12 +20,14 @@ const FooterContainer = styled.footer`
   padding: 20px 0;
 `;
 
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 20px;
+const SocialLinks = styled.div<MenuProps>`
+  display: grid;
+  grid-template-columns: ${(props) =>
+    props.isDesktop ? "repeat(3, 2fr)" : "repeat(1, 1fr)"};
+  gap: ${(props) => (props.isDesktop ? "20px" : "3%")};
   align-items: center;
   justify-content: center;
-  margin-bottom: 4px;
+  margin-top: ${(props) => (props.isDesktop ? "4px" : 0)};
 
   a {
     color: rgb(214, 201, 189);
@@ -43,16 +48,17 @@ const SocialLinks = styled.div`
   }
 `;
 
-const Copyright = styled.div`
-  padding-top: 1%;
+const Copyright = styled.div<MenuProps>`
+  padding-top: ${(props) => (props.isDesktop ? "0.5%" : "2%")};
   font-size: 0.7rem;
   color: rgb(101 90, 79);
 `;
 
 function Footer() {
+  const isDesktop = useRecoilValue(isDesktopState);
   return (
-    <FooterContainer>
-      <SocialLinks>
+    <FooterContainer isDesktop={isDesktop}>
+      <SocialLinks isDesktop={isDesktop}>
         <a href="https://www.instagram.com/yoonble_studio" target="_blank">
           <AiFillInstagram />
           yoonble_studio
@@ -67,7 +73,7 @@ function Footer() {
           lovellehyo@gmail.com
         </a>
       </SocialLinks>
-      <Copyright>© 2025 YOONBLE</Copyright>
+      <Copyright isDesktop={isDesktop}>© 2025 YOONBLE</Copyright>
     </FooterContainer>
   );
 }

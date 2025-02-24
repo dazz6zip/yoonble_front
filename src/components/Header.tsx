@@ -7,29 +7,29 @@ import logoIcon from "../images/yb_logo_icon.png";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 
-interface MenuProps {
+export interface MenuProps {
   isDesktop: boolean;
 }
 
-export const HeaderContainer = styled.div`
-  height: 12vh;
+export const HeaderContainer = styled.div<MenuProps>`
+  height: ${(props) => (props.isDesktop ? "12vh" : "9vh")};
   display: flex;
-  justify-content: space-around;
+  justify-content: ${(props) => (props.isDesktop ? 0 : "center")};
   align-items: center;
   width: 100%;
   margin: 0 auto;
-  padding: 1vh 0;
+  padding: ${(props) => (props.isDesktop ? "1vh 0" : 0)};
   z-index: 100;
+  padding-top: ${(props) => (props.isDesktop ? "1px" : 0)};
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const TitleContainer = styled.div<MenuProps>`
   display: flex;
   gap: 2vw;
   margin-top: 2vh;
-  flex-grow: 1;
   justify-content: center;
   padding-bottom: ${(props) => (props.isDesktop ? 0 : "1rem")};
-  transition: justify-content 0.3s ease;
 `;
 
 const Title = styled.h1`
@@ -37,17 +37,17 @@ const Title = styled.h1`
   font-size: 2rem;
 `;
 
-const TitleImg = styled.img`
+const TitleImg = styled.img<MenuProps>`
   width: 20vw;
-  max-width: 80px;
+  margin-left: ${(props) => (props.isDesktop ? "8vw" : 0)};
+  max-width: ${(props) => (props.isDesktop ? "60px" : "40px")};
 `;
 
 const Menu = styled.div<MenuProps>`
   margin-top: 1%;
   display: ${(props) => (props.isDesktop ? "flex" : "none")};
   gap: 2vw;
-  flex: 2;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -74,39 +74,39 @@ const CustomIcon = styled.b`
 export default function Header() {
   const isDesktop = useRecoilValue(isDesktopState);
   return (
-    <HeaderContainer>
-      <Link to="/">
-        <TitleContainer isDesktop={isDesktop}>
-          <Title>
-            <TitleImg src={isDesktop ? logoIcon : logo}></TitleImg>
-          </Title>
-        </TitleContainer>
-        <Menu isDesktop={isDesktop}>
-          <MenuTitle>ABOUT</MenuTitle>
-          <MenuItem to="/shop">
-            <CustomIcon>✶</CustomIcon>SHOP
-          </MenuItem>
-          <MenuItem to="/artist">
-            <CustomIcon>✶</CustomIcon>ARTIST
-          </MenuItem>
-          <MenuItem to="/artmake">
-            <CustomIcon>✶</CustomIcon>ARTMAKE
-          </MenuItem>
-          <MenuItem to="/faq">
-            <CustomIcon>✶</CustomIcon>FAQ
-          </MenuItem>
-          <MenuTitle>BOOKING</MenuTitle>
-          <MenuItem to="/reservation">
-            <CustomIcon>✷</CustomIcon>RESERVATION
-          </MenuItem>
-          <MenuItem to="/review">
-            <CustomIcon>✷</CustomIcon>REVIEW
-          </MenuItem>
-          {/* <MenuItem to="">
+    <HeaderContainer isDesktop={isDesktop}>
+      <TitleContainer isDesktop={isDesktop}>
+        <Title>
+          <Link to="/">
+            <TitleImg isDesktop={isDesktop} src={logoIcon}></TitleImg>
+          </Link>
+        </Title>
+      </TitleContainer>
+      <Menu isDesktop={isDesktop}>
+        <MenuTitle>ABOUT</MenuTitle>
+        <MenuItem to="/shop">
+          <CustomIcon>✶</CustomIcon>SHOP
+        </MenuItem>
+        <MenuItem to="/artist">
+          <CustomIcon>✶</CustomIcon>ARTIST
+        </MenuItem>
+        <MenuItem to="/artmake">
+          <CustomIcon>✶</CustomIcon>ARTMAKE
+        </MenuItem>
+        <MenuItem to="/faq">
+          <CustomIcon>✶</CustomIcon>FAQ
+        </MenuItem>
+        <MenuTitle>BOOKING</MenuTitle>
+        <MenuItem to="/reservation">
+          <CustomIcon>✷</CustomIcon>RESERVATION
+        </MenuItem>
+        <MenuItem to="/review">
+          <CustomIcon>✷</CustomIcon>REVIEW
+        </MenuItem>
+        {/* <MenuItem to="">
             <Translater />
           </MenuItem> */}
-        </Menu>
-      </Link>
+      </Menu>
     </HeaderContainer>
   );
 }
