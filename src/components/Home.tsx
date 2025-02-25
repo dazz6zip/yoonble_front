@@ -10,7 +10,7 @@ const BackgroundDiv = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 100vh;
+  height: 79vh;
 `;
 
 const Img = styled.img`

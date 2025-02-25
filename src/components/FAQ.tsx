@@ -25,10 +25,7 @@ const Container = styled.div`
 //   border-radius: 10px;
 // `;
 
-const Content = styled.div`
-  flex: 2;
-  padding-left: 5%;
-`;
+const Content = styled.div``;
 
 const FAQItem = styled.div`
   padding: 10px 0;
