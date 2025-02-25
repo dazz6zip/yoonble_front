@@ -12,6 +12,16 @@ import {
 } from "./styled-components/CheckStyle";
 import React from "react";
 import { SubTitle } from "./FAQ";
+import styled from "styled-components";
+
+const Container = styled.div`
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 export default function Reservation() {
   const navigate = useNavigate();

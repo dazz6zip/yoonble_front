@@ -6,17 +6,16 @@ import styled from "styled-components";
 
 const BackgroundDiv = styled.div`
   width: 100vw;
-
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  height: 100vh;
 `;
 
 const Img = styled.img`
   width: 100vw;
-
-  object-fit: cover; /* 비율을 유지하면서 부모 요소에 꽉 차게 */
+  object-fit: cover;
 `;
 
 export default function Home() {
