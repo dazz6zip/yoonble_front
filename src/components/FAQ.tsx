@@ -68,10 +68,13 @@ const Answer = styled.div<{ isOpen: boolean }>`
 
 export const SubTitle = styled.div`
   text-align: center;
+  font-family: "Diphylleia";
+  font-style: italic;
+  font-weight: bold;
   color: rgb(135, 121, 108);
-  font-size: 1.5rem;
-  margin-bottom: 5%;
-  margin-top: 3%;
+  font-size: 1.7rem;
+  margin-top: 3vh;
+  margin-bottom: 5vh;
 `;
 
 const faqData = [
