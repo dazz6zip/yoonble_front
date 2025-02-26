@@ -2,7 +2,6 @@ import { AiFillInstagram } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
-import React from "react";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 import { MenuProps } from "./Header";

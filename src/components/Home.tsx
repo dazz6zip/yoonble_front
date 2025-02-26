@@ -1,8 +1,9 @@
 import axios from "axios";
-import logo from "../images/logo.png";
 import wp from "../images/Don't miss copy.png";
-import React from "react";
+import wpt from "../images/Don't miss copy - thin.png";
 import styled from "styled-components";
+import { useRecoilValue } from "recoil";
+import { isDesktopState } from "../recoil/atom";
 
 const BackgroundDiv = styled.div`
   width: 100vw;
@@ -19,6 +20,7 @@ const Img = styled.img`
 `;
 
 export default function Home() {
+  const isDesktop = useRecoilValue(isDesktopState);
   const apiTest = async () => {
     const response = await axios.get<string>("/api/test");
     if (response.data) {
@@ -29,7 +31,7 @@ export default function Home() {
   return (
     <>
       <BackgroundDiv>
-        <Img src={wp}></Img>
+        <Img src={isDesktop ? wpt : wp}></Img>
       </BackgroundDiv>
     </>
   );

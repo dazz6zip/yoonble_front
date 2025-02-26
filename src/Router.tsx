@@ -9,23 +9,25 @@ import Reservation from "./components/Reservation";
 import Review from "./components/Review";
 import Shop from "./components/Shop";
 import { AnimatePresence, motion } from "framer-motion";
+import { isDesktopState } from "./recoil/atom";
+import { useRecoilValue } from "recoil";
+import { MenuProps } from "./components/Header";
 
 const MainContainer = styled.div`
   height: 79vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
-  padding: 15px 10px 25px 10px;
+  /* padding: 15px 10px 25px 10px; */
   box-sizing: border-box;
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     padding: 0 40px;
   }
 
   @media (min-width: 1024px) {
     padding: 0 80px;
-  }
+  } */
 `;
 
 const pageVariants = {
@@ -36,6 +38,7 @@ const pageVariants = {
 
 export default function Router() {
   const location = useLocation();
+  const isDesktop = useRecoilValue(isDesktopState);
   return (
     <>
       <MainContainer>
@@ -47,7 +50,6 @@ export default function Router() {
             animate="animate"
             exit="exit"
             style={{
-              position: "absolute",
               width: "100%",
               height: "100%",
             }}

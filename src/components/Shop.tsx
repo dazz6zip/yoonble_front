@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import img1 from "../images/img1.jpg";
-import React from "react";
 import { SubTitle } from "./FAQ";
 
 const Container = styled.div`

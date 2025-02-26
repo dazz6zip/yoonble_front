@@ -2,12 +2,11 @@ import { useState } from "react";
 import { slide as Menu } from "react-burger-menu";
 import { FaArrowLeft } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { isDesktopState } from "../recoil/atom";
 import Translater from "../Translater";
-import React from "react";
 
 export const StyledMenu = styled.div`
   display: block;
@@ -19,11 +18,12 @@ export const StyledMenu = styled.div`
   margin-bottom: 2vh;
 `;
 
-export const StyledMenuItem = styled(Link)`
+export const StyledMenuItem = styled(Link)<{ isActive: boolean }>`
   display: block;
   text-decoration: none;
-  color: rgb(221, 208, 199);
-  font-size: 15px;
+  color: ${(props) =>
+    props.isActive ? "rgb(241, 235, 227)" : "rgb(221, 208, 199)"};
+  font-size: ${(props) => (props.isActive ? "1rem" : "0.9rem")};
   padding-left: 2vw;
   margin-top: 2vh;
   margin-bottom: 2vh;
@@ -72,13 +72,14 @@ export const MenuStyles = {
     transition: "transform 0.3s ease-in-out",
   },
   bmOverlay: {
-    display: "none",
+    background: "rgba(221, 208, 199, 0.1)",
   },
 };
 
 function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isDesktop = useRecoilValue(isDesktopState);
+  const location = useLocation();
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -100,27 +101,51 @@ function NavigationBar() {
       >
         <br />
         <StyledMenu>ABOUT</StyledMenu>
-        <StyledMenuItem to="/shop" onClick={closeMenu}>
+        <StyledMenuItem
+          isActive={location.pathname === "/shop"}
+          to="/shop"
+          onClick={closeMenu}
+        >
           <CustomIcon>✶</CustomIcon>SHOP
         </StyledMenuItem>
-        <StyledMenuItem to="/artist" onClick={closeMenu}>
+        <StyledMenuItem
+          isActive={location.pathname === "/artist"}
+          to="/artist"
+          onClick={closeMenu}
+        >
           <CustomIcon>✶</CustomIcon>ARTIST
         </StyledMenuItem>
-        <StyledMenuItem to="/artmake" onClick={closeMenu}>
+        <StyledMenuItem
+          isActive={location.pathname === "/artmake"}
+          to="/artmake"
+          onClick={closeMenu}
+        >
           <CustomIcon>✶</CustomIcon>ARTMAKE
         </StyledMenuItem>
-        <StyledMenuItem to="/faq" onClick={closeMenu}>
+        <StyledMenuItem
+          isActive={location.pathname === "/faq"}
+          to="/faq"
+          onClick={closeMenu}
+        >
           <CustomIcon>✶</CustomIcon>FAQ
         </StyledMenuItem>
         <StyledMenu>BOOKING</StyledMenu>
-        <StyledMenuItem to="/reservation" onClick={closeMenu}>
+        <StyledMenuItem
+          isActive={location.pathname === "/reservation"}
+          to="/reservation"
+          onClick={closeMenu}
+        >
           <CustomIcon>✷</CustomIcon>RESERVATION
         </StyledMenuItem>
-        <StyledMenuItem to="/review" onClick={closeMenu}>
+        <StyledMenuItem
+          isActive={location.pathname === "/review"}
+          to="/review"
+          onClick={closeMenu}
+        >
           <CustomIcon>✷</CustomIcon>REVIEW
         </StyledMenuItem>
         <br />
-        <StyledMenuItem to="">
+        <StyledMenuItem isActive={location.pathname === ""} to="">
           <Translater />
         </StyledMenuItem>
       </Menu>

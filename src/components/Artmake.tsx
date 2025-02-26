@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getArtmakes, IArtmake } from "../fetcher";
-import React from "react";
 import { SubTitle } from "./FAQ";
 
 const Container = styled.div`

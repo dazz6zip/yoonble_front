@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { isDesktopState } from "../recoil/atom";
-import React from "react";
 
 export default function ResponsiveProvider() {
   const setIsDesktop = useSetRecoilState<boolean>(isDesktopState);

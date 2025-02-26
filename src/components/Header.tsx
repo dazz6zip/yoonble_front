@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import React from "react";
-import Translater from "../Translater";
-import logo from "../images/yb_logo.png";
 import logoIcon from "../images/yb_logo_icon.png";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";

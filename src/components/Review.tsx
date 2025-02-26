@@ -1,5 +1,4 @@
 import img1 from "../images/Review.png";
-import React from "react";
 import { SubTitle } from "./FAQ";
 import styled from "styled-components";
 
