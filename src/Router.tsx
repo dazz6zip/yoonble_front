@@ -21,13 +21,20 @@ const MainContainer = styled.div`
   /* padding: 15px 10px 25px 10px; */
   box-sizing: border-box;
 
-  /* @media (min-width: 768px) {
-    padding: 0 40px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
   }
 
-  @media (min-width: 1024px) {
-    padding: 0 80px;
-  } */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(135, 121, 108, 0.7);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(135, 121, 108, 0.2);
+  }
 `;
 
 const pageVariants = {
@@ -38,7 +45,6 @@ const pageVariants = {
 
 export default function Router() {
   const location = useLocation();
-  const isDesktop = useRecoilValue(isDesktopState);
   return (
     <>
       <MainContainer>
