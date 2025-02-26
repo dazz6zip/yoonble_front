@@ -8,7 +8,6 @@ import { isDesktopState } from "../recoil/atom";
 import img1 from "../images/img1.jpg";
 import img2 from "../images/Keep it simple.png";
 
-// Container - 전체 컨테이너 스타일
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -19,7 +18,6 @@ const Container = styled.div`
   align-items: center;
 `;
 
-// ContentWrapper - 콘텐츠 정렬, 간격을 넉넉히 두기
 const ContentWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -28,10 +26,9 @@ const ContentWrapper = styled.div`
   width: 100%;
 `;
 
-// 각 항목의 스타일 (배경, 그림자 및 여백)
 const ContentBox = styled.div<MenuProps>`
   width: 100%;
-  max-width: 320px; /* 최대 너비 제한 */
+  max-width: 320px;
   padding: 20px;
   border-radius: 12px;
   background-color: rgb(240, 236, 231);
@@ -79,12 +76,11 @@ const Image = styled.img`
   max-height: 250px;
   object-fit: cover;
   margin-bottom: 20px;
-  transition: all 0.3s ease; /* 애니메이션 추가 */
 `;
 
 export default function Artmake() {
   const [artmakes, setArtmakes] = useState<IArtmake[]>([]);
-  const [imageStates, setImageStates] = useState<string[]>([]); // 동적으로 설정된 이미지 상태
+  const [imageStates, setImageStates] = useState<string[]>([]);
   const isDesktop = useRecoilValue(isDesktopState);
 
   useEffect(() => {
