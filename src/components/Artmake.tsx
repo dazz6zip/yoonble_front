@@ -12,7 +12,7 @@ import img2 from "../images/Keep it simple.png";
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -90,7 +90,9 @@ export default function Artmake() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const fetchedArtmakes = await getArtmakes();
         setArtmakes(await getArtmakes());
+        setImageStates(fetchedArtmakes.map(() => img1));
       } catch (err) {
         console.error("artmakes 불러오기 실패: ", err);
       }
