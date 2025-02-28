@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { slide as Menu } from "react-burger-menu";
+import { slide as Menu, Props as BurgerMenuProps } from "react-burger-menu";
 import { FaArrowLeft } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
@@ -80,6 +80,7 @@ function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isDesktop = useRecoilValue(isDesktopState);
   const location = useLocation();
+  const BurgerMenu = Menu as React.ComponentType<BurgerMenuProps>;
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -89,16 +90,16 @@ function NavigationBar() {
 
   return (
     <>
-      <Menu
-        customBurgerIcon={
-          isDesktop ? <></> : <GiHamburgerMenu size={"2.5vw"} />
-        }
-        customCrossIcon={isDesktop ? <></> : <FaArrowLeft size={"2.5vw"} />}
-        width={isDesktop ? "20vw" : "35vw"} /* 반응형 너비 */
-        isOpen={isDesktop ? true : isMenuOpen}
-        onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}
-        styles={MenuStyles}
-      >
+      <BurgerMenu
+  customBurgerIcon={
+    isDesktop ? <></> : <GiHamburgerMenu size={"2.5vw"} />
+  }
+  customCrossIcon={isDesktop ? <></> : <FaArrowLeft size={"2.5vw"} />}
+  width={isDesktop ? "20vw" : "35vw"} /* 반응형 너비 */
+  isOpen={isDesktop ? true : isMenuOpen}
+  onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}
+  styles={MenuStyles}
+>
         <br />
         <StyledMenu>ABOUT</StyledMenu>
         <StyledMenuItem
@@ -148,7 +149,7 @@ function NavigationBar() {
         <StyledMenuItem isActive={location.pathname === ""} to="">
           <Translater />
         </StyledMenuItem>
-      </Menu>
+      </BurgerMenu>
     </>
   );
 }
