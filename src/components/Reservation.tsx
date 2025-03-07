@@ -55,7 +55,6 @@ export default function Reservation() {
     <Container>
       <SubTitle>예약하기</SubTitle>
       <Contents>
-        <img width={"300"} src={img1} alt="Logo" />
         <ServiceItemContainer>
           {artmakes.map((artmake) => (
             <ServiceItem
@@ -69,7 +68,7 @@ export default function Reservation() {
                 <AiOutlineBorder size={24} />
               )}
               <span>
-                {artmake.name} ({artmake.duration}분 소요)
+                {artmake.name}<br />({artmake.duration}분 소요)
               </span>
             </ServiceItem>
           ))}

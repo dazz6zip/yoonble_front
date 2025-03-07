@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getArtmakes, IArtmake } from "../fetcher";
+import { getArtmakeCategories, getArtmakes, IArtmake, IArtmakeCategory } from "../fetcher";
 import { SubTitle } from "./FAQ";
 import { MenuProps } from "./Header";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 import img1 from "../images/img1.jpg";
 import img2 from "../images/Keep it simple.png";
+import { useNavigate } from "react-router-dom";
 
-const Container = styled.div`
+export const imageLink = 'https://d206helh22e0a3.cloudfront.net/images';
+
+export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -18,7 +21,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
@@ -26,9 +29,9 @@ const ContentWrapper = styled.div`
   width: 100%;
 `;
 
-const ContentBox = styled.div<MenuProps>`
+export const ContentBox = styled.div<MenuProps>`
   width: 100%;
-  max-width: 320px;
+  max-width: 250px;
   padding: 20px;
   border-radius: 12px;
   background-color: rgb(240, 236, 231);
@@ -45,7 +48,7 @@ const ContentBox = styled.div<MenuProps>`
   }
 `;
 
-const Title = styled.h2<MenuProps>`
+export const Title = styled.h2<MenuProps>`
   font-size: 1.5rem;
   font-weight: bold;
   color: rgb(101, 80, 79);
@@ -62,7 +65,7 @@ const Title = styled.h2<MenuProps>`
   background-size: 100% 3px;
 `;
 
-const Description = styled.p`
+export const Description = styled.p`
   font-size: 14px;
   line-height: 1.6;
   color: #555;
@@ -70,7 +73,7 @@ const Description = styled.p`
   margin-bottom: 20px;
 `;
 
-const Image = styled.img`
+export const Image = styled.img`
   border-radius: 10px;
   width: 100%;
   max-height: 250px;
@@ -79,16 +82,17 @@ const Image = styled.img`
 `;
 
 export default function Artmake() {
-  const [artmakes, setArtmakes] = useState<IArtmake[]>([]);
+  const [categories, setCategories] = useState<IArtmakeCategory[]>([]);
   const [imageStates, setImageStates] = useState<string[]>([]);
   const isDesktop = useRecoilValue(isDesktopState);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedArtmakes = await getArtmakes();
-        setArtmakes(await getArtmakes());
-        setImageStates(fetchedArtmakes.map(() => img1));
+        const fetchedCategories = await getArtmakeCategories();
+        setCategories(fetchedCategories);
+        // setImageStates(fetchedCategories.map(() => img1));
       } catch (err) {
         console.error("artmakes 불러오기 실패: ", err);
       }
@@ -96,45 +100,47 @@ export default function Artmake() {
     fetchData();
   }, []);
 
-  const handleMouseOver = (index: number) => {
-    if (isDesktop) {
-      const newImageStates = [...imageStates];
-      newImageStates[index] = img2;
-      setImageStates(newImageStates);
-    }
-  };
+  // const handleMouseOver = (index: number) => {
+  //   if (isDesktop) {
+  //     const newImageStates = [...imageStates];
+  //     newImageStates[index] = img2;
+  //     setImageStates(newImageStates);
+  //   }
+  // };
 
-  const handleMouseOut = (index: number) => {
-    if (isDesktop) {
-      const newImageStates = [...imageStates];
-      newImageStates[index] = img1;
-      setImageStates(newImageStates);
-    }
-  };
+  // const handleMouseOut = (index: number) => {
+  //   if (isDesktop) {
+  //     const newImageStates = [...imageStates];
+  //     newImageStates[index] = img1;
+  //     setImageStates(newImageStates);
+  //   }
+  // };
 
-  const handleClick = (index: number) => {
-    if (!isDesktop) {
-      const newImageStates = [...imageStates];
-      newImageStates[index] = newImageStates[index] === img2 ? img1 : img2;
-      setImageStates(newImageStates);
-    }
+  const handleClick = (path: string) => {
+    // if (!isDesktop) {
+    //   const newImageStates = [...imageStates];
+    //   newImageStates[index] = newImageStates[index] === img2 ? img1 : img2;
+    //   setImageStates(newImageStates);
+    // }
+    navigate(path);
   };
 
   return (
     <Container>
       <SubTitle>시술 종류</SubTitle>
       <ContentWrapper>
-        {artmakes.map((artmake, index) => (
-          <ContentBox isDesktop={isDesktop} key={artmake.id}>
+        {categories.map((category) => (
+          <ContentBox isDesktop={isDesktop} key={category.id}
+            onClick={() => handleClick(category.path)}>
             <Image
-              src={imageStates[index]}
-              alt={artmake.name}
-              onMouseOver={() => handleMouseOver(index)}
-              onMouseOut={() => handleMouseOut(index)}
-              onClick={() => handleClick(index)}
+              // src={imageStates[index]}
+              src={category.img}
+              alt={category.name}
+            // onMouseOver={() => handleMouseOver(index)}
+            // onMouseOut={() => handleMouseOut(index)}
             />
-            <Title isDesktop={isDesktop}>{artmake.name}</Title>
-            <Description>{artmake.description}</Description>
+            <Title isDesktop={isDesktop}>{category.name}</Title>
+            <Description>{category.description}</Description>
           </ContentBox>
         ))}
       </ContentWrapper>

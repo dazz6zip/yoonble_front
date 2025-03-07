@@ -12,6 +12,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { isDesktopState } from "./recoil/atom";
 import { useRecoilValue } from "recoil";
 import { MenuProps } from "./components/Header";
+import { ArtmakeDetail } from "./components/ArtmakeDetail";
 
 const MainContainer = styled.div`
   height: 79vh;
@@ -65,6 +66,7 @@ export default function Router() {
               <Route path="/shop" element={<Shop />} />
               <Route path="/artist" element={<Artist />} />
               <Route path="/artmake" element={<Artmake />} />
+              <Route path="/artmake/brow" element={<ArtmakeDetail />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/reservation" element={<Reservation />} />
               <Route path="/review" element={<Review />} />

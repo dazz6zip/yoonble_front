@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import img1 from "../images/img1.jpg";
+import img2 from "../images/design1.jpeg";
+import img3 from "../images/1-1.jpeg";
 import { SubTitle } from "./FAQ";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
@@ -103,7 +105,7 @@ export default function Shop() {
         </Section>
         <Section>
           <ImageWrapper isDesktop={isDesktop}>
-            <Image src={img1} alt="shop" />
+            <Image src={img2} alt="shop" />
           </ImageWrapper>
           <TaD>
             <Title isDesktop={isDesktop}>Design</Title>
@@ -119,7 +121,7 @@ export default function Shop() {
         </Section>
         <Section>
           <ImageWrapper isDesktop={isDesktop}>
-            <Image src={img1} alt="shop" />
+            <Image src={img3} alt="shop" />
           </ImageWrapper>
           <TaD>
             <Title isDesktop={isDesktop}>1:1 예약제</Title>
