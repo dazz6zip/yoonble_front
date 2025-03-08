@@ -1,10 +1,10 @@
 import { useRecoilValue } from "recoil";
-import { isDesktopState } from "../recoil/atom";
+import { isDesktopState } from "../../recoil/atom";
 import { useState } from "react";
-import { Container, imageLink, Image } from "./Artmake";
-import { SubTitle } from "./FAQ";
+import { Container, imageLink, Image } from "../Artmake";
+import { SubTitle } from "../FAQ";
 import styled from "styled-components";
-import { MenuProps } from "./Header";
+import { MenuProps } from "../Header";
 
 export const ImgWrapper = styled.div`
   display: flex;
@@ -30,23 +30,23 @@ export const ImgBox = styled.div<MenuProps>`
   }
 `;
 
-export function ArtmakeDetail() {
+export function Eyefat() {
     const isDesktop = useRecoilValue(isDesktopState);
-    const browImgLink = imageLink + '/shadow/';
-    const brows = Array.from({ length: 15 }, (_, i) => ({
-        index: i + 1,
-        image: `${browImgLink}shadow${i + 1}.jpeg`
+    const eyelineImgLink = imageLink + '/eyefat/';
+    const eyelines = Array.from({ length: 9 }, (_, i) => ({
+        index: i,
+        image: `${eyelineImgLink}eyefat${i}.jpeg`
     }));
 
     return (
         <Container>
-            <SubTitle>눈썹타투</SubTitle>
+            <SubTitle>애교살</SubTitle>
             <ImgWrapper>
-                {brows.map((brow, index) => (
+                {eyelines.map((eyeline, index) => (
                     <ImgBox isDesktop={isDesktop}>
                         <Image
-                            src={brow.image}
-                            alt={`brow ${brow.index}`}
+                            src={eyeline.image}
+                            alt={`brow ${eyeline.index}`}
                         />
                     </ImgBox>
                 ))}

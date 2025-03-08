@@ -21,12 +21,6 @@ const Img = styled.img`
 
 export default function Home() {
   const isDesktop = useRecoilValue(isDesktopState);
-  const apiTest = async () => {
-    const response = await axios.get<string>("/api/test");
-    if (response.data) {
-      alert(response.data);
-    }
-  };
 
   return (
     <>

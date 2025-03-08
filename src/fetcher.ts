@@ -34,57 +34,57 @@ export const getArtmakeCategories = async (): Promise<IArtmakeCategory[]> => {
       {
         id: 1,
         name: "눈썹",
-        img: "https://d206helh22e0a3.cloudfront.net/images/combo/combo4.jpeg",
+        img: "https://d206helh22e0a3.cloudfront.net/images/brow/brow.jpeg",
         description: "자연눈썹, 소프트콤보눈썹, 섀도우눈썹",
         path: "brow"
       },
       {
         id: 2,
         name: "립",
-        img: "https://d206helh22e0a3.cloudfront.net/images/lip/lip9.jpeg",
+        img: "https://d206helh22e0a3.cloudfront.net/images/lip/lip0.jpeg",
         description: "블러링립",
         path: "lip"
       },
       {
         id: 3,
         name: "아이라인",
-        img: "https://d206helh22e0a3.cloudfront.net/images/eyeline/eyeline5.jpeg",
+        img: "https://d206helh22e0a3.cloudfront.net/images/eyeline/eyeline0.jpeg",
         description: "실크아이라인, 아이돌브라운라인",
         path: "eyeline"
       },
       {
         id: 4,
         name: "헤어라인",
-        img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fplain%2520backgrounds%2F&psig=AOvVaw3WvHL_ds9hIxsC1i3cHuYM&ust=1741330484333000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJDI6trv9IsDFQAAAAAdAAAAABAE",
+        img: "https://d206helh22e0a3.cloudfront.net/images/hairline/hairline0.jpeg",
         description: "승무원헤어라인",
         path: "hairline"
       },
       {
         id: 5,
         name: "애교살",
-        img: "https://d206helh22e0a3.cloudfront.net/images/eyefat/eyefat8.jpeg",
+        img: "https://d206helh22e0a3.cloudfront.net/images/eyefat/eyefat0.jpeg",
         description: "애교살음영라인",
         path: "eyefat"
       },
       {
         id: 6,
         name: "속눈썹",
-        img: "https://d206helh22e0a3.cloudfront.net/images/perm/perm6.jpeg",
+        img: "https://d206helh22e0a3.cloudfront.net/images/eyelash/perm0.jpeg",
         description: "윤블펌, 케라틴 영양펌",
-        path: "/perm"
+        path: "eyelash"
       },
       {
         id: 7,
         name: "점",
-        img: "https://d206helh22e0a3.cloudfront.net/images/dot/dot5.jpeg",
+        img: "https://d206helh22e0a3.cloudfront.net/images/mark/mark0.jpeg",
         description: "미인점",
-        path: "/spot"
+        path: "mark"
       }, {
         id: 8,
         name: "흉터",
-        img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fplain%2520backgrounds%2F&psig=AOvVaw3WvHL_ds9hIxsC1i3cHuYM&ust=1741330484333000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJDI6trv9IsDFQAAAAAdAAAAABAE",
+        img: "https://d206helh22e0a3.cloudfront.net/images/trace/trace0.jpeg",
         description: "잔흔 제거",
-        path: "/scar"
+        path: "trace"
       },
     ];
     return mockData;

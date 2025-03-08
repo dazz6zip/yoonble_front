@@ -3,6 +3,8 @@ import styled from "styled-components";
 import logoIcon from "../images/yb_logo_icon.png";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
+import img from "../images/kakao_login_small.png";
+import axios from "axios";
 
 export interface MenuProps {
   isDesktop: boolean;
@@ -68,8 +70,22 @@ const CustomIcon = styled.b`
   padding-right: 0.5vw;
 `;
 
+interface KakaoLoginResponse {
+  redirectUri: string;
+  clientId: string;
+}
+
 export default function Header() {
   const isDesktop = useRecoilValue(isDesktopState);
+  const kakaoLogin = async () => {
+    try {
+      const response = await axios.get<KakaoLoginResponse>("/api/users/");
+      const { clientId, redirectUri } = response.data;
+      window.location.href = ``;
+    } catch (error) {
+      console.log("kakao login error: ", error);
+    }
+  };
   return (
     <HeaderContainer isDesktop={isDesktop}>
       <TitleContainer isDesktop={isDesktop}>
@@ -100,6 +116,7 @@ export default function Header() {
         <MenuItem to="/review">
           <CustomIcon>✷</CustomIcon>REVIEW
         </MenuItem>
+        <img src={img} onClick={() => kakaoLogin()} />
         {/* <MenuItem to="">
             <Translater />
           </MenuItem> */}
