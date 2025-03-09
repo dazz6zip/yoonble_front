@@ -17,14 +17,72 @@ export interface IArtmake {
 //   }
 // };
 
-export interface IArtmake {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  discount: number;
-  duration: number;
-}
+export const getArtmakeCategories = async (): Promise<IArtmakeCategory[]> => {
+  try {
+    // 임시 데이터 반환 (백엔드 통신 없이)
+    const mockData: IArtmakeCategory[] = [
+      {
+        id: 1,
+        name: "눈썹",
+        img: "https://d206helh22e0a3.cloudfront.net/images/brow/brow.jpeg",
+        description: "자연눈썹\n소프트콤보눈썹<br>섀도우눈썹",
+        path: "brow"
+      },
+      {
+        id: 2,
+        name: "립",
+        img: "https://d206helh22e0a3.cloudfront.net/images/lip/lip0.jpeg",
+        description: "블러링립",
+        path: "lip"
+      },
+      {
+        id: 3,
+        name: "아이라인",
+        img: "https://d206helh22e0a3.cloudfront.net/images/eyeline/eyeline0.jpeg",
+        description: "실크아이라인, 아이돌브라운라인",
+        path: "eyeline"
+      },
+      {
+        id: 4,
+        name: "헤어라인",
+        img: "https://d206helh22e0a3.cloudfront.net/images/hairline/hairline0.jpeg",
+        description: "승무원헤어라인",
+        path: "hairline"
+      },
+      {
+        id: 5,
+        name: "애교살",
+        img: "https://d206helh22e0a3.cloudfront.net/images/eyefat/eyefat0.jpeg",
+        description: "애교살음영라인",
+        path: "eyefat"
+      },
+      {
+        id: 6,
+        name: "속눈썹",
+        img: "https://d206helh22e0a3.cloudfront.net/images/eyelash/perm0.jpeg",
+        description: "윤블펌, 케라틴 영양펌",
+        path: "eyelash"
+      },
+      {
+        id: 7,
+        name: "점",
+        img: "https://d206helh22e0a3.cloudfront.net/images/mark/mark0.jpeg",
+        description: "미인점",
+        path: "mark"
+      }, {
+        id: 8,
+        name: "흉터",
+        img: "https://d206helh22e0a3.cloudfront.net/images/trace/trace0.jpeg",
+        description: "잔흔 제거",
+        path: "trace"
+      },
+    ];
+    return mockData;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
 
 export const getArtmakes = async (): Promise<IArtmake[]> => {
   try {

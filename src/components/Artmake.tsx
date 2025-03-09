@@ -31,7 +31,7 @@ const ContentBox = styled.div<MenuProps>`
   max-width: 320px;
   padding: 20px;
   border-radius: 12px;
-  background-color: rgb(240, 236, 231);
+  background-color: #DCC1B6;
   box-shadow: 0px 4px 12px rgba(117, 105, 94, 0.3);
   display: flex;
   flex-direction: column;
@@ -45,31 +45,35 @@ const ContentBox = styled.div<MenuProps>`
   }
 `;
 
+export const Title = styled.h2<MenuProps>`
+  font-size: 1.2rem;
 const Title = styled.h2<MenuProps>`
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: rgb(101, 80, 79);
-  padding: 10px 0;
-  margin-bottom: 10px;
+font - size: 1.5rem;
+font - weight: bold;
+color: rgb(101, 80, 79);
+padding: 10px 0;
+margin - bottom: 10px;
 
-  background: linear-gradient(
-    to bottom,
-    rgb(117, 105, 94, 0.6),
-    rgba(117, 105, 94, 0)
-  );
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 100% 3px;
+background: linear - gradient(
+  to bottom,
+  rgb(117, 105, 94, 0.6),
+  rgba(117, 105, 94, 0)
+);
+background - position: bottom;
+background - repeat: no - repeat;
+background - size: 100 % 3px;
 `;
 
 const Description = styled.p`
-  font-size: 14px;
-  line-height: 1.6;
-  color: #555;
-  text-align: center;
-  margin-bottom: 20px;
+font - size: 14px;
+line - height: 1.6;
+color: rgb(132, 119, 112);
+text - align: center;
+margin - bottom: 20px;
 `;
 
+export const Image = styled.img`
+border: 1px solid #AD9082;
 const Image = styled.img`
   border-radius: 10px;
   width: 100%;
@@ -133,6 +137,8 @@ export default function Artmake() {
               onMouseOut={() => handleMouseOut(index)}
               onClick={() => handleClick(index)}
             />
+            <Title isDesktop={isDesktop}>{category.name}</Title>
+            <Description>자연눈썹<br />섀도우눈썹</Description>
             <Title isDesktop={isDesktop}>{artmake.name}</Title>
             <Description>{artmake.description}</Description>
           </ContentBox>

@@ -14,12 +14,13 @@ const FooterContainer = styled.footer<MenuProps>`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(135, 121, 108);
-  font-size: 14px;
+  background-color: #CBB6A5;
+  opacity: 0.7;
+  font-size: 12px;
   padding: 20px 0;
 `;
 
-const SocialLinks = styled.div<MenuProps>`
+export const SocialLinks = styled.div<MenuProps>`
   display: grid;
   grid-template-columns: ${(props) =>
     props.isDesktop ? "repeat(3, 2fr)" : "repeat(1, 1fr)"};
@@ -29,7 +30,7 @@ const SocialLinks = styled.div<MenuProps>`
   margin-top: ${(props) => (props.isDesktop ? "4px" : 0)};
 
   a {
-    color: rgb(214, 201, 189);
+    color: rgb(117, 108, 100);
     display: flex;
     align-items: center;
     gap: 6px;
@@ -60,12 +61,12 @@ function Footer() {
       <SocialLinks isDesktop={isDesktop}>
         <a href="https://www.instagram.com/yoonble_studio" target="_blank">
           <AiFillInstagram />
-          yoonble_studio
+          insta.&nbsp;&nbsp; yoonble_studio
         </a>
 
         <a href="https://pf.kakao.com/윤블스튜디오" target="_blank">
           <RiKakaoTalkFill />
-          윤블스튜디오
+          kakao.&nbsp;&nbsp; 윤블스튜디오
         </a>
         <a href="mailto:lovellehyo@gmail.com" target="_blank">
           <MdEmail />

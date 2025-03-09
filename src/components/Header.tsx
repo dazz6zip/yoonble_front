@@ -19,6 +19,7 @@ export const HeaderContainer = styled.div<MenuProps>`
   z-index: 100;
   padding-top: ${(props) => (props.isDesktop ? "1px" : 0)};
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #CFB3A6;
 `;
 
 const TitleContainer = styled.div<MenuProps>`
@@ -100,6 +101,7 @@ export default function Header() {
         <MenuItem to="/review">
           <CustomIcon>✷</CustomIcon>REVIEW
         </MenuItem>
+        {/* <img src={img} onClick={() => kakaoLogin()} /> */}
         {/* <MenuItem to="">
             <Translater />
           </MenuItem> */}
