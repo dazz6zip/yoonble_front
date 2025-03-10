@@ -81,7 +81,6 @@ export default function Shop() {
   const isDesktop = useRecoilValue(isDesktopState);
   return (
     <Container isDesktop={isDesktop}>
-      <SubTitle>About Shop</SubTitle>
       <Content>
         <RepImageWrapper isDesktop={isDesktop}>
           <RepImage src={img1} alt="shop" />

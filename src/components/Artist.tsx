@@ -34,7 +34,6 @@ const Content = styled.div<MenuProps>`
 const Title = styled.h2<MenuProps>`
   font-size: 1.5rem;
   font-weight: bold;
-  color: #CFB3A6;
   text-align: ${(props) => (props.isDesktop ? "left" : "center")};
   padding-left: ${(props) => (props.isDesktop ? "7px" : 0)};
 
@@ -55,7 +54,6 @@ const Title = styled.h2<MenuProps>`
 const Description = styled.p`
   font-size: 15px;
   line-height: 1.5;
-  color: #CFB3A6;
   padding-bottom: 7px;
 `;
 
@@ -77,7 +75,6 @@ export default function Artist() {
   const isDesktop = useRecoilValue(isDesktopState);
   return (
     <Container>
-      {/* <SubTitle>About Artist</SubTitle> */}
       <IaC isDesktop={isDesktop}>
         <ImageWrapper>
           <Image isDesktop={isDesktop} src={img1} alt="shop" />

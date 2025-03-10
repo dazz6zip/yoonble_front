@@ -103,11 +103,11 @@ function NavigationBar() {
         <br />
         <StyledMenu>ABOUT</StyledMenu>
         <StyledMenuItem
-          isActive={location.pathname === "/shop"}
+          isActive={location.pathname === "/about"}
           to="/shop"
           onClick={closeMenu}
         >
-          <CustomIcon>✶</CustomIcon>SHOP
+          <CustomIcon>✶</CustomIcon>ABOUT
         </StyledMenuItem>
         <StyledMenuItem
           isActive={location.pathname === "/artist"}

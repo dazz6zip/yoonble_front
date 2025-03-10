@@ -68,7 +68,6 @@ const Answer = styled.div<{ isOpen: boolean }>`
 
 export const SubTitle = styled.div`
   text-align: center;
-  font-family: "Diphylleia";
   font-style: italic;
   font-weight: bold;
   color: rgb(135, 121, 108);
@@ -129,7 +128,7 @@ export default function FAQ() {
         <Image src={img1} alt="shop" />
       </ImageWrapper> */}
       <Content>
-        <SubTitle>자주 묻는 질문</SubTitle>
+        <SubTitle>FAQ</SubTitle>
         {faqData.map((faq, index) => (
           <FAQItem key={index}>
             <Question onClick={() => toggleFAQ(index)}>

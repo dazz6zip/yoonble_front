@@ -1,6 +1,5 @@
 import axios from "axios";
-import wp from "../images/Don't miss copy.png";
-import wpt from "../images/img3.png";
+import main from "../images/img3.png";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
@@ -70,7 +69,6 @@ export default function Home() {
     <>
       <BackgroundDiv>
         <Card>
-          <ImgContainer><Img src={isDesktop ? wpt : wp}></Img></ImgContainer>
           <Content>
             <Title>
               Yoonble Beauty Studio
@@ -90,7 +88,8 @@ export default function Home() {
               </a>
             </SocialLinks>
           </Content>
-
+          {isDesktop ?
+            <ImgContainer><Img src={main}></Img></ImgContainer> : <></>}
         </Card>
       </BackgroundDiv>
     </>

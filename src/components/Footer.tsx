@@ -14,7 +14,7 @@ const FooterContainer = styled.footer<MenuProps>`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #CBB6A5;
+  background-color:#C9B6AA;
   opacity: 0.7;
   font-size: 12px;
   padding: 20px 0;

@@ -45,8 +45,6 @@ const ContentBox = styled.div<MenuProps>`
   }
 `;
 
-export const Title = styled.h2<MenuProps>`
-  font-size: 1.2rem;
 const Title = styled.h2<MenuProps>`
 font - size: 1.5rem;
 font - weight: bold;
@@ -72,14 +70,12 @@ text - align: center;
 margin - bottom: 20px;
 `;
 
-export const Image = styled.img`
-border: 1px solid #AD9082;
 const Image = styled.img`
-  border-radius: 10px;
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  margin-bottom: 20px;
+border - radius: 10px;
+width: 100 %;
+max - height: 250px;
+object - fit: cover;
+margin - bottom: 20px;
 `;
 
 export default function Artmake() {
@@ -126,7 +122,7 @@ export default function Artmake() {
 
   return (
     <Container>
-      <SubTitle>시술 종류</SubTitle>
+      <SubTitle>Menu</SubTitle>
       <ContentWrapper>
         {artmakes.map((artmake, index) => (
           <ContentBox isDesktop={isDesktop} key={artmake.id}>
@@ -137,7 +133,7 @@ export default function Artmake() {
               onMouseOut={() => handleMouseOut(index)}
               onClick={() => handleClick(index)}
             />
-            <Title isDesktop={isDesktop}>{category.name}</Title>
+            <Title isDesktop={isDesktop}>{artmake.name}</Title>
             <Description>자연눈썹<br />섀도우눈썹</Description>
             <Title isDesktop={isDesktop}>{artmake.name}</Title>
             <Description>{artmake.description}</Description>

@@ -53,7 +53,7 @@ export default function Reservation() {
 
   return (
     <Container>
-      <SubTitle>예약하기</SubTitle>
+      <SubTitle>Reservation</SubTitle>
       <Contents>
         <img width={"300"} src={img1} alt="Logo" />
         <ServiceItemContainer>
@@ -69,7 +69,7 @@ export default function Reservation() {
                 <AiOutlineBorder size={24} />
               )}
               <span>
-                {artmake.name} ({artmake.duration}분 소요)
+                {artmake.name} ({artmake.duration}분)
               </span>
             </ServiceItem>
           ))}

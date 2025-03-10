@@ -1,3 +1,11 @@
+export interface IArtmakeCategory {
+  id: number;
+  name: string;
+  img: string;
+  description: string;
+  path: string;
+}
+
 export interface IArtmake {
   id: number;
   name: string;

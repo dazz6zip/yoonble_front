@@ -81,25 +81,22 @@ export default function Header() {
         </Title>
       </TitleContainer>
       <Menu isDesktop={isDesktop}>
-        <MenuTitle>ABOUT</MenuTitle>
-        <MenuItem to="/shop">
-          <CustomIcon>✶</CustomIcon>SHOP
-        </MenuItem>
-        <MenuItem to="/artist">
-          <CustomIcon>✶</CustomIcon>ARTIST
+        {/* <MenuTitle>ABOUT</MenuTitle> */}
+        &nbsp;&nbsp;&nbsp;
+        <MenuItem to="/about">
+          ABOUT
         </MenuItem>
         <MenuItem to="/artmake">
-          <CustomIcon>✶</CustomIcon>ARTMAKE
+          MENU
         </MenuItem>
         <MenuItem to="/faq">
-          <CustomIcon>✶</CustomIcon>FAQ
+          FAQ
         </MenuItem>
-        <MenuTitle>BOOKING</MenuTitle>
         <MenuItem to="/reservation">
-          <CustomIcon>✷</CustomIcon>RESERVATION
+          BOOKING
         </MenuItem>
         <MenuItem to="/review">
-          <CustomIcon>✷</CustomIcon>REVIEW
+          REVIEW
         </MenuItem>
         {/* <img src={img} onClick={() => kakaoLogin()} /> */}
         {/* <MenuItem to="">
