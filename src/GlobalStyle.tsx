@@ -47,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: flex-start;
     display: flex;
-    background-color:rgb(241, 235, 227);
+    background-color:#E6DBD2;
     font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
     font-weight: 400;
     font-style: normal;

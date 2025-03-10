@@ -12,12 +12,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { isDesktopState } from "./recoil/atom";
 import { useRecoilValue } from "recoil";
 import { MenuProps } from "./components/Header";
-import { Brow } from "./components/artmake/Brow";
-import { Lip } from "./components/artmake/Lip";
-import { Eyefat } from "./components/artmake/Eyefat";
-import { Eyeline } from "./components/artmake/Eyeline";
-import { Mark } from "./components/artmake/Mark";
-import { Eyelash } from "./components/artmake/Eyelash";
 
 const MainContainer = styled.div`
   height: 79vh;
@@ -68,7 +62,7 @@ export default function Router() {
           >
             <Routes location={location}>
               <Route path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
+              <Route path="/about" element={<About />} />
               <Route path="/artist" element={<Artist />} />
               <Route path="/artmake" element={<Artmake />} />
               <Route path="/artmake/brow" element={<Brow />} />

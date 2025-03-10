@@ -18,7 +18,7 @@ export default function Review() {
   return (
     <Container>
       <Contents>
-        <SubTitle>리뷰</SubTitle>
+        <SubTitle>Review</SubTitle>
         <img width={"400"} src={img1} alt="Logo" />
       </Contents>
     </Container>
