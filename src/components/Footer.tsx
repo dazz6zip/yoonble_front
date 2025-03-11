@@ -64,13 +64,13 @@ function Footer() {
           insta.&nbsp;&nbsp; yoonble_studio
         </a>
 
-        <a href="https://pf.kakao.com/윤블스튜디오" target="_blank">
+        <a href="https://pf.kakao.com/_KxkGWb?from=qr" target="_blank">
           <RiKakaoTalkFill />
           kakao.&nbsp;&nbsp; 윤블스튜디오
         </a>
         <a href="mailto:lovellehyo@gmail.com" target="_blank">
           <MdEmail />
-          lovellehyo@gmail.com
+          website.&nbsp;&nbsp; lovellehyo@gmail.com
         </a>
       </SocialLinks>
       <Copyright isDesktop={isDesktop}>© 2025 YOONBLE</Copyright>

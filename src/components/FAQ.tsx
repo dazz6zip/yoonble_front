@@ -10,19 +10,6 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-// const ImageWrapper = styled.div`
-//   flex: 1;
-//   text-align: center;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
-// const Image = styled.img`
-//   width: 100%;
-//   border-radius: 10px;
-// `;
-
 const Content = styled.div``;
 
 const FAQItem = styled.div`
@@ -38,11 +25,9 @@ const Question = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
-  // font-weight: bold;
   cursor: pointer;
-  color: #333;
   padding: 10px;
-  background: rgb(230, 220, 212);
+  background: rgb(220, 205, 193);
   color: #666;
   width: 80vw;
   max-width: 800px;
@@ -72,8 +57,8 @@ export const SubTitle = styled.div`
   font-weight: bold;
   color: rgb(135, 121, 108);
   font-size: 1.7rem;
-  margin-top: 3vh;
-  margin-bottom: 5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 `;
 
 const faqData = [
@@ -116,7 +101,7 @@ const faqData = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -124,9 +109,6 @@ export default function FAQ() {
 
   return (
     <Container>
-      {/* <ImageWrapper>
-        <Image src={img1} alt="shop" />
-      </ImageWrapper> */}
       <Content>
         <SubTitle>FAQ</SubTitle>
         {faqData.map((faq, index) => (

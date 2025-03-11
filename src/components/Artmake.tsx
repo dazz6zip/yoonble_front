@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getArtmakeCategories, getArtmakes, IArtmake, IArtmakeCategory } from "../fetcher";
 import { SubTitle } from "./FAQ";
 import { MenuProps } from "./Header";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
-import img1 from "../images/img1.jpg";
-import img2 from "../images/Keep it simple.png";
 import { useNavigate } from "react-router-dom";
 
 export const imageLink = 'https://d206helh22e0a3.cloudfront.net/images';
@@ -24,7 +22,7 @@ export const Container = styled.div`
 export const ContentWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 20px 40px;
   justify-content: center;
   width: 100%;
 `;
@@ -32,9 +30,10 @@ export const ContentWrapper = styled.div`
 export const ContentBox = styled.div<MenuProps>`
   width: 100%;
   max-width: 250px;
-  padding: 20px;
+  padding: 15px;
+  padding-bottom: 5px;
   border-radius: 12px;
-  background-color: #DCC1B6;
+  background-color:rgb(215, 196, 191);
   box-shadow: 0px 4px 12px rgba(117, 105, 94, 0.3);
   display: flex;
   flex-direction: column;
@@ -49,11 +48,11 @@ export const ContentBox = styled.div<MenuProps>`
 `;
 
 const Title = styled.h2<MenuProps>`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: rgb(101, 80, 79);
-  padding: 10px 0;
-  margin-bottom: 10px;
+  padding: 5px 0;
+  margin-bottom: 8px;
 
 background: linear - gradient(
   to bottom,
@@ -66,19 +65,18 @@ background - size: 100 % 3px;
 `;
 
 const Description = styled.p`
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 0.8rem;
   color: #555;
   text-align: center;
   margin-bottom: 20px;
 `;
 
-const Image = styled.img`
+export const Image = styled.img`
   border-radius: 10px;
   width: 100%;
   max-height: 250px;
   object-fit: cover;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 `;
 
 export default function Artmake() {
@@ -100,47 +98,26 @@ export default function Artmake() {
     fetchData();
   }, []);
 
-  // const handleMouseOver = (index: number) => {
-  //   if (isDesktop) {
-  //     const newImageStates = [...imageStates];
-  //     newImageStates[index] = img2;
-  //     setImageStates(newImageStates);
-  //   }
-  // };
-
-  // const handleMouseOut = (index: number) => {
-  //   if (isDesktop) {
-  //     const newImageStates = [...imageStates];
-  //     newImageStates[index] = img1;
-  //     setImageStates(newImageStates);
-  //   }
-  // };
-
-  const handleClick = (path: string) => {
-    // if (!isDesktop) {
-    //   const newImageStates = [...imageStates];
-    //   newImageStates[index] = newImageStates[index] === img2 ? img1 : img2;
-    //   setImageStates(newImageStates);
-    // }
-    navigate(path);
-  };
-
   return (
     <Container>
-      <SubTitle>Menu</SubTitle>
+      <SubTitle>MENU</SubTitle>
       <ContentWrapper>
         {categories.map((category) => (
           <ContentBox isDesktop={isDesktop} key={category.id}
-            onClick={() => handleClick(category.path)}>
+            onClick={() => navigate(category.path)}>
             <Image
-              // src={imageStates[index]}
               src={category.img}
               alt={category.name}
-            // onMouseOver={() => handleMouseOver(index)}
-            // onMouseOut={() => handleMouseOut(index)}
             />
-            <Title isDesktop={isDesktop}>{artmake.name}</Title>
-            <Description>{artmake.description}</Description>
+            <Title isDesktop={isDesktop}>{category.name}</Title>
+            <Description>{category.description}
+              {/* {category.description.split("\n").map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))} */}
+            </Description>
           </ContentBox>
         ))}
       </ContentWrapper>

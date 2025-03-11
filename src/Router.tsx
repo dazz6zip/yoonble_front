@@ -12,6 +12,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { isDesktopState } from "./recoil/atom";
 import { useRecoilValue } from "recoil";
 import { MenuProps } from "./components/Header";
+import About from "./components/About";
+import { Eyefat } from "./components/artmake/Eyefat";
+import { Brow } from "./components/artmake/Brow";
+import { Eyelash } from "./components/artmake/Eyelash";
+import { Eyeline } from "./components/artmake/Eyeline";
+import { Lip } from "./components/artmake/Lip";
+import { Mark } from "./components/artmake/Mark";
 
 const MainContainer = styled.div`
   height: 79vh;
