@@ -19,6 +19,7 @@ import { Eyelash } from "./components/artmake/Eyelash";
 import { Eyeline } from "./components/artmake/Eyeline";
 import { Lip } from "./components/artmake/Lip";
 import { Mark } from "./components/artmake/Mark";
+import { Scar } from "./components/artmake/Scar";
 
 const MainContainer = styled.div`
   height: 79vh;
@@ -78,6 +79,7 @@ export default function Router() {
               <Route path="/artmake/eyelash" element={<Eyelash />} />
               <Route path="/artmake/lip" element={<Lip />} />
               <Route path="/artmake/mark" element={<Mark />} />
+              <Route path="/artmake/scar" element={<Scar />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/reservation" element={<Reservation />} />
               <Route path="/review" element={<Review />} />

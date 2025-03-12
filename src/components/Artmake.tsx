@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getArtmakeCategories, getArtmakes, IArtmake, IArtmakeCategory } from "../fetcher";
 import { SubTitle } from "./FAQ";
 import { MenuProps } from "./Header";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
-
-export const imageLink = 'https://d206helh22e0a3.cloudfront.net/images';
+import { getCategories, ICategory } from "../fetcher";
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -33,7 +31,7 @@ export const ContentBox = styled.div<MenuProps>`
   padding: 15px;
   padding-bottom: 5px;
   border-radius: 12px;
-  background-color:rgb(215, 196, 191);
+  background-color:rgb(229, 211, 206);
   box-shadow: 0px 4px 12px rgba(117, 105, 94, 0.3);
   display: flex;
   flex-direction: column;
@@ -80,7 +78,7 @@ export const Image = styled.img`
 `;
 
 export default function Artmake() {
-  const [categories, setCategories] = useState<IArtmakeCategory[]>([]);
+  const [categories, setCategories] = useState<ICategory[]>([]);
   const [imageStates, setImageStates] = useState<string[]>([]);
   const isDesktop = useRecoilValue(isDesktopState);
   const navigate = useNavigate();
@@ -88,7 +86,7 @@ export default function Artmake() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedCategories = await getArtmakeCategories();
+        const fetchedCategories = await getCategories();
         setCategories(fetchedCategories);
         // setImageStates(fetchedCategories.map(() => img1));
       } catch (err) {
@@ -110,14 +108,7 @@ export default function Artmake() {
               alt={category.name}
             />
             <Title isDesktop={isDesktop}>{category.name}</Title>
-            <Description>{category.description}
-              {/* {category.description.split("\n").map((line, index) => (
-                <React.Fragment key={index}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))} */}
-            </Description>
+            <Description>{category.description}</Description>
           </ContentBox>
         ))}
       </ContentWrapper>

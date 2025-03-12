@@ -1,52 +1,45 @@
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../../recoil/atom";
-import { useState } from "react";
-import { Container, imageLink, Image } from "../Artmake";
+import { useEffect, useState } from "react";
+import { Container, Image } from "../Artmake";
 import { SubTitle } from "../FAQ";
 import styled from "styled-components";
 import { MenuProps } from "../Header";
-
-export const ImgWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  width: 100%;
-`;
-
-export const ImgBox = styled.div<MenuProps>`
-  width: 100%;
-  max-width: 250px;
-  padding: 1px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.3s ease;
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
-`;
+import { getMenus, imageLink, IMenu } from "../../fetcher";
+import { DetailWrapper, ImgBox, ImgWrapper } from "./Eyefat";
 
 export function Eyelash() {
     const isDesktop = useRecoilValue(isDesktopState);
-    const browImgLink = imageLink + '/eyelash/';
-    const brows = Array.from({ length: 11 }, (_, i) => ({
-        index: i + 1,
-        image: `${browImgLink}perm${i + 1}.jpeg`
-    }));
+    const link = imageLink + '/eyelash/perm';
+    const [menu, setMenus] = useState<IMenu>();
+
+
+    useEffect(() => {
+        const fetchMenu = async () => {
+            try {
+                const fetchedMenu = await getMenus(4);
+                if (fetchedMenu.length > 0) setMenus(fetchedMenu[0]); // 애교살은 메뉴가 1개뿐
+            } catch (err) {
+                console.error("메뉴 데이터 로딩 실패:", err)
+            }
+        };
+        fetchMenu();
+    }, [])
+
+    if (!menu) {
+        return <Container><SubTitle>속눈썹 시술 정보를 불러올 수 없습니다.</SubTitle></Container>;
+    }
 
     return (
         <Container>
-            <SubTitle>속눈썹펌</SubTitle>
+            <SubTitle>{menu.name}</SubTitle>
+            <DetailWrapper>{menu.description}</DetailWrapper>
             <ImgWrapper>
-                {brows.map((brow, index) => (
-                    <ImgBox isDesktop={isDesktop}>
+                {Array.from({ length: menu.imgCnt }, (_, i) => (
+                    <ImgBox key={i}>
                         <Image
-                            src={brow.image}
-                            alt={`brow ${brow.index}`}
+                            src={`${link}${i}.jpeg`}
+                            alt={`${menu.name} 이미지 ${i + 1}`}
                         />
                     </ImgBox>
                 ))}

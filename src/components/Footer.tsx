@@ -8,13 +8,12 @@ import { MenuProps } from "./Header";
 
 const FooterContainer = styled.footer<MenuProps>`
   height: ${(props) => (props.isDesktop ? "9vh" : "12vh")};
-  color: rgb(101, 90, 79);
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color:#C9B6AA;
+  background-color:rgb(156, 145, 134);
   opacity: 0.7;
   font-size: 12px;
   padding: 20px 0;
@@ -30,7 +29,7 @@ export const SocialLinks = styled.div<MenuProps>`
   margin-top: ${(props) => (props.isDesktop ? "4px" : 0)};
 
   a {
-    color: rgb(117, 108, 100);
+    color: rgb(91, 84, 78);
     display: flex;
     align-items: center;
     gap: 6px;
@@ -39,7 +38,7 @@ export const SocialLinks = styled.div<MenuProps>`
     transition: color 0.3s ease;
 
     &:hover {
-      color: rgb(101, 90, 79);
+      color: rgb(100, 83, 66);
     }
 
     svg {

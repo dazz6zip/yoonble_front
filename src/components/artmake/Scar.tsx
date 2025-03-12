@@ -15,15 +15,15 @@ export const ImgWrapper = styled.div`
   width: 100%;
 `;
 
-export function Mark() {
+export function Scar() {
     const isDesktop = useRecoilValue(isDesktopState);
-    const link = imageLink + '/mark/mark';
+    const link = imageLink + '/scar/scar';
     const [menu, setMenus] = useState<IMenu>();
 
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const fetchedMenu = await getMenus(6);
+                const fetchedMenu = await getMenus(7);
                 if (fetchedMenu.length > 0) setMenus(fetchedMenu[0]);
             } catch (err) {
                 console.error("메뉴 데이터 로딩 실패:", err)
@@ -33,7 +33,7 @@ export function Mark() {
     }, [])
 
     if (!menu) {
-        return <Container><SubTitle>미인점 시술 정보를 불러올 수 없습니다.</SubTitle></Container>;
+        return <Container><SubTitle>잔흔 제거 시술 정보를 불러올 수 없습니다.</SubTitle></Container>;
     }
     return (
         <Container>

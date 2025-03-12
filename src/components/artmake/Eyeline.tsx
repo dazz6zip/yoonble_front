@@ -1,10 +1,11 @@
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../../recoil/atom";
 import { useState } from "react";
-import { Container, imageLink, Image } from "../Artmake";
+import { Container, Image } from "../Artmake";
 import { SubTitle } from "../FAQ";
 import styled from "styled-components";
 import { MenuProps } from "../Header";
+import { imageLink } from "../../fetcher";
 
 export const ImgWrapper = styled.div`
   display: flex;
