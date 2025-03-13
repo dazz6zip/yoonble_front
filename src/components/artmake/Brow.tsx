@@ -14,8 +14,8 @@ const Container = styled.div`
 const Card = styled.div`
   width: 25vw;
   text-align: center;
-  background-color:${colors.brown5};
   padding: 20px;
+  border: 1px solid ${colors.brown4}
 `;
 
 const Title = styled.h2`
@@ -29,7 +29,7 @@ const CircleImage = styled.img`
   border-radius: 50%;
   display: block;
   margin: 10px auto;
-  background-color:${colors.background};
+  background-color:${colors.white1};
   object-fit: cover;
 `;
 
@@ -54,22 +54,32 @@ const SquareImage = styled.img`
   object-fit: cover;
 `;
 
-const PaginationDots = styled.div`
+const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  gap: 5px;
-`
+  align-items: center;
+  margin-top: 15px;
+  gap: 15px;
+`;
 
-const Dot = styled.div<{ active: boolean }>`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid ${colors.brown3};
-  background-color: ${({ active }) => (active ? colors.brown4 : colors.background)};
-  cursor: pointer;
-  transition: background-color 0.3s;
-`
+const Page = styled.span`
+  font-size: 0.8em;
+  color: ${colors.brown3}
+`;
+
+const PageButton = styled.button<{ disabled: boolean }>`
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: ${({ disabled }) => (disabled ? colors.brown4 : colors.brown3)};
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${({ disabled }) => (disabled ? colors.brown4 : colors.brown0)};
+  }
+`;
+
 
 export function Brow() {
   const isDesktop = useRecoilValue(isDesktopState);
@@ -91,12 +101,19 @@ export function Brow() {
     fetchMenu();
   }, [])
 
-  const changePage = (cardIndex: number, newPage: number) => {
+  const changePage = (cardIndex: number, direction: "prev" | "next") => {
     setCurrentPages((prev) => {
       const updatedPages = [...prev];
-      updatedPages[cardIndex] = newPage;
+      const totalPages = Math.ceil(menus[cardIndex].imgCnt / 4);
+
+      if (direction === "prev" && updatedPages[cardIndex] > 0) {
+        updatedPages[cardIndex] -= 1;
+      } else if (direction === "next" && updatedPages[cardIndex] < totalPages - 1) {
+        updatedPages[cardIndex] += 1;
+      }
+
       return updatedPages;
-    })
+    });
   }
 
   return (
@@ -119,17 +136,25 @@ export function Brow() {
                 ))}
             </Grid>
 
-            {totalPages > 1 ? <PaginationDots>
-              {Array.from({ length: totalPages }).map((_, pageIndex) => (
-                <Dot
-                  key={pageIndex}
-                  active={currentPage === pageIndex}
-                  onClick={() => changePage(index, pageIndex)}
-                />
-              ))}
-            </PaginationDots> : <></>
-            }
-          </Card>)
+            {totalPages > 1 && (
+              <PaginationContainer>
+                <PageButton
+                  disabled={currentPage === 0}
+                  onClick={() => changePage(index, "prev")}
+                >
+                  {"<"}
+                </PageButton>
+                <Page>{`${currentPage + 1} / ${totalPages}`}</Page>
+                <PageButton
+                  disabled={currentPage === totalPages - 1}
+                  onClick={() => changePage(index, "next")}
+                >
+                  {">"}
+                </PageButton>
+              </PaginationContainer>
+            )}
+          </Card>
+        );
       })}
     </Container>
   );

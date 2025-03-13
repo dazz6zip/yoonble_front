@@ -13,6 +13,7 @@ export const colors = {
   pink: "rgb(221, 199, 193)",
   pink1: "rgb(231, 217, 212)",
   white: "rgb(237, 230, 227)",
+  white1: "rgb(237, 230, 227, 0.5)",
 }
 
 const GlobalStyle = createGlobalStyle`
