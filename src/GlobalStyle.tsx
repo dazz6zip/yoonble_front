@@ -1,15 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 
 export const colors = {
-  background: "#E6DBD2",
-  footer: "rgb(156, 145, 134)",
+  background: "#dabbb6",
+  background1: "rgb(230, 217, 214)",
+  footer: "rgb(156, 145, 134, 0.4)",
   brown0: "rgb(80, 70, 65)",
   brown1: "rgb(101, 80, 79)",
   brown2: "rgb(101, 96, 92)",
   brown3: "rgb(114, 100, 92)",
   brown4: "rgb(196, 185, 175)",
   brown5: "rgb(217, 206, 196)",
-  pink: "rgb(221, 199, 193)"
+  pink: "rgb(221, 199, 193)",
+  pink1: "rgb(231, 217, 212)",
+  white: "rgb(237, 230, 227)",
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -59,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: flex-start;
     display: flex;
-    background-color: ${colors.background};
+    background: radial-gradient(circle, ${colors.background} 0%,${colors.background1} 80%);
     font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
     font-weight: 400;
     font-style: normal;

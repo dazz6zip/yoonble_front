@@ -4,6 +4,7 @@ import { MenuProps } from "./Header";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 import { imageLink } from "../fetcher";
+import { colors } from "../GlobalStyle";
 
 const Container = styled.div`
   max-width: 80%;
@@ -23,6 +24,7 @@ const Content = styled.div<MenuProps>`
 const Title = styled.h2<MenuProps>`
   font-size: 1.5rem;
   font-weight: bold;
+  color: ${colors.brown1};
   text-align: ${(props) => (props.isDesktop ? "left" : "center")};
   padding-left: ${(props) => (props.isDesktop ? "7px" : 0)};
 

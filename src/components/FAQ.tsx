@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import styled from "styled-components";
+import { colors } from "../GlobalStyle";
 const Container = styled.div`
   max-width: 90%;
   margin: 0 auto;
@@ -31,7 +32,7 @@ const Question = styled.div`
   font-size: 13px;
   cursor: pointer;
   padding: 10px;
-  background: rgb(220, 205, 193);
+  background: ${colors.pink1};
   color: #666;
   width: 80vw;
   max-width: 800px;
@@ -39,9 +40,8 @@ const Question = styled.div`
   transition: background-color 0.15s ease, color 0.15s ease;
 
   &:hover {
-    background-color: rgb(169, 161, 154);
-    color: rgb(241, 235, 227);
-  }
+    background-color: ${colors.pink};
+    color: ${colors.white};
 `;
 
 const Answer = styled.div<{ isOpen: boolean }>`
@@ -59,7 +59,7 @@ export const SubTitle = styled.div`
   text-align: center;
   font-style: italic;
   font-weight: bold;
-  color: rgb(135, 121, 108);
+  color: ${colors.brown3};
   font-size: 1.7rem;
   margin-top: 1vh;
   margin-bottom: 1vh;

@@ -5,6 +5,7 @@ import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 import img from "../images/kakao_login_small.png";
 import axios from "axios";
+import { colors } from "../GlobalStyle";
 
 export interface MenuProps {
   isDesktop: boolean;
@@ -82,6 +83,7 @@ export default function Header() {
         </Link>
       </TitleContainer>
       <Menu isDesktop={isDesktop}>
+        &nbsp;
         <MenuItem to="/about" active={location.pathname === "/about"}>
           ABOUT
         </MenuItem>
