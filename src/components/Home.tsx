@@ -1,10 +1,8 @@
-import axios from "axios";
-import main from "../images/img3.png";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
-import { AiFillInstagram } from "react-icons/ai";
-import { SocialLinks } from "./Footer";
+import { colors } from "../GlobalStyle";
+import { imageLink } from "../fetcher";
 
 const BackgroundDiv = styled.div`
   width: 100vw;
@@ -18,78 +16,76 @@ const BackgroundDiv = styled.div`
 const Card = styled.div`
   display: flex;
   align-items: center;
-  gap: 70px;
-`
+  gap: 1vw;
+  max-width: 75vw;
+  width: 90%;
+`;
 
 const Content = styled.div`
   flex: 1;
   text-align: left;
-`
+`;
 
 const Title = styled.h1`
-font-family: Times New Roman;
-   font-size: 50px;
-   color:rgb(114, 100, 92);
-   margin-bottom: 20px;
-`
-
-const Description1 = styled.p`
-font-family: Godik;
-font-size: 19px;
-color:rgb(101, 96, 92);
-`
+  font-family: "Times New Roman", serif;
+  font-size: 60px;
+  color: ${colors.brown3};
+  margin-bottom: 20px;
+  line-height: 1.1;
+`;
 
 const Description = styled.p`
-font-size: 13px;
-color:rgb(101, 96, 92);
-line-height: 1.5;
-`
+  font-size: 13px;
+  color: ${colors.brown2};
+  line-height: 1.6;
+`;
+
+const Bold = styled.span`
+font-size: 14px;
+  font-weight: bold;
+  color: ${colors.brown0};
+`;
 
 const ImgContainer = styled.div`
-flex: 1;
-display: flex;
-justify-content: center;
-`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+`;
 
 const Img = styled.img`
-  width: 35vw;
+  width: 40vw;
+  max-width: 500px;
   object-fit: cover;
 `;
 
 export default function Home() {
   const isDesktop = useRecoilValue(isDesktopState);
-  const apiTest = async () => {
-    const response = await axios.get<string>("/api/test");
-    if (response.data) {
-      alert(response.data);
-    }
-  };
 
   return (
     <>
       <BackgroundDiv>
         <Card>
           <Content>
-            <Title>
-              Yoonble Beauty Studio
-            </Title>
-            <Description1>The Premium Beauty Studio</Description1><br /><br />
+            <Title>YOONBLE<br />STUDIO</Title>
             <Description>
-              Yoonble Studio is The Best Yoonble Studio is The Best Ha<br />
-              Yoonble Studio is The Best Yoonble Studio is The Best HHaHAhah<br />
-              Hahahaha Yoonble Studio is The Best Yoonble Studio is The Best<br />
-              Yoonble Studio is The Best Yoonble Studio is The Best.<br />
-            </Description><br /><br />
-            <Description1>Brow | Lip | Eyeline | Eyelash</Description1><br /><br />
-            <SocialLinks isDesktop={isDesktop}>
-              <a href="https://www.instagram.com/yoonble_studio" target="_blank">
-                <AiFillInstagram />
-                yoonble_studio
-              </a>
-            </SocialLinks>
+              <Bold>KOREA'S LEADING HIGH-END COSMETIC TATTOO STUDIO</Bold>
+            </Description>
+            <br /><br />
+            <Description>
+              <Bold>Yoonble</Bold> is a high-end cosmetic tattoo brand known for its <Bold>precision</Bold> and <Bold>meticulous design</Bold>.<br />
+              Every step—from <Bold>consultation</Bold> to the final procedure—is personally handled with <Bold>expert care</Bold>.<br />
+              Through <Bold>personalized 1:1 consultations</Bold>, we analyze each client’s unique features<br />
+              to create <Bold>harmonious, natural enhancements</Bold>.<br />
+              <Bold>Experience refined beauty and confidence</Bold> with Yoonble.
+            </Description>
+            <br /><br /><br />
+            <Description>More Info &nbsp;&nbsp;  <Bold>SHOP | MENU | ACADEMY</Bold></Description>
           </Content>
-          {isDesktop ?
-            <ImgContainer><Img src={main}></Img></ImgContainer> : <></>}
+          {isDesktop && (
+            <ImgContainer>
+              <Img src={imageLink + "/main.png"} alt="Yoonble Studio" />
+            </ImgContainer>
+          )}
         </Card>
       </BackgroundDiv>
     </>

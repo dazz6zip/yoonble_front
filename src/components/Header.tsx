@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import logoIcon from "../images/yb_logo_icon.png";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
+import img from "../images/kakao_login_small.png";
+import axios from "axios";
+import { colors } from "../GlobalStyle";
 
 export interface MenuProps {
   isDesktop: boolean;
@@ -30,11 +33,6 @@ const TitleContainer = styled.div<MenuProps>`
   padding-bottom: ${(props) => (props.isDesktop ? 0 : "1rem")};
 `;
 
-const Title = styled.h1`
-  /* color: rgb(101, 90, 79); */
-  font-size: 2rem;
-`;
-
 const TitleImg = styled.img<MenuProps>`
   width: 20vw;
   margin-left: ${(props) => (props.isDesktop ? "8vw" : 0)};
@@ -49,59 +47,58 @@ const Menu = styled.div<MenuProps>`
   align-items: center;
 `;
 
-const MenuTitle = styled.div`
-  font-size: 1rem;
-  color: rgb(135, 121, 108);
-  padding-left: 2vw;
-`;
-
-const MenuItem = styled(Link)`
+const MenuItem = styled(Link) <{ active: boolean }>`
   font-size: 0.8rem;
-  color: rgb(160, 143, 124);
+  color: ${(props) => (props.active ? "rgb(80, 60, 55)" : "rgb(160, 143, 124)")};
+  font-weight: ${(props) => (props.active ? "bold" : "normal")};
   transition: color 0.3s ease;
   &:hover {
     color: rgb(101, 80, 79);
   }
 `;
 
-const CustomIcon = styled.b`
-  color: rgb(101, 80, 79);
-  padding-right: 0.5vw;
-`;
+interface KakaoLoginResponse {
+  redirectUri: string;
+  clientId: string;
+}
 
 export default function Header() {
   const isDesktop = useRecoilValue(isDesktopState);
+  const location = useLocation();
+
+  // const kakaoLogin = async () => {
+  //   try {
+  //     const response = await axios.get<KakaoLoginResponse>("/api/users/");
+  //     const { clientId, redirectUri } = response.data;
+  //     window.location.href = ``;
+  //   } catch (error) {
+  //     console.log("kakao login error: ", error);
+  //   }
+  // };
   return (
     <HeaderContainer isDesktop={isDesktop}>
       <TitleContainer isDesktop={isDesktop}>
-        <Title>
-          <Link to="/">
-            <TitleImg isDesktop={isDesktop} src={logoIcon}></TitleImg>
-          </Link>
-        </Title>
+        <Link to="/">
+          <TitleImg isDesktop={isDesktop} src={logoIcon} alt="Logo" />
+        </Link>
       </TitleContainer>
       <Menu isDesktop={isDesktop}>
-        {/* <MenuTitle>ABOUT</MenuTitle> */}
-        &nbsp;&nbsp;&nbsp;
-        <MenuItem to="/about">
+        &nbsp;
+        <MenuItem to="/about" active={location.pathname === "/about"}>
           ABOUT
         </MenuItem>
-        <MenuItem to="/artmake">
+        <MenuItem to="/artmake" active={location.pathname === "/artmake"}>
           MENU
         </MenuItem>
-        <MenuItem to="/faq">
+        <MenuItem to="/faq" active={location.pathname === "/faq"}>
           FAQ
         </MenuItem>
-        <MenuItem to="/reservation">
+        <MenuItem to="/reservation" active={location.pathname === "/reservation"}>
           BOOKING
         </MenuItem>
-        <MenuItem to="/review">
+        <MenuItem to="/review" active={location.pathname === "/review"}>
           REVIEW
         </MenuItem>
-        {/* <img src={img} onClick={() => kakaoLogin()} /> */}
-        {/* <MenuItem to="">
-            <Translater />
-          </MenuItem> */}
       </Menu>
     </HeaderContainer>
   );

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import styled from "styled-components";
+import { colors } from "../GlobalStyle";
 const Container = styled.div`
   max-width: 90%;
   margin: 0 auto;
@@ -10,20 +11,11 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-// const ImageWrapper = styled.div`
-//   flex: 1;
-//   text-align: center;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
-// const Image = styled.img`
-//   width: 100%;
-//   border-radius: 10px;
-// `;
-
-const Content = styled.div``;
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
 
 const FAQItem = styled.div`
   padding: 10px 0;
@@ -38,11 +30,9 @@ const Question = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
-  // font-weight: bold;
   cursor: pointer;
-  color: #333;
   padding: 10px;
-  background: rgb(230, 220, 212);
+  background: ${colors.pink1};
   color: #666;
   width: 80vw;
   max-width: 800px;
@@ -50,9 +40,8 @@ const Question = styled.div`
   transition: background-color 0.15s ease, color 0.15s ease;
 
   &:hover {
-    background-color: rgb(169, 161, 154);
-    color: rgb(241, 235, 227);
-  }
+    background-color: ${colors.pink};
+    color: ${colors.white};
 `;
 
 const Answer = styled.div<{ isOpen: boolean }>`
@@ -70,10 +59,10 @@ export const SubTitle = styled.div`
   text-align: center;
   font-style: italic;
   font-weight: bold;
-  color: rgb(135, 121, 108);
+  color: ${colors.brown3};
   font-size: 1.7rem;
-  margin-top: 3vh;
-  margin-bottom: 5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 `;
 
 const faqData = [
@@ -116,7 +105,7 @@ const faqData = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -124,9 +113,6 @@ export default function FAQ() {
 
   return (
     <Container>
-      {/* <ImageWrapper>
-        <Image src={img1} alt="shop" />
-      </ImageWrapper> */}
       <Content>
         <SubTitle>FAQ</SubTitle>
         {faqData.map((faq, index) => (

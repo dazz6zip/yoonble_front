@@ -5,6 +5,7 @@ import { isDesktopState } from "../recoil/atom";
 import Shop from "./Shop";
 import Artist from "./Artist";
 import Academy from "./Academy";
+import { colors } from "../GlobalStyle";
 
 const Container = styled.div`
   width: 100vw;
@@ -34,23 +35,24 @@ const Sidebar = styled.div`
 
 const MenuItem = styled.h1<{ selected: boolean }>`
   font-size: 15px;
-  color: ${({ selected }) => (selected ? "#5a4a42" : "rgb(114, 100, 92)")};
+  color: ${({ selected }) => (selected ? "#5a4a42" : `${colors.brown3}`)};
   cursor: pointer;
   transition: color 0.3s ease;
   position: relative;
   
   &:hover {
-    color: #5a4a42;
+    color: ${colors.brown0};
   }
 
   &::after {
     content: "";
     display: ${({ selected }) => (selected ? "block" : "none")};
-    width: 10px;
-    height: 10px;
-    background: #5a4a42;
+    width: 8px;
+    height: 8px;
+    background: ${colors.brown3};
+    border-radius: 50%;
     position: absolute;
-    left: -20px;
+    left: -15px;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -65,38 +67,38 @@ const ContentArea = styled.div`
 `;
 
 export default function About() {
-    const isDesktop = useRecoilValue(isDesktopState);
-    const [selectedMenu, setSelectedMenu] = useState<"Yoonble" | "Artist" | "Academy">("Yoonble");
+  const isDesktop = useRecoilValue(isDesktopState);
+  const [selectedMenu, setSelectedMenu] = useState<"Yoonble" | "Artist" | "Academy">("Yoonble");
 
-    return (
-        <Container>
-            <Card>
-                <Sidebar>
-                    <MenuItem
-                        selected={selectedMenu === "Yoonble"}
-                        onClick={() => setSelectedMenu("Yoonble")}
-                    >
-                        Yoonble
-                    </MenuItem>
-                    <MenuItem
-                        selected={selectedMenu === "Artist"}
-                        onClick={() => setSelectedMenu("Artist")}
-                    >
-                        Artist
-                    </MenuItem>
-                    <MenuItem
-                        selected={selectedMenu === "Academy"}
-                        onClick={() => setSelectedMenu("Academy")}
-                    >
-                        Academy
-                    </MenuItem>
-                </Sidebar>
-                <ContentArea>
-                    {selectedMenu === "Yoonble" && <Shop />}
-                    {selectedMenu === "Artist" && <Artist />}
-                    {selectedMenu === "Academy" && <Academy />}
-                </ContentArea>
-            </Card>
-        </Container>
-    );
+  return (
+    <Container>
+      <Card>
+        <Sidebar>
+          <MenuItem
+            selected={selectedMenu === "Yoonble"}
+            onClick={() => setSelectedMenu("Yoonble")}
+          >
+            Yoonble
+          </MenuItem>
+          <MenuItem
+            selected={selectedMenu === "Artist"}
+            onClick={() => setSelectedMenu("Artist")}
+          >
+            Artist
+          </MenuItem>
+          <MenuItem
+            selected={selectedMenu === "Academy"}
+            onClick={() => setSelectedMenu("Academy")}
+          >
+            Academy
+          </MenuItem>
+        </Sidebar>
+        <ContentArea>
+          {selectedMenu === "Yoonble" && <Shop />}
+          {selectedMenu === "Artist" && <Artist />}
+          {selectedMenu === "Academy" && <Academy />}
+        </ContentArea>
+      </Card>
+    </Container>
+  );
 }

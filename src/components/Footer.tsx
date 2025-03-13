@@ -5,16 +5,16 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 import { MenuProps } from "./Header";
+import { colors } from "../GlobalStyle";
 
 const FooterContainer = styled.footer<MenuProps>`
   height: ${(props) => (props.isDesktop ? "9vh" : "12vh")};
-  color: rgb(101, 90, 79);
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color:#C9B6AA;
+  background-color:${colors.footer};
   opacity: 0.7;
   font-size: 12px;
   padding: 20px 0;
@@ -30,7 +30,7 @@ export const SocialLinks = styled.div<MenuProps>`
   margin-top: ${(props) => (props.isDesktop ? "4px" : 0)};
 
   a {
-    color: rgb(117, 108, 100);
+    color: ${colors.brown0};
     display: flex;
     align-items: center;
     gap: 6px;
@@ -39,7 +39,7 @@ export const SocialLinks = styled.div<MenuProps>`
     transition: color 0.3s ease;
 
     &:hover {
-      color: rgb(101, 90, 79);
+      color: ${colors.brown2};
     }
 
     svg {
@@ -51,7 +51,7 @@ export const SocialLinks = styled.div<MenuProps>`
 const Copyright = styled.div<MenuProps>`
   padding-top: ${(props) => (props.isDesktop ? "0.5%" : "2%")};
   font-size: 0.7rem;
-  color: rgb(101 90, 79);
+  color: ${colors.brown0}
 `;
 
 function Footer() {
@@ -64,13 +64,13 @@ function Footer() {
           insta.&nbsp;&nbsp; yoonble_studio
         </a>
 
-        <a href="https://pf.kakao.com/윤블스튜디오" target="_blank">
+        <a href="https://pf.kakao.com/_KxkGWb?from=qr" target="_blank">
           <RiKakaoTalkFill />
           kakao.&nbsp;&nbsp; 윤블스튜디오
         </a>
         <a href="mailto:lovellehyo@gmail.com" target="_blank">
           <MdEmail />
-          lovellehyo@gmail.com
+          website.&nbsp;&nbsp; lovellehyo@gmail.com
         </a>
       </SocialLinks>
       <Copyright isDesktop={isDesktop}>© 2025 YOONBLE</Copyright>
