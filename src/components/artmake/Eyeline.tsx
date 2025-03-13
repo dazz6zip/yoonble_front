@@ -1,57 +1,84 @@
+import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { isDesktopState } from "../../recoil/atom";
-import { useState } from "react";
-import { Container, Image } from "../Artmake";
-import { SubTitle } from "../FAQ";
 import styled from "styled-components";
-import { MenuProps } from "../Header";
-import { imageLink } from "../../fetcher";
+import { getMenus, imageLink, IMenu } from "../../fetcher";
+import { isDesktopState } from "../../recoil/atom";
+import { colors } from "../../GlobalStyle";
 
-export const ImgWrapper = styled.div`
+const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  width: 100%;
+  justify-content: space-around;
+  padding: 20px;
 `;
 
-export const ImgBox = styled.div<MenuProps>`
-  width: 100%;
-  max-width: 250px;
-  padding: 1px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+const Card = styled.div`
+  width: 38vw;
   text-align: center;
-  transition: transform 0.3s ease;
+  background-color:${colors.brown5};
+  padding: 20px;
+`;
 
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
+const Title = styled.h2`
+  font-size: 1.5em;
+  color: ${colors.brown0};
+`;
+
+const Description = styled.p`
+  font-size: 0.8em;
+  margin: 10px 0;
+  line-height: 1.4;
+  color: ${colors.brown0};
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+`;
+
+const SquareImage = styled.img`
+  width: 15vw;
+  height: 15vw;
+  border: 1px solid ${colors.brown1};
+  object-fit: cover;
 `;
 
 export function Eyeline() {
     const isDesktop = useRecoilValue(isDesktopState);
-    const eyelineImgLink = imageLink + '/eyeline/';
-    const eyelines = Array.from({ length: 8 }, (_, i) => ({
-        index: i,
-        image: `${eyelineImgLink}eyeline${i}.jpeg`
-    }));
+    const [menus, setMenu] = useState<IMenu[]>([]);
+
+    useEffect(() => {
+        const fetchMenu = async () => {
+            try {
+                const fetchedMenus = await getMenus(5);
+                if (fetchedMenus.length > 0) {
+                    setMenu(fetchedMenus);
+                }
+            } catch (err) {
+                console.error("메뉴 데이터 로딩 실패:", err)
+            }
+        };
+        fetchMenu();
+    }, [])
 
     return (
         <Container>
-            <SubTitle>아이라인</SubTitle>
-            <ImgWrapper>
-                {eyelines.map((eyeline, index) => (
-                    <ImgBox isDesktop={isDesktop}>
-                        <Image
-                            src={eyeline.image}
-                            alt={`brow ${eyeline.index}`}
-                        />
-                    </ImgBox>
-                ))}
-            </ImgWrapper>
+            {menus.map(menu => (
+                <Card>
+                    <Title>{menu.name}</Title>
+                    <Description>{menu.description}</Description>
+                    <Grid>
+                        {Array.from({ length: menu.imgCnt })
+                            .map((_, i) => `${menu.img}${i}.jpeg`)
+                            .map((imgSrc, i) => (
+                                <SquareImage key={i} src={imgSrc} alt={`${menu.name}-${i}`} />
+                            ))}
+                    </Grid>
+                </Card>
+            ))}
         </Container>
     );
-}
+};
+
+

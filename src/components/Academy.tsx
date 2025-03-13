@@ -32,13 +32,14 @@ const Title = styled.h2<MenuProps>`
 
   background: linear-gradient(
     to bottom,
-    rgb(117, 105, 94, 0.6),
+    rgba(117, 105, 94, 0.6),
     rgba(117, 105, 94, 0)
   );
-  background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100% 3px;
+  background-position: bottom;
 `;
+
 
 const Description = styled.p`
   font-size: 15px;
@@ -59,7 +60,6 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img<MenuProps>`
   max-width: 15vw;
-  // width: ${(props) => (props.isDesktop ? "30vw" : "50vw")};
   border-radius: 10px;
 `;
 

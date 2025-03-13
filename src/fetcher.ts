@@ -195,7 +195,7 @@ const menuData: Record<number, IMenu[]> = {
         "애교살에 자연스러운 볼륨감을 더해 밝고 생기 있는 인상을 연출해 줍니다.",
       discount: 0,
       duration: 60,
-      img: "/black/black",
+      img: imageLink + "/eyeline/black/black",
       imgCnt: 4
     },
     {
@@ -206,7 +206,7 @@ const menuData: Record<number, IMenu[]> = {
         "맞춤 컬링 시술로, 개개인의 눈매와 속눈썹 결을 고려한 자연스러운 컬링 효과를 제공합니다.",
       discount: 0,
       duration: 30,
-      img: "/brown/brown",
+      img: imageLink + "/eyeline/brown/brown",
       imgCnt: 3
     },
   ],

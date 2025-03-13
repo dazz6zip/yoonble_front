@@ -1,10 +1,8 @@
-import axios from "axios";
-import main from "../images/main.png";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
-import { AiFillInstagram } from "react-icons/ai";
-import { SocialLinks } from "./Footer";
+import { colors } from "../GlobalStyle";
+import { imageLink } from "../fetcher";
 
 const BackgroundDiv = styled.div`
   width: 100vw;
@@ -31,21 +29,21 @@ const Content = styled.div`
 const Title = styled.h1`
   font-family: "Times New Roman", serif;
   font-size: 60px;
-  color: rgb(114, 100, 92);
+  color: ${colors.brown3};
   margin-bottom: 20px;
   line-height: 1.1;
 `;
 
 const Description = styled.p`
   font-size: 13px;
-  color: rgb(101, 96, 92);
+  color: ${colors.brown2};
   line-height: 1.6;
 `;
 
 const Bold = styled.span`
 font-size: 14px;
   font-weight: bold;
-  color: rgb(80, 70, 65);
+  color: ${colors.brown0};
 `;
 
 const ImgContainer = styled.div`
@@ -58,26 +56,6 @@ const Img = styled.img`
   width: 40vw;
   max-width: 500px;
   object-fit: cover;
-`;
-
-const StyledSocialLinks = styled(SocialLinks)`
-  margin-top: 20px;
-  a {
-    font-size: 14px;
-    font-weight: bold;
-    color: rgb(80, 70, 65);
-    text-decoration: none;
-    gap: 5px;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: rgb(114, 100, 92);
-    }
-  }
-
-  svg {
-    font-size: 20px;
-  }
 `;
 
 export default function Home() {
@@ -105,7 +83,7 @@ export default function Home() {
           </Content>
           {isDesktop && (
             <ImgContainer>
-              <Img src={main} alt="Yoonble Studio" />
+              <Img src={imageLink + "/main.png"} alt="Yoonble Studio" />
             </ImgContainer>
           )}
         </Card>

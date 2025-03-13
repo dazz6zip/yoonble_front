@@ -10,7 +10,11 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
 
 const FAQItem = styled.div`
   padding: 10px 0;

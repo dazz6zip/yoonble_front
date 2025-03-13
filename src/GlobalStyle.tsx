@@ -1,5 +1,17 @@
 import { createGlobalStyle } from "styled-components";
 
+export const colors = {
+  background: "#E6DBD2",
+  footer: "rgb(156, 145, 134)",
+  brown0: "rgb(80, 70, 65)",
+  brown1: "rgb(101, 80, 79)",
+  brown2: "rgb(101, 96, 92)",
+  brown3: "rgb(114, 100, 92)",
+  brown4: "rgb(196, 185, 175)",
+  brown5: "rgb(217, 206, 196)",
+  pink: "rgb(221, 199, 193)"
+}
+
 const GlobalStyle = createGlobalStyle`
   /* 폰트 가져오기 */
   @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
@@ -47,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: flex-start;
     display: flex;
-    background-color:#E6DBD2;
+    background-color: ${colors.background};
     font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
     font-weight: 400;
     font-style: normal;

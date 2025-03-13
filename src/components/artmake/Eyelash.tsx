@@ -3,8 +3,6 @@ import { isDesktopState } from "../../recoil/atom";
 import { useEffect, useState } from "react";
 import { Container, Image } from "../Artmake";
 import { SubTitle } from "../FAQ";
-import styled from "styled-components";
-import { MenuProps } from "../Header";
 import { getMenus, imageLink, IMenu } from "../../fetcher";
 import { DetailWrapper, ImgBox, ImgWrapper } from "./Eyefat";
 

@@ -3,6 +3,7 @@ import img1 from "../images/img1.jpg";
 import img2 from "../images/img4.png";
 import img3 from "../images/img5.jpg";
 import { useEffect, useState } from "react";
+import { colors } from "../GlobalStyle";
 
 const Container = styled.div`
   width: 100%;
@@ -31,9 +32,9 @@ const Image = styled.img`
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: rgb(101, 80, 79);
+  color: ${colors.brown1};
   padding-bottom: 10px;
   margin-bottom: 10px;
   background: linear-gradient(to bottom, rgba(117, 105, 94, 0.6), rgba(117, 105, 94, 0));
@@ -45,7 +46,6 @@ const Title = styled.h2`
 const Description = styled.p`
   font-size: 0.8rem;
   line-height: 1.6;
-  color: #555;
 `;
 
 export default function Shop() {

@@ -49,7 +49,7 @@ const Title = styled.h2<MenuProps>`
 
   background: linear-gradient(
     to bottom,
-    rgb(117, 105, 94, 0.6),
+    rgba(117, 105, 94, 0.6),
     rgba(117, 105, 94, 0)
   );
   background-position: bottom;
@@ -102,7 +102,7 @@ export default function Artist() {
               ✶&nbsp;&nbsp;&nbsp;메이크업 아티스트 출신, 7년 이상의 미용 경력
             </Description>
             <Description>✶&nbsp;&nbsp;&nbsp;아카데미 운영 </Description><br /><br />
-            <ImageS isDesktop={isDesktop} src={imageLink + '/artist/artist0.jpeg'} alt="artist" />
+            {/* <ImageS isDesktop={isDesktop} src={imageLink + '/artist/artist0.jpeg'} alt="artist" /> */}
           </Career>
         </Content>
       </IaC>

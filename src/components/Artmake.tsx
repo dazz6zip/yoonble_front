@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import { getCategories, ICategory } from "../fetcher";
+import { colors } from "../GlobalStyle";
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -31,7 +32,7 @@ export const ContentBox = styled.div<MenuProps>`
   padding: 15px;
   padding-bottom: 5px;
   border-radius: 12px;
-  background-color:rgb(229, 211, 206);
+  background-color:${colors.pink};
   box-shadow: 0px 4px 12px rgba(117, 105, 94, 0.3);
   display: flex;
   flex-direction: column;
@@ -48,7 +49,7 @@ export const ContentBox = styled.div<MenuProps>`
 const Title = styled.h2<MenuProps>`
   font-size: 1.2rem;
   font-weight: bold;
-  color: rgb(101, 80, 79);
+  color: ${colors.brown1};
   padding: 5px 0;
   margin-bottom: 8px;
 
