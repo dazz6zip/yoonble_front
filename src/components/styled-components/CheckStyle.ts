@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import React from "react";
+import { colors } from "../../GlobalStyle";
 
 export const ServiceItemContainer = styled.div`
   display: grid;
   gap: 12px;
-  width: 90%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 900px;
+  min-width: 400px;
   margin: 20px auto;
 
   /* 모바일 (기본) → 1x6 */
@@ -29,7 +31,7 @@ export const ServiceItem = styled.div<{ selected: boolean }>`
   padding: 12px;
   border-radius: 8px;
   background-color: ${({ selected }) =>
-    selected ? "rgb(169, 161, 154)" : "rgb(230, 220, 212)"};
+    selected ? colors.brown4 : colors.pink1};
   color: ${({ selected }) => (selected ? "rgb(241, 235, 227)" : "#666")};
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;

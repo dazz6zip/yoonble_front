@@ -9,21 +9,13 @@ import {
   ServiceItemContainer,
 } from "./styled-components/CheckStyle";
 import React from "react";
-import { SubTitle } from "./FAQ";
-import styled from "styled-components";
+import {
+  MenuDescript,
+  MenuTitle,
+  SubTitle,
+} from "./styled-components/DefaultStyle";
 import { getMenus, IMenu } from "../fetcher";
-
-const Container = styled.div`
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const Contents = styled.div`
-  text-align: center;
-`;
+import { Container, Content } from "./styled-components/DefaultStyle";
 
 export default function Reservation() {
   const navigate = useNavigate();
@@ -53,7 +45,7 @@ export default function Reservation() {
   return (
     <Container>
       <SubTitle>Reservation</SubTitle>
-      <Contents>
+      <Content>
         <ServiceItemContainer>
           {artmakes.map((artmake) => (
             <ServiceItem
@@ -66,9 +58,10 @@ export default function Reservation() {
               ) : (
                 <AiOutlineBorder size={24} />
               )}
-              <span>
-                {artmake.name} ({artmake.duration}분 소요)
-              </span>
+              <MenuTitle>
+                {artmake.name}
+                <MenuDescript>{artmake.duration}분 소요</MenuDescript>
+              </MenuTitle>
             </ServiceItem>
           ))}
         </ServiceItemContainer>
@@ -78,7 +71,7 @@ export default function Reservation() {
         >
           {selectedArts.length > 0 ? "예약하기" : "예약할 시술을 선택해 주세요"}
         </Button>
-      </Contents>
+      </Content>
     </Container>
   );
 }

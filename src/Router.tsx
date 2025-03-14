@@ -11,7 +11,6 @@ import Shop from "./components/Shop";
 import { AnimatePresence, motion } from "framer-motion";
 import { isDesktopState } from "./recoil/atom";
 import { useRecoilValue } from "recoil";
-import { MenuProps } from "./components/Header";
 import About from "./components/About";
 import { Eyefat } from "./components/artmake/Eyefat";
 import { Brow } from "./components/artmake/Brow";
@@ -20,13 +19,13 @@ import { Eyeline } from "./components/artmake/Eyeline";
 import { Lip } from "./components/artmake/Lip";
 import { Mark } from "./components/artmake/Mark";
 import { Scar } from "./components/artmake/Scar";
+import { colors } from "./GlobalStyle";
 
 const MainContainer = styled.div`
   height: 79vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding: 15px 10px 25px 10px; */
   box-sizing: border-box;
 
   overflow: auto;
@@ -36,12 +35,12 @@ const MainContainer = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(135, 121, 108, 0.7);
+    background-color: ${colors.pink2};
     border-radius: 4px;
   }
 
   &::-webkit-scrollbar-track {
-    background-color: rgba(135, 121, 108, 0.2);
+    background-color: ${colors.pink1};
   }
 `;
 

@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export const colors = {
-  background: "#dabbb6",
-  background1: "rgb(230, 217, 214)",
+  background: "#eededc",
+  background1: "rgb(245, 239, 238)",
   footer: "rgb(156, 145, 134, 0.4)",
   brown0: "rgb(80, 70, 65)",
   brown1: "rgb(101, 80, 79)",
@@ -12,9 +12,12 @@ export const colors = {
   brown5: "rgb(217, 206, 196)",
   pink: "rgb(221, 199, 193)",
   pink1: "rgb(231, 217, 212)",
+  pink2: "rgb(192, 151, 140)",
+  pink3: "#bb827b",
   white: "rgb(237, 230, 227)",
   white1: "rgb(237, 230, 227, 0.5)",
-}
+  white2: "rgb(248, 244, 243)",
+};
 
 const GlobalStyle = createGlobalStyle`
   /* 폰트 가져오기 */

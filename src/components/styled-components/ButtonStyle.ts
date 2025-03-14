@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import React from "react";
+import { colors } from "../../GlobalStyle";
 
 export const Button = styled.button`
-  background-color: rgb(135, 118, 110); /* 깊은 브라운 */
-  color: #f5e9dc; /* 부드러운 베이지 */
+  background-color: rgb(167, 155, 143);
+  color: #f5e9dc;
   border: none;
   padding: 12px 20px;
   font-size: 1rem;
@@ -15,7 +16,7 @@ export const Button = styled.button`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    background-color: #4a3228; /* 어두운 브라운 */
+    background-color: rgb(143, 129, 116);
     transform: translateY(-1px);
   }
 
