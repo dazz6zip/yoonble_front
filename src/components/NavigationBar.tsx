@@ -42,7 +42,7 @@ function NavigationBar() {
         <StyledMenu>ABOUT</StyledMenu>
         <StyledMenuItem
           isActive={location.pathname === "/about"}
-          to="/shop"
+          to="/about"
           onClick={closeMenu}
         >
           <CustomIcon>✶</CustomIcon>ABOUT

@@ -10,7 +10,11 @@ import {
   TitleContainer,
   TitleImg,
   MenuItem,
+  DropdownMenu,
+  DropdownItem,
 } from "./styled-components/FooterAndHeaderStyled";
+import { useState } from "react";
+import { AboutProps } from "./styled-components/interface";
 
 interface KakaoLoginResponse {
   redirectUri: string;
@@ -21,6 +25,8 @@ export default function Header() {
   const isDesktop = useRecoilValue(isDesktopState);
   const location = useLocation();
 
+  const [aboutOpen, setAboutOpen] = useState(false);
+
   // const kakaoLogin = async () => {
   //   try {
   //     const response = await axios.get<KakaoLoginResponse>("/api/users/");
@@ -30,6 +36,36 @@ export default function Header() {
   //     console.log("kakao login error: ", error);
   //   }
   // };
+  // return (
+  //   <HeaderContainer isDesktop={isDesktop}>
+  //     <TitleContainer isDesktop={isDesktop}>
+  //       <Link to="/">
+  //         <TitleImg isDesktop={isDesktop} src={logoIcon} alt="Logo" />
+  //       </Link>
+  //     </TitleContainer>
+  //     <Menu isDesktop={isDesktop}>
+  //       &nbsp;
+  //       <MenuItem to="/about" active={location.pathname === "/about"}>
+  //         ABOUT
+  //       </MenuItem>
+  //       <MenuItem to="/artmake" active={location.pathname === "/artmake"}>
+  //         MENU
+  //       </MenuItem>
+  //       <MenuItem to="/faq" active={location.pathname === "/faq"}>
+  //         FAQ
+  //       </MenuItem>
+  //       <MenuItem
+  //         to="/reservation"
+  //         active={location.pathname === "/reservation"}
+  //       >
+  //         BOOKING
+  //       </MenuItem>
+  //       <MenuItem to="/review" active={location.pathname === "/review"}>
+  //         REVIEW
+  //       </MenuItem>
+  //     </Menu>
+  //   </HeaderContainer>
+  // );
   return (
     <HeaderContainer isDesktop={isDesktop}>
       <TitleContainer isDesktop={isDesktop}>
@@ -39,8 +75,35 @@ export default function Header() {
       </TitleContainer>
       <Menu isDesktop={isDesktop}>
         &nbsp;
-        <MenuItem to="/about" active={location.pathname === "/about"}>
+        <MenuItem
+          to=""
+          onMouseEnter={() => setAboutOpen(true)}
+          onMouseLeave={() => setAboutOpen(false)}
+          active={location.pathname.startsWith("/about")}
+        >
           ABOUT
+          {aboutOpen && (
+            <DropdownMenu>
+              <DropdownItem
+                to="/about"
+                state={{ selected: "Yoonble" } as AboutProps}
+              >
+                Yoonble
+              </DropdownItem>
+              <DropdownItem
+                to="/about"
+                state={{ selected: "Artist" } as AboutProps}
+              >
+                Artist
+              </DropdownItem>
+              <DropdownItem
+                to="/about"
+                state={{ selected: "Academy" } as AboutProps}
+              >
+                Academy
+              </DropdownItem>
+            </DropdownMenu>
+          )}
         </MenuItem>
         <MenuItem to="/artmake" active={location.pathname === "/artmake"}>
           MENU
