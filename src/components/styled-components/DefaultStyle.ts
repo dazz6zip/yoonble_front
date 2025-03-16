@@ -99,7 +99,7 @@ export const Question = styled.div<{ isOpen: boolean }>`
   cursor: pointer;
   padding: 10px;
   background: ${({ isOpen }) => (isOpen ? colors.pink : colors.pink1)};
-  color: ${({ isOpen }) => (isOpen ? colors.white2 : "#666")};
+  color: ${({ isOpen }) => (isOpen ? colors.white3 : colors.brown0)};
   width: 80vw;
   max-width: 800px;
   border-radius: 5px;
@@ -107,7 +107,7 @@ export const Question = styled.div<{ isOpen: boolean }>`
 
   &:hover {
     background-color: ${colors.pink};
-    color: ${colors.white};
+    color: ${colors.white2};
   }
 `;
 
