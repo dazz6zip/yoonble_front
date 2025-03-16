@@ -20,11 +20,11 @@ export default function About() {
   const [selectedMenu, setSelectedMenu] = useState<AboutProps>({
     selected: "Yoonble",
   });
+  const { selected } = (location.state as AboutProps) || {};
 
   useEffect(() => {
-    const { selected } = (location.state as AboutProps) || {};
     setSelectedMenu({ selected: selected });
-  }, [selectedMenu]);
+  }, [selected]);
 
   return (
     <Container>

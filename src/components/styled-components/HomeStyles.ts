@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { colors } from "../../GlobalStyle";
+import back from "../../images/back.gif";
 
 export const BackgroundDiv = styled.div`
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(${back});
+  background-size: cover;
   overflow: hidden;
   height: 79vh;
 `;

@@ -27,45 +27,15 @@ export default function Header() {
 
   const [aboutOpen, setAboutOpen] = useState(false);
 
-  // const kakaoLogin = async () => {
-  //   try {
-  //     const response = await axios.get<KakaoLoginResponse>("/api/users/");
-  //     const { clientId, redirectUri } = response.data;
-  //     window.location.href = ``;
-  //   } catch (error) {
-  //     console.log("kakao login error: ", error);
-  //   }
-  // };
-  // return (
-  //   <HeaderContainer isDesktop={isDesktop}>
-  //     <TitleContainer isDesktop={isDesktop}>
-  //       <Link to="/">
-  //         <TitleImg isDesktop={isDesktop} src={logoIcon} alt="Logo" />
-  //       </Link>
-  //     </TitleContainer>
-  //     <Menu isDesktop={isDesktop}>
-  //       &nbsp;
-  //       <MenuItem to="/about" active={location.pathname === "/about"}>
-  //         ABOUT
-  //       </MenuItem>
-  //       <MenuItem to="/artmake" active={location.pathname === "/artmake"}>
-  //         MENU
-  //       </MenuItem>
-  //       <MenuItem to="/faq" active={location.pathname === "/faq"}>
-  //         FAQ
-  //       </MenuItem>
-  //       <MenuItem
-  //         to="/reservation"
-  //         active={location.pathname === "/reservation"}
-  //       >
-  //         BOOKING
-  //       </MenuItem>
-  //       <MenuItem to="/review" active={location.pathname === "/review"}>
-  //         REVIEW
-  //       </MenuItem>
-  //     </Menu>
-  //   </HeaderContainer>
-  // );
+  const kakaoLogin = async () => {
+    try {
+      const response = await axios.get<KakaoLoginResponse>("/api/users/");
+      const { clientId, redirectUri } = response.data;
+      window.location.href = ``;
+    } catch (error) {
+      console.log("kakao login error: ", error);
+    }
+  };
   return (
     <HeaderContainer isDesktop={isDesktop}>
       <TitleContainer isDesktop={isDesktop}>
@@ -76,7 +46,8 @@ export default function Header() {
       <Menu isDesktop={isDesktop}>
         &nbsp;
         <MenuItem
-          to=""
+          to="/about"
+          state={{ selected: "Yoonble" } as AboutProps}
           onMouseEnter={() => setAboutOpen(true)}
           onMouseLeave={() => setAboutOpen(false)}
           active={location.pathname.startsWith("/about")}
