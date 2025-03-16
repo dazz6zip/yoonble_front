@@ -4,7 +4,6 @@ import { FaArrowLeft } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import styled from "styled-components";
 import { isDesktopState } from "../recoil/atom";
 import Translater from "../Translater";
 import {
@@ -13,6 +12,7 @@ import {
   StyledMenu,
   StyledMenuItem,
 } from "./styled-components/HamburgerStyle";
+import { AboutProps } from "./styled-components/interface";
 
 function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,7 +33,7 @@ function NavigationBar() {
           isDesktop ? <></> : <GiHamburgerMenu size={"2.5vw"} />
         }
         customCrossIcon={isDesktop ? <></> : <FaArrowLeft size={"2.5vw"} />}
-        width={isDesktop ? "20vw" : "35vw"} /* 반응형 너비 */
+        width={isDesktop ? "20vw" : "35vw"}
         isOpen={isDesktop ? true : isMenuOpen}
         onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}
         styles={MenuStyles}
@@ -43,6 +43,7 @@ function NavigationBar() {
         <StyledMenuItem
           isActive={location.pathname === "/about"}
           to="/about"
+          state={{ selected: "Yoonble" } as AboutProps}
           onClick={closeMenu}
         >
           <CustomIcon>✶</CustomIcon>ABOUT

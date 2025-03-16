@@ -10,7 +10,7 @@ export const FooterContainer = styled.footer<MenuProps>`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: ${colors.pink1};
+  background-color: ${colors.background};
   opacity: 0.7;
   font-size: 12px;
   padding: 20px 0;

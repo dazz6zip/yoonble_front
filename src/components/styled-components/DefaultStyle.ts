@@ -62,7 +62,7 @@ export const ContentBox = styled.div<MenuProps>`
   padding: 15px;
   padding-bottom: 5px;
   border-radius: 12px;
-  background-color: ${colors.white1};
+  background-color: ${colors.pink4};
   box-shadow: 0px 4px 12px rgba(170, 163, 156, 0.2);
   display: flex;
   flex-direction: column;
@@ -150,8 +150,9 @@ export const Sidebar = styled.div`
 `;
 
 export const MenuItem = styled.h1<{ selected: boolean }>`
-  font-size: 15px;
-  color: ${({ selected }) => (selected ? "#5a4a42" : `${colors.brown3}`)};
+  font-size: ${({ selected }) => (selected ? "1rem" : "0.9rem")};
+  color: ${({ selected }) =>
+    selected ? `${colors.brown0}` : `${colors.brown3}`};
   cursor: pointer;
   transition: color 0.3s ease;
   position: relative;
@@ -161,12 +162,7 @@ export const MenuItem = styled.h1<{ selected: boolean }>`
   }
 
   &::after {
-    content: "";
-    display: ${({ selected }) => (selected ? "block" : "none")};
-    width: 8px;
-    height: 8px;
-    background: ${colors.brown3};
-    border-radius: 50%;
+    content: "✶";
     position: absolute;
     left: -15px;
     top: 50%;
