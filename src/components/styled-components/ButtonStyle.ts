@@ -3,8 +3,8 @@ import React from "react";
 import { colors } from "../../GlobalStyle";
 
 export const Button = styled.button`
-  background-color: rgb(167, 155, 143);
-  color: #f5e9dc;
+  background-color: ${colors.pink};
+  color: ${colors.brown1};
   border: none;
   padding: 12px 20px;
   font-size: 1rem;
@@ -16,8 +16,9 @@ export const Button = styled.button`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    background-color: rgb(143, 129, 116);
+    background-color: ${colors.pink2};
     transform: translateY(-1px);
+    color: ${colors.white};
   }
 
   &:active {

@@ -126,7 +126,7 @@ export const SubTitle = styled.div`
   text-align: center;
   font-family: "Playfair Display";
   font-weight: bold;
-  color: ${colors.brown2};
+  color: ${colors.brown1};
   font-size: 1.7rem;
   margin-top: 1vh;
   margin-bottom: 1vh;
