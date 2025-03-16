@@ -24,7 +24,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: "Times New Roman", serif;
+  font-family: "Playfair Display", serif;
   font-size: 60px;
   color: ${colors.brown3};
   margin-bottom: 20px;
@@ -32,13 +32,13 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  font-size: 13px;
+  font-size: 0.8rem;
   color: ${colors.brown2};
   line-height: 1.6;
 `;
 
 export const Bold = styled.span`
-  font-size: 14px;
+  font-size: 0.8rem;
   font-weight: bold;
   color: ${colors.brown0};
 `;

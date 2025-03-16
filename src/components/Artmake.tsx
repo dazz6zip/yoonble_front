@@ -34,7 +34,7 @@ export default function Artmake() {
 
   return (
     <Container>
-      <SubTitle>MENU</SubTitle>
+      <SubTitle>Menu</SubTitle>
       <ContentWrapper>
         {categories.map((category) => (
           <ContentBox

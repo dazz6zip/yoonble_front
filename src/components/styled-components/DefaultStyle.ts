@@ -32,6 +32,7 @@ export const Title = styled.h2<MenuProps>`
   color: ${colors.brown1};
   padding: 5px 0;
   margin-bottom: 8px;
+  font-family: "Playfair Display";
 
   background: linear -
     gradient(to bottom, rgb(117, 105, 94, 0.6), rgba(117, 105, 94, 0));
@@ -123,7 +124,7 @@ export const Answer = styled.div<{ isOpen: boolean }>`
 
 export const SubTitle = styled.div`
   text-align: center;
-  font-style: italic;
+  font-family: "Playfair Display";
   font-weight: bold;
   color: ${colors.brown2};
   font-size: 1.7rem;

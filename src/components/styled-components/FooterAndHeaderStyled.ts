@@ -83,6 +83,7 @@ export const Menu = styled.div<MenuProps>`
   display: ${(props) => (props.isDesktop ? "flex" : "none")};
   gap: 2vw;
   justify-content: flex-start;
+  font-family: "Playfair Display", serif;
   align-items: center;
 `;
 
