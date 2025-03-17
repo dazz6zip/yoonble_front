@@ -1,0 +1,36 @@
+{
+    "categories": {
+        "brow": {
+            "name": "눈썹",
+            "description": "자연눈썹 | 소프트 콤보 | 섀도우 눈썹"
+        },
+        "lip": {
+            "name": "입술",
+            "description": "블러링 립"
+        },
+        "eyefat": {
+            "name": "애교살",
+            "description": "애교살 음영"
+        },
+        "eyelash": {
+            "name": "속눈썹",
+            "description": "윤블펌 | 케라틴 영양펌"
+        },
+        "eyeline": {
+            "name": "아이라인",
+            "description": "실크 아이라인 | 아이돌 브라운 라인"
+        },
+        "mark": {
+            "name": "점",
+            "description": "컨설팅 미인점"
+        },
+        "scar": {
+            "name": "흉터 커버",
+            "description": "잔흔 및 흉터 관리"
+        },
+        "hairline": {
+            "name": "헤어라인",
+            "description": "승무원 헤어라인 교정"
+        }
+    }
+}

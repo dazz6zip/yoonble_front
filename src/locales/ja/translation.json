@@ -1,0 +1,36 @@
+{
+    "categories": {
+        "brow": {
+            "name": "眉毛",
+            "description": "ナチュラル｜ソフトコンボ｜シャドウ眉"
+        },
+        "lip": {
+            "name": "リップ",
+            "description": "ぼかしリップ"
+        },
+        "eyefat": {
+            "name": "涙袋",
+            "description": "涙袋の陰影｜立体感アップ"
+        },
+        "eyelash": {
+            "name": "まつ毛",
+            "description": "ユンブルパーマ｜ケラチン栄養パーマ"
+        },
+        "eyeline": {
+            "name": "アイライン",
+            "description": "ナチュラルアイライン｜アイドルブラウンライン"
+        },
+        "mark": {
+            "name": "ほくろ",
+            "description": "美人ほくろコンサルティング"
+        },
+        "scar": {
+            "name": "傷跡カバー",
+            "description": "傷跡や色素沈着のケア"
+        },
+        "hairline": {
+            "name": "ヘアライン",
+            "description": "客室乗務員スタイルのヘアライン"
+        }
+    }
+}

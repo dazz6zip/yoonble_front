@@ -1,0 +1,36 @@
+{
+    "categories": {
+        "brow": {
+            "name": "眉毛",
+            "description": "自然眉｜柔和眉｜雾眉"
+        },
+        "lip": {
+            "name": "唇部",
+            "description": "雾感渐变唇"
+        },
+        "eyefat": {
+            "name": "卧蚕",
+            "description": "卧蚕阴影打造"
+        },
+        "eyelash": {
+            "name": "睫毛",
+            "description": "允宝烫睫｜角蛋白滋养烫"
+        },
+        "eyeline": {
+            "name": "眼线",
+            "description": "半永久眼线"
+        },
+        "mark": {
+            "name": "美人痣",
+            "description": "定制美人痣咨询"
+        },
+        "scar": {
+            "name": "疤痕遮盖",
+            "description": "疤痕修复和遮盖管理"
+        },
+        "hairline": {
+            "name": "发际线",
+            "description": "空姐发际线设计"
+        }
+    }
+}

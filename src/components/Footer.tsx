@@ -70,7 +70,7 @@ function Footer() {
         </a>
         <a href="mailto:lovellehyo@gmail.com" target="_blank">
           <MdEmail />
-          website.&nbsp;&nbsp; lovellehyo@gmail.com
+          website.&nbsp;&nbsp; we.develop.your@gmail.com
         </a>
       </SocialLinks>
       <Copyright isDesktop={isDesktop}>© 2025 YOONBLE</Copyright>

@@ -1,3 +1,5 @@
+import { t } from "i18next";
+
 export const imageLink = 'https://d206helh22e0a3.cloudfront.net/images';
 
 export interface ICategory {
@@ -36,73 +38,77 @@ export const getCategories = async (): Promise<ICategory[]> => {
     const categories: ICategory[] = [
       {
         id: 1,
-        name: "눈썹",
-        img: imageLink + "/brow/brow.jpeg",
-        src: imageLink + "/brow",
-        description: "자연 | 소프트 콤보 | 섀도우 눈썹",
+        name: t("categories.brow.name"),
+        img: `${imageLink}/brow/brow.jpeg`,
+        src: `${imageLink}/brow`,
+        description: t("categories.brow.description"),
         path: "brow",
-        menus: [] // getMenus()에서 가져올 예정
+        menus: []
       },
       {
         id: 2,
-        name: "립",
-        img: imageLink + "/lip/lip.jpeg",
-        src: imageLink + "/lip",
-        description: "블러링 립",
+        name: t("categories.lip.name"),
+        img: `${imageLink}/lip/lip.jpeg`,
+        src: `${imageLink}/lip`,
+        description: t("categories.lip.description"),
         path: "lip",
         menus: []
       },
       {
         id: 3,
-        name: "애교살",
-        img: imageLink + "/eyefat/eyefat.jpeg",
-        src: imageLink + "/eyefat",
-        description: "애교살 음영 라인 | 물광 하이라이터",
+        name: t("categories.eyefat.name"),
+        img: `${imageLink}/eyefat/eyefat.jpeg`,
+        src: `${imageLink}/eyefat`,
+        description: t("categories.eyefat.description"),
         path: "eyefat",
         menus: []
       },
       {
         id: 4,
-        name: "속눈썹",
-        img: imageLink + "/eyelash/perm.jpeg",
-        description: "윤블펌 | 케라틴 영양펌",
+        name: t("categories.eyelash.name"),
+        img: `${imageLink}/eyelash/perm.jpeg`,
+        src: `${imageLink}/eyelash`,
+        description: t("categories.eyelash.description"),
         path: "eyelash",
-        src: imageLink + '/eyelash',
         menus: []
-      }, {
+      },
+      {
         id: 5,
-        name: "아이라인",
-        img: imageLink + "/eyeline/eyeline.jpeg",
-        src: imageLink + '/eyeline',
-        description: "실크 아이라인 | 아이돌 브라운 라인",
+        name: t("categories.eyeline.name"),
+        img: `${imageLink}/eyeline/eyeline.jpeg`,
+        src: `${imageLink}/eyeline`,
+        description: t("categories.eyeline.description"),
         path: "eyeline",
         menus: []
-      }, {
+      },
+      {
         id: 6,
-        name: "점",
-        img: imageLink + "/mark/mark.jpeg",
-        src: imageLink + '/brow',
-        description: "컨설팅 미인점",
+        name: t("categories.mark.name"),
+        img: `${imageLink}/mark/mark.jpeg`,
+        src: `${imageLink}/mark`,
+        description: t("categories.mark.description"),
         path: "mark",
         menus: []
-      }, {
+      },
+      {
         id: 7,
-        name: "잔흔",
-        img: imageLink + "/scar/scar.jpeg",
-        description: "잔흔 제거",
+        name: t("categories.scar.name"),
+        img: `${imageLink}/scar/scar.jpeg`,
+        src: `${imageLink}/scar`,
+        description: t("categories.scar.description"),
         path: "scar",
-        src: imageLink + '/scar',
         menus: []
-      }, {
+      },
+      {
         id: 8,
-        name: "헤어라인",
-        img: imageLink + "/hairline/hairline0.jpeg",
-        src: imageLink + '/hairline',
-        description: "승무원 헤어라인",
+        name: t("categories.hairline.name"),
+        img: `${imageLink}/hairline/hairline0.jpeg`,
+        src: `${imageLink}/hairline`,
+        description: t("categories.hairline.description"),
         path: "hairline",
         menus: []
       }
-    ]
+    ];
     return categories;
   } catch (err) {
     console.error(err);

@@ -7,6 +7,7 @@ import { isDesktopState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import { getCategories, ICategory } from "../fetcher";
 import { colors } from "../GlobalStyle";
+import { useTranslation } from "react-i18next";
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -83,19 +84,20 @@ export default function Artmake() {
   const [imageStates, setImageStates] = useState<string[]>([]);
   const isDesktop = useRecoilValue(isDesktopState);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
+  // 언어가 바뀔 때마다 재호출
   useEffect(() => {
     const fetchData = async () => {
       try {
         const fetchedCategories = await getCategories();
         setCategories(fetchedCategories);
-        // setImageStates(fetchedCategories.map(() => img1));
       } catch (err) {
         console.error("artmakes 불러오기 실패: ", err);
       }
     };
     fetchData();
-  }, []);
+  }, [t, i18n.language]); // <- t 또는 언어 변경 시 재호출
 
   return (
     <Container>

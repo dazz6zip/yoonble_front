@@ -9,3 +9,5 @@
 `npm install react-icons`
 `npm install dayjs`
 `npm install framer-motion`
+`npm install react-i18next i18next --legacy-peer-deps`
+

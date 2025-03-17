@@ -1,0 +1,36 @@
+{
+    "categories": {
+        "brow": {
+            "name": "Eyebrows",
+            "description": "Natural | Soft Combo | Shadow Brows"
+        },
+        "lip": {
+            "name": "Lip",
+            "description": "Blurring Lips"
+        },
+        "eyefat": {
+            "name": "Under-eye Highlight",
+            "description": "Eye-bag Contouring"
+        },
+        "eyelash": {
+            "name": "Eyelashes",
+            "description": "Yoonble Perm | Keratin Lash Lift"
+        },
+        "eyeline": {
+            "name": "Eyeliner",
+            "description": "Natural Eyeliner | Defined Liner"
+        },
+        "mark": {
+            "name": "Beauty Mark",
+            "description": "Customized Beauty Mark Consultation"
+        },
+        "scar": {
+            "name": "Scar Coverage",
+            "description": "Scar and Blemish Management"
+        },
+        "hairline": {
+            "name": "Hairline",
+            "description": "Airline Hairline Styling"
+        }
+    }
+}
