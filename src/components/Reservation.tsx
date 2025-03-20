@@ -12,6 +12,7 @@ import React from "react";
 import { SubTitle } from "./FAQ";
 import styled from "styled-components";
 import { getMenus, IMenu } from "../fetcher";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   max-width: 90%;
@@ -26,6 +27,7 @@ const Contents = styled.div`
 `;
 
 export default function Reservation() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [artmakes, setArtmakes] = useState<IMenu[]>([]);
   const [selectedArts, setSelectedArts] = useRecoilState(selectedArtsState);
@@ -67,7 +69,7 @@ export default function Reservation() {
                 <AiOutlineBorder size={24} />
               )}
               <span>
-                {artmake.name} ({artmake.duration}분 소요)
+                {t(artmake.name)} ({artmake.duration}분 소요)
               </span>
             </ServiceItem>
           ))}

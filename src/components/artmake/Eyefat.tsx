@@ -5,6 +5,7 @@ import { Container, Image } from "../Artmake";
 import { SubTitle } from "../FAQ";
 import styled from "styled-components";
 import { getMenus, IMenu } from "../../fetcher";
+import { useTranslation } from "react-i18next";
 
 export const DetailWrapper = styled.div`
   display: flex;
@@ -42,6 +43,7 @@ export const ImgBox = styled.div`
 `;
 
 export function Eyefat() {
+    const { t } = useTranslation();
     const isDesktop = useRecoilValue(isDesktopState);
     const [menu, setMenu] = useState<IMenu | null>(null);
     const eyefatImgLink = "https://d206helh22e0a3.cloudfront.net/images/eyefat";
@@ -64,8 +66,8 @@ export function Eyefat() {
 
     return (
         <Container>
-            <SubTitle>{menu.name}</SubTitle>
-            <DetailWrapper>{menu.description}</DetailWrapper>
+            <SubTitle>{t(menu.name)}</SubTitle>
+            <DetailWrapper>{t(menu.description)}</DetailWrapper>
             <ImgWrapper>
                 {Array.from({ length: menu.imgCnt }, (_, i) => (
                     <ImgBox key={i}>

@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { isDesktopState } from "../recoil/atom";
-import { useTranslation } from "react-i18next";
+import Translator from "../Translator";
 
 export const StyledMenu = styled.div`
   display: block;
@@ -81,11 +81,6 @@ function NavigationBar() {
   const isDesktop = useRecoilValue(isDesktopState);
   const location = useLocation();
   const BurgerMenu = Menu as React.ComponentType<BurgerMenuProps>;
-  const { t, i18n } = useTranslation();
-
-  const changeLang = (lang: string) => {
-    i18n.changeLanguage(lang);
-  }
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -153,11 +148,8 @@ function NavigationBar() {
         <br />
         <StyledMenuItem isActive={location.pathname === ""} to="">
         </StyledMenuItem>
+        <Translator />
       </BurgerMenu>
-      <button onClick={() => changeLang('en')}>English</button>
-      <button onClick={() => changeLang('ko')}>한국어</button>
-      <button onClick={() => changeLang('ja')}>일본어</button>
-      <button onClick={() => changeLang('zh')}>중국어</button>
     </>
   );
 }

@@ -3,9 +3,7 @@ import styled from "styled-components";
 import logoIcon from "../images/yb_logo_icon.png";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
-import img from "../images/kakao_login_small.png";
-import axios from "axios";
-import { colors } from "../GlobalStyle";
+import Translator from "../Translator";
 
 export interface MenuProps {
   isDesktop: boolean;
@@ -99,6 +97,7 @@ export default function Header() {
         <MenuItem to="/review" active={location.pathname === "/review"}>
           REVIEW
         </MenuItem>
+        <Translator />
       </Menu>
     </HeaderContainer>
   );

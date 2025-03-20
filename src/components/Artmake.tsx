@@ -84,7 +84,7 @@ export default function Artmake() {
   const [imageStates, setImageStates] = useState<string[]>([]);
   const isDesktop = useRecoilValue(isDesktopState);
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   // 언어가 바뀔 때마다 재호출
   useEffect(() => {
@@ -97,7 +97,7 @@ export default function Artmake() {
       }
     };
     fetchData();
-  }, [t, i18n.language]); // <- t 또는 언어 변경 시 재호출
+  }, [t]); // <- t 또는 언어 변경 시 재호출
 
   return (
     <Container>
@@ -110,8 +110,8 @@ export default function Artmake() {
               src={category.img}
               alt={category.name}
             />
-            <Title isDesktop={isDesktop}>{category.name}</Title>
-            <Description>{category.description}</Description>
+            <Title isDesktop={isDesktop}>{t(category.name)}</Title>
+            <Description>{t(category.description)}</Description>
           </ContentBox>
         ))}
       </ContentWrapper>
