@@ -1,10 +1,24 @@
-export interface IArtmake {
+export const imageLink = 'https://d206helh22e0a3.cloudfront.net/images';
+
+export interface ICategory {
+  id: number;
+  name: string;
+  img: string; // 카테고리 대표 이미지 링크 1개
+  src: string; // 카테고리별 이미지 링크
+  description: string;
+  path: string;
+  menus: IMenu[];
+}
+
+export interface IMenu {
   id: number;
   name: string;
   price: number;
   description: string;
   discount: number;
   duration: number;
+  img?: string; // 카테고리 내 메뉴별 이미지 링크
+  imgCnt: number; // 메뉴별 이미지 개수
 }
 
 // export const getArtmakes = async (): Promise<IArtmake[]> => {
@@ -17,75 +31,228 @@ export interface IArtmake {
 //   }
 // };
 
-export interface IArtmake {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  discount: number;
-  duration: number;
-}
-
-export const getArtmakes = async (): Promise<IArtmake[]> => {
+export const getCategories = async (): Promise<ICategory[]> => {
   try {
-    // 임시 데이터 반환 (백엔드 통신 없이)
-    const mockData: IArtmake[] = [
+    const categories: ICategory[] = [
       {
         id: 1,
-        name: "눈썹타투",
-        price: 150,
-        description:
-          "개인의 모발 흐름 구조를 정밀 분석한 후 초미세 마이크로 니들을 활용하여 한 올 한 올 정교하게 그려넣는 증모 효과 기술입니다.",
-        discount: 0,
-        duration: 60,
+        name: "categories.brow.name",
+        img: `${imageLink}/brow/brow.jpeg`,
+        src: `${imageLink}/brow`,
+        description: "categories.brow.description",
+        path: "brow",
+        menus: []
       },
       {
         id: 2,
-        name: "립아트",
-        price: 200,
-        description:
-          "입술에 자연스럽고 생기 있는 색감을 부여하여 건강하고 또렷한 인상을 연출하는 시술입니다.",
-        discount: 0,
-        duration: 120,
+        name: "categories.lip.name",
+        img: `${imageLink}/lip/lip.jpeg`,
+        src: `${imageLink}/lip`,
+        description: "categories.lip.description",
+        path: "lip",
+        menus: []
       },
       {
         id: 3,
-        name: "미인점",
-        price: 50,
-        description:
-          "얼굴의 조화를 이루고 인상을 더욱 돋보이게 해주는 반영구 시술입니다.",
-        discount: 0,
-        duration: 10,
+        name: "categories.eyefat.name",
+        img: `${imageLink}/eyefat/eyefat.jpeg`,
+        src: `${imageLink}/eyefat`,
+        description: "categories.eyefat.description",
+        path: "eyefat",
+        menus: []
       },
       {
         id: 4,
-        name: "헤어라인",
-        price: 180,
-        description:
-          "한 올 한 올 정교하게 결을 살려 그려 넣는 헤어라인 시술입니다.",
-        discount: 0,
-        duration: 60,
+        name: "categories.eyelash.name",
+        img: `${imageLink}/eyelash/perm.jpeg`,
+        src: `${imageLink}/eyelash`,
+        description: "categories.eyelash.description",
+        path: "eyelash",
+        menus: []
       },
       {
         id: 5,
-        name: "애교살타투",
-        price: 100,
-        description:
-          "애교살에 자연스러운 볼륨감을 더해 밝고 생기 있는 인상을 연출해 줍니다.",
-        discount: 0,
-        duration: 60,
+        name: "categories.eyeline.name",
+        img: `${imageLink}/eyeline/eyeline.jpeg`,
+        src: `${imageLink}/eyeline`,
+        description: "categories.eyeline.description",
+        path: "eyeline",
+        menus: []
       },
       {
         id: 6,
-        name: "속눈썹펌",
-        price: 80,
-        description:
-          "맞춤 컬링 시술로, 개개인의 눈매와 속눈썹 결을 고려한 자연스러운 컬링 효과를 제공합니다.",
-        discount: 0,
-        duration: 30,
+        name: "categories.mark.name",
+        img: `${imageLink}/mark/mark.jpeg`,
+        src: `${imageLink}/mark`,
+        description: "categories.mark.description",
+        path: "mark",
+        menus: []
       },
+      {
+        id: 7,
+        name: "categories.scar.name",
+        img: `${imageLink}/scar/scar.jpeg`,
+        src: `${imageLink}/scar`,
+        description: "categories.scar.description",
+        path: "scar",
+        menus: []
+      },
+      {
+        id: 8,
+        name: "categories.hairline.name",
+        img: `${imageLink}/hairline/hairline0.jpeg`,
+        src: `${imageLink}/hairline`,
+        description: "categories.hairline.description",
+        path: "hairline",
+        menus: []
+      }
     ];
-    return mockData;
+    return categories;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
+
+const menuData: Record<number, IMenu[]> = {
+  1: [
+    {
+      id: 1,
+      name: "menu.1.natural_brow.name",
+      price: 150,
+      description: "menu.1.natural_brow.description",
+      discount: 0,
+      duration: 60,
+      img: `${imageLink}/brow/natural/natural`,
+      imgCnt: 4
+    },
+    {
+      id: 2,
+      name: "menu.1.soft_combo_brow.name",
+      price: 200,
+      description: "menu.1.soft_combo_brow.description",
+      discount: 0,
+      duration: 120,
+      img: `${imageLink}/brow/combo/combo`,
+      imgCnt: 20
+    },
+    {
+      id: 3,
+      name: "menu.1.shadow_brow.name",
+      price: 50,
+      description: "menu.1.shadow_brow.description",
+      discount: 0,
+      duration: 10,
+      img: `${imageLink}/brow/shadow/shadow`,
+      imgCnt: 15
+    }
+  ],
+  2: [
+    {
+      id: 4,
+      name: "menu.2.blurring_lip.name",
+      price: 180,
+      description: "menu.2.blurring_lip.description",
+      discount: 0,
+      duration: 60,
+      imgCnt: 11
+    }
+  ],
+  3: [
+    {
+      id: 8,
+      name: "menu.3.aegyo_sal.name",
+      price: 80,
+      description: "menu.3.aegyo_sal.description",
+      discount: 0,
+      duration: 30,
+      imgCnt: 10
+    }
+  ],
+  4: [
+    {
+      id: 9,
+      name: "menu.4.yoonble_perm.name",
+      price: 80,
+      description: "menu.4.yoonble_perm.description",
+      discount: 0,
+      duration: 30,
+      imgCnt: 11
+    },
+    {
+      id: 10,
+      name: "menu.4.keratin_lash.name",
+      price: 80,
+      description: "menu.4.keratin_lash.description",
+      discount: 0,
+      duration: 30,
+      imgCnt: 0
+    }
+  ],
+  5: [
+    {
+      id: 5,
+      name: "menu.5.silk_eyeliner.name",
+      price: 100,
+      description: "menu.5.silk_eyeliner.description",
+      discount: 0,
+      duration: 60,
+      img: `${imageLink}/eyeline/black/black`,
+      imgCnt: 4
+    },
+    {
+      id: 6,
+      name: "menu.5.idol_brown_line.name",
+      price: 80,
+      description: "menu.5.idol_brown_line.description",
+      discount: 0,
+      duration: 30,
+      img: `${imageLink}/eyeline/brown/brown`,
+      imgCnt: 3
+    }
+  ],
+  6: [
+    {
+      id: 11,
+      name: "menu.6.beauty_mark.name",
+      price: 80,
+      description: "menu.6.beauty_mark.description",
+      discount: 0,
+      duration: 30,
+      img: "/spot/",
+      imgCnt: 5
+    }
+  ],
+  7: [
+    {
+      id: 12,
+      name: "menu.7.scar_removal.name",
+      price: 80,
+      description: "menu.7.scar_removal.description",
+      discount: 0,
+      duration: 30,
+      imgCnt: 2
+    }
+  ],
+  8: [
+    {
+      id: 7,
+      name: "menu.8.crew_hairline.name",
+      price: 80,
+      description: "menu.8.crew_hairline.description",
+      discount: 0,
+      duration: 30,
+      imgCnt: 1
+    }
+  ]
+};
+
+export const getMenus = async (categoryId?: number): Promise<IMenu[]> => {
+  try {
+    if (categoryId !== undefined) {
+      return menuData[categoryId] || [];
+    }
+    return Object.values(menuData).flat();
   } catch (err) {
     console.error(err);
     throw err;

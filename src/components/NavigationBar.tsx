@@ -6,24 +6,24 @@ import { Link, useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { isDesktopState } from "../recoil/atom";
-import Translater from "../Translater";
+import Translator from "../Translator";
 
 export const StyledMenu = styled.div`
   display: block;
   text-decoration: none;
   color: rgb(241, 235, 227);
-  font-size: 20px;
+  font-size: 15px;
   padding-left: 1vw;
   margin-top: 3vh;
   margin-bottom: 2vh;
 `;
 
-export const StyledMenuItem = styled(Link)<{ isActive: boolean }>`
+export const StyledMenuItem = styled(Link) <{ isActive: boolean }>`
   display: block;
   text-decoration: none;
   color: ${(props) =>
     props.isActive ? "rgb(241, 235, 227)" : "rgb(221, 208, 199)"};
-  font-size: ${(props) => (props.isActive ? "1rem" : "0.9rem")};
+  font-size: ${(props) => (props.isActive ? "0.8rem" : "0.7rem")};
   padding-left: 2vw;
   margin-top: 2vh;
   margin-bottom: 2vh;
@@ -91,23 +91,23 @@ function NavigationBar() {
   return (
     <>
       <BurgerMenu
-  customBurgerIcon={
-    isDesktop ? <></> : <GiHamburgerMenu size={"2.5vw"} />
-  }
-  customCrossIcon={isDesktop ? <></> : <FaArrowLeft size={"2.5vw"} />}
-  width={isDesktop ? "20vw" : "35vw"} /* 반응형 너비 */
-  isOpen={isDesktop ? true : isMenuOpen}
-  onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}
-  styles={MenuStyles}
->
+        customBurgerIcon={
+          isDesktop ? <></> : <GiHamburgerMenu size={"2.5vw"} />
+        }
+        customCrossIcon={isDesktop ? <></> : <FaArrowLeft size={"2.5vw"} />}
+        width={isDesktop ? "20vw" : "35vw"} /* 반응형 너비 */
+        isOpen={isDesktop ? true : isMenuOpen}
+        onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}
+        styles={MenuStyles}
+      >
         <br />
         <StyledMenu>ABOUT</StyledMenu>
         <StyledMenuItem
-          isActive={location.pathname === "/shop"}
+          isActive={location.pathname === "/about"}
           to="/shop"
           onClick={closeMenu}
         >
-          <CustomIcon>✶</CustomIcon>SHOP
+          <CustomIcon>✶</CustomIcon>ABOUT
         </StyledMenuItem>
         <StyledMenuItem
           isActive={location.pathname === "/artist"}
@@ -147,8 +147,8 @@ function NavigationBar() {
         </StyledMenuItem>
         <br />
         <StyledMenuItem isActive={location.pathname === ""} to="">
-          <Translater />
         </StyledMenuItem>
+        <Translator />
       </BurgerMenu>
     </>
   );

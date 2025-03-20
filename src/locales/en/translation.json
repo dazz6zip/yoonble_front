@@ -1,0 +1,158 @@
+{
+    "categories": {
+        "brow": {
+            "name": "Eyebrow",
+            "description": "Enhance your natural beauty with our precision eyebrow artistry."
+        },
+        "lip": {
+            "name": "Lips",
+            "description": "Achieve perfectly defined and naturally tinted lips."
+        },
+        "eyefat": {
+            "name": "Aegyo-sal Contouring",
+            "description": "Add volume and a youthful glow to your under-eye area."
+        },
+        "eyelash": {
+            "name": "Eyelash Perm",
+            "description": "Create a long-lasting curl that enhances your eye shape."
+        },
+        "eyeline": {
+            "name": "Eyeliner",
+            "description": "Define your eyes with a precise, natural-looking liner."
+        },
+        "mark": {
+            "name": "Beauty Spot",
+            "description": "Add a touch of elegance with a custom beauty mark."
+        },
+        "scar": {
+            "name": "Scar Cover",
+            "description": "Conceal scars seamlessly with our expert pigmentation techniques."
+        },
+        "hairline": {
+            "name": "Hairline Microblading",
+            "description": "Achieve a fuller, more youthful hairline with natural shading."
+        }
+    },
+    "shop": {
+        "about": {
+            "description": "Our premium studio combines world-class design expertise with precision artistry. Led by professional makeup artists, we provide custom designs that highlight each client’s unique features. Experience unmatched quality and meticulous craftsmanship."
+        },
+        "design": {
+            "description": "Our lead artist personally oversees every step, from consultation to final application, ensuring perfection. We analyze facial structure and aesthetics to create the most flattering design tailored to you. With attention to detail and expert techniques, we deliver refined and harmonious results."
+        },
+        "reservation": {
+            "description": "Located in a luxurious penthouse in Gangnam, our private studio offers an exclusive and relaxing experience. Enjoy a serene setting while receiving top-tier service. We operate by appointment only, guaranteeing personalized care. Convenient transportation is available, including a direct airport bus stop at our doorstep."
+        }
+    },
+    "artist": {
+        "description": "With refined technique and artistic sensibility, I create natural and sophisticated beauty.",
+        "qualifications": [
+            "Certified National Makeup Artist",
+            "Extensive experience in Korea and Japan",
+            "Judge for International Art Makeup Contests",
+            "Award-winning artist in International Art Makeup Contests",
+            "Over 7 years of experience as a beauty professional and former makeup artist",
+            "Academy instructor"
+        ]
+    },
+    "academy": {
+        "description1": "Yoonble Academy offers an elite, small-group, personalized training program tailored to each individual's skill level. We provide an intensive, hands-on 1:1 training experience for those who are truly dedicated to mastering the craft, ensuring immediate practical application in real-world scenarios.",
+        "description2": "Our structured programs include a startup course that provides comprehensive guidance from beginning to end, and a specialized eyebrow course focusing on advanced techniques. Whether you're just starting in semi-permanent makeup or an experienced artist looking to refine your skills, our systematic approach ensures professional growth without unnecessary trial and error."
+    },
+    "menu": {
+        "1": {
+            "natural_brow": {
+                "name": "Natural Brow",
+                "description": "Using micro-fine needles, this technique meticulously draws each strand to create a natural and fuller eyebrow appearance."
+            },
+            "soft_combo_brow": {
+                "name": "Soft Combo Brow",
+                "description": "A hybrid technique that combines natural eyebrow strokes with soft shading to fill in sparse areas and add depth."
+            },
+            "shadow_brow": {
+                "name": "Shadow Brow",
+                "description": "A soft gradient shading technique that creates a misty, airbrushed effect for a naturally enhanced look."
+            }
+        },
+        "2": {
+            "blurring_lip": {
+                "name": "Blurring Lip",
+                "description": "A treatment that enhances your lips with a natural, vibrant tint for a healthy and well-defined appearance."
+            }
+        },
+        "3": {
+            "aegyo_sal": {
+                "name": "Aegyo-sal Contouring",
+                "description": "A technique that adds natural volume to the under-eye area, creating a bright and youthful expression."
+            }
+        },
+        "4": {
+            "yoonble_perm": {
+                "name": "Yoonble Perm",
+                "description": "A customized curling treatment that enhances the natural shape of your eyes and lashes."
+            },
+            "keratin_lash": {
+                "name": "Keratin Lash Treatment",
+                "description": "A nourishing keratin treatment that strengthens and conditions your lashes while providing a natural curl."
+            }
+        },
+        "5": {
+            "silk_eyeliner": {
+                "name": "Silk Eyeliner",
+                "description": "A precise, natural-looking eyeliner that enhances the eyes with subtle definition."
+            },
+            "idol_brown_line": {
+                "name": "Idol Brown Line",
+                "description": "A soft brown eyeliner technique designed to create a youthful and delicate eye makeup effect."
+            }
+        },
+        "6": {
+            "beauty_mark": {
+                "name": "Beauty Mark",
+                "description": "A semi-permanent beauty mark procedure designed to enhance facial features with elegance."
+            }
+        },
+        "7": {
+            "scar_removal": {
+                "name": "Scar Removal",
+                "description": "A specialized treatment that reduces the appearance of scars using advanced pigmentation techniques."
+            }
+        },
+        "8": {
+            "crew_hairline": {
+                "name": "Crew Hairline",
+                "description": "A meticulous hairline procedure that enhances facial harmony with precise, natural strokes."
+            }
+        }
+    },
+    "faq": {
+        "1": {
+            "question": "How long does the treatment last?",
+            "answer": "The longevity of semi-permanent procedures varies depending on skin type, lifestyle, and skin regeneration cycle. Typically, results last around 8 months to 1.5 years. As the color naturally fades, you can get a touch-up as needed."
+        },
+        "2": {
+            "question": "Will it look natural immediately after the procedure?",
+            "answer": "Immediately after the procedure, the color may appear darker, and there may be swelling or a peeling process. It generally looks natural within 7 to 10 days."
+        },
+        "3": {
+            "question": "Is the procedure painful?",
+            "answer": "Pain tolerance varies among individuals, but most people feel little to no pain. Some may experience a slight tingling or itching sensation, but it is generally bearable."
+        },
+        "4": {
+            "question": "Can I wear makeup before my appointment? When can I wear makeup after the procedure?",
+            "answer": "You can wear makeup when visiting, as we assist with cleansing the treatment area. (However, for eyelash perm treatments, eye makeup must be removed beforehand.) After the procedure, makeup can be applied the same day, avoiding the treated area."
+        },
+        "5": {
+            "question": "Is a touch-up necessary after the procedure?",
+            "answer": "A touch-up is optional, depending on personal preference. Since peeling varies for each individual, if you want a darker shade or need corrections after the first procedure, a touch-up is recommended."
+        },
+        "6": {
+            "question": "Are there any cases where the procedure is not possible?",
+            "answer": "Pregnant or breastfeeding individuals may not retain the pigment properly due to hormonal changes, and their skin may be more sensitive. Additionally, those who have had plastic surgery within the past six months should consult a doctor before scheduling an appointment."
+        },
+        "7": {
+            "question": "Can I change the design or color of an existing semi-permanent procedure?",
+            "answer": "This depends on the current condition of the previous procedure. Most cases can be corrected with a neutralization cover-up, but in some cases, removal and reapplication may be recommended."
+        }
+    }
+}

@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { AiOutlineBorder, AiOutlineCheckSquare } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { getArtmakes, IArtmake } from "../fetcher";
-import img1 from "../images/Notice.png";
 import { selectedArtsState } from "../recoil/atom";
 import { Button } from "./styled-components/ButtonStyle";
 import {
@@ -13,6 +11,8 @@ import {
 import React from "react";
 import { SubTitle } from "./FAQ";
 import styled from "styled-components";
+import { getMenus, IMenu } from "../fetcher";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   max-width: 90%;
@@ -27,12 +27,13 @@ const Contents = styled.div`
 `;
 
 export default function Reservation() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
-  const [artmakes, setArtmakes] = useState<IArtmake[]>([]);
+  const [artmakes, setArtmakes] = useState<IMenu[]>([]);
   const [selectedArts, setSelectedArts] = useRecoilState(selectedArtsState);
 
   // some(): 배열 속 존재 여부 반환
-  const toggleSelection = (artmake: IArtmake) => {
+  const toggleSelection = (artmake: IMenu) => {
     setSelectedArts((prevItems) =>
       prevItems.some((item) => item.id === artmake.id)
         ? prevItems.filter((item) => item.id !== artmake.id)
@@ -43,7 +44,7 @@ export default function Reservation() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setArtmakes(await getArtmakes());
+        setArtmakes(await getMenus());
       } catch (err) {
         console.error("artmakes 불러오기 실패: ", err);
       }
@@ -53,9 +54,8 @@ export default function Reservation() {
 
   return (
     <Container>
-      <SubTitle>예약하기</SubTitle>
+      <SubTitle>Reservation</SubTitle>
       <Contents>
-        <img width={"300"} src={img1} alt="Logo" />
         <ServiceItemContainer>
           {artmakes.map((artmake) => (
             <ServiceItem
@@ -69,7 +69,7 @@ export default function Reservation() {
                 <AiOutlineBorder size={24} />
               )}
               <span>
-                {artmake.name} ({artmake.duration}분 소요)
+                {t(artmake.name)} ({artmake.duration}분 소요)
               </span>
             </ServiceItem>
           ))}
