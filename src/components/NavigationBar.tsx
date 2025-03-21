@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
-import Translater from "../Translater";
+import Translator from "../Translator";
 import {
   CustomIcon,
   MenuStyles,
@@ -86,8 +86,8 @@ function NavigationBar() {
         </StyledMenuItem>
         <br />
         <StyledMenuItem isActive={location.pathname === ""} to="">
-          <Translater />
         </StyledMenuItem>
+        <Translator />
       </BurgerMenu>
     </>
   );

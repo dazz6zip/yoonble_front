@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { getMenus, IMenu } from "../../fetcher";
 import { isDesktopState } from "../../recoil/atom";
 import { colors } from "../../GlobalStyle";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   display: flex;
@@ -83,6 +84,7 @@ const PageButton = styled.button<{ disabled: boolean }>`
 
 export function Brow() {
   const isDesktop = useRecoilValue(isDesktopState);
+  const { t } = useTranslation();
   const [menus, setMenu] = useState<IMenu[]>([]);
   const [currentPages, setCurrentPages] = useState<number[]>([]);
 
@@ -124,9 +126,9 @@ export function Brow() {
 
         return (
           <Card>
-            <Title>{menu.name}</Title>
+            <Title>{t(menu.name)}</Title>
             <CircleImage src={menu.img + ".png"} alt="Circle" />
-            <Description>{menu.description}</Description>
+            <Description>{t(menu.description)}</Description>
             <Grid>
               {Array.from({ length: menu.imgCnt })
                 .map((_, i) => `${menu.img}${i}.jpeg`)
@@ -159,5 +161,4 @@ export function Brow() {
     </Container>
   );
 };
-
 

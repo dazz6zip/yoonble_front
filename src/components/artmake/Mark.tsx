@@ -5,6 +5,7 @@ import { Container, Image, SubTitle } from "../styled-components/DefaultStyle";
 import styled from "styled-components";
 import { getMenus, imageLink, IMenu } from "../../fetcher";
 import { DetailWrapper, ImgBox } from "./Eyefat";
+import { useTranslation } from "react-i18next";
 
 export const ImgWrapper = styled.div`
   display: flex;
@@ -15,8 +16,9 @@ export const ImgWrapper = styled.div`
 `;
 
 export function Mark() {
+  const { t } = useTranslation();
   const isDesktop = useRecoilValue(isDesktopState);
-  const link = imageLink + "/mark/mark";
+  const link = imageLink + '/mark/mark';
   const [menu, setMenus] = useState<IMenu>();
 
   useEffect(() => {
@@ -32,16 +34,12 @@ export function Mark() {
   }, []);
 
   if (!menu) {
-    return (
-      <Container>
-        <SubTitle>미인점 시술 정보를 불러올 수 없습니다.</SubTitle>
-      </Container>
-    );
+    return <Container><SubTitle>미인점 시술 정보를 불러올 수 없습니다.</SubTitle></Container>;
   }
   return (
     <Container>
-      <SubTitle>{menu.name}</SubTitle>
-      <DetailWrapper>{menu.description}</DetailWrapper>
+      <SubTitle>{t(menu.name)}</SubTitle>
+      <DetailWrapper>{t(menu.description)}</DetailWrapper>
       <ImgWrapper>
         {Array.from({ length: menu.imgCnt }, (_, i) => (
           <ImgBox key={i}>
