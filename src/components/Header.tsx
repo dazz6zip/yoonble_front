@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import logoIcon from "../images/yb_logo_icon.png";
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
+import Translator from "../Translator";
 import img from "../images/kakao_login_small.png";
 import axios from "axios";
 import {
@@ -91,6 +92,7 @@ export default function Header() {
         <MenuItem to="/review" active={location.pathname === "/review"}>
           REVIEW
         </MenuItem>
+        <Translator />
       </Menu>
     </HeaderContainer>
   );

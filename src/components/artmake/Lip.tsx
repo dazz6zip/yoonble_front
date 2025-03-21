@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getMenus, imageLink, IMenu } from "../../fetcher";
 import { DetailWrapper, ImgBox } from "./Eyefat";
+import { useTranslation } from "react-i18next";
 import { Container, Image, SubTitle } from "../styled-components/DefaultStyle";
 
 export const ImgWrapper = styled.div`
@@ -31,8 +32,9 @@ export const ImgWrapper = styled.div`
 // `;
 
 export function Lip() {
+  const { t } = useTranslation();
   const isDesktop = useRecoilValue(isDesktopState);
-  const link = imageLink + "/lip/lip";
+  const link = imageLink + '/lip/lip';
   const [menu, setMenus] = useState<IMenu>();
 
   useEffect(() => {
@@ -48,16 +50,12 @@ export function Lip() {
   }, []);
 
   if (!menu) {
-    return (
-      <Container>
-        <SubTitle>입술 시술 정보를 불러올 수 없습니다.</SubTitle>
-      </Container>
-    );
+    return <Container><SubTitle>입술 시술 정보를 불러올 수 없습니다.</SubTitle></Container>;
   }
   return (
     <Container>
-      <SubTitle>{menu.name}</SubTitle>
-      <DetailWrapper>{menu.description}</DetailWrapper>
+      <SubTitle>{t(menu.name)}</SubTitle>
+      <DetailWrapper>{t(menu.description)}</DetailWrapper>
       <ImgWrapper>
         {Array.from({ length: menu.imgCnt }, (_, i) => (
           <ImgBox key={i}>

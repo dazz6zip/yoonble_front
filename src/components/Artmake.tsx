@@ -12,10 +12,12 @@ import {
   SubTitle,
   Title,
 } from "./styled-components/DefaultStyle";
+import { useTranslation } from "react-i18next";
 
 export default function Artmake() {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [imageStates, setImageStates] = useState<string[]>([]);
+  const { t } = useTranslation();
   const isDesktop = useRecoilValue(isDesktopState);
   const navigate = useNavigate();
 
@@ -37,14 +39,14 @@ export default function Artmake() {
       <SubTitle>Menu</SubTitle>
       <ContentWrapper>
         {categories.map((category) => (
-          <ContentBox
-            isDesktop={isDesktop}
-            key={category.id}
-            onClick={() => navigate(category.path)}
-          >
-            <MenuImage src={category.img} alt={category.name} />
-            <Title isDesktop={isDesktop}>{category.name}</Title>
-            <Description>{category.description}</Description>
+          <ContentBox isDesktop={isDesktop} key={category.id}
+            onClick={() => navigate(category.path)}>
+            <MenuImage
+              src={category.img}
+              alt={category.name}
+            />
+            <Title isDesktop={isDesktop}>{t(category.name)}</Title>
+            <Description>{t(category.description)}</Description>
           </ContentBox>
         ))}
       </ContentWrapper>

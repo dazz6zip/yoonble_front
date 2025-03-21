@@ -8,16 +8,13 @@ import {
   ServiceItem,
   ServiceItemContainer,
 } from "./styled-components/CheckStyle";
-import React from "react";
-import {
-  MenuDescript,
-  MenuTitle,
-  SubTitle,
-} from "./styled-components/DefaultStyle";
+import { SubTitle } from "./styled-components/DefaultStyle";
 import { getMenus, IMenu } from "../fetcher";
+import { useTranslation } from "react-i18next";
 import { Container, Content } from "./styled-components/DefaultStyle";
 
 export default function Reservation() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [artmakes, setArtmakes] = useState<IMenu[]>([]);
   const [selectedArts, setSelectedArts] = useRecoilState(selectedArtsState);
@@ -58,10 +55,9 @@ export default function Reservation() {
               ) : (
                 <AiOutlineBorder size={24} />
               )}
-              <MenuTitle>
-                {artmake.name}
-                <MenuDescript>{artmake.duration}분 소요</MenuDescript>
-              </MenuTitle>
+              <span>
+                {t(artmake.name)} ({artmake.duration}분)
+              </span>
             </ServiceItem>
           ))}
         </ServiceItemContainer>
