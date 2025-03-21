@@ -8,6 +8,7 @@ import {
   IaC,
   Image,
   ImageWrapper,
+  ProfileImage,
   Title,
 } from "./styled-components/DefaultStyle";
 import { imageLink } from "../fetcher";
@@ -19,7 +20,7 @@ export default function Artist() {
     <Container>
       <IaC isDesktop={isDesktop}>
         <ImageWrapper>
-          <Image
+          <ProfileImage
             isDesktop={isDesktop}
             src={imageLink + "/artist/artist.jpg"}
             alt="artist"
@@ -39,21 +40,16 @@ export default function Artist() {
             ✶&nbsp;&nbsp;&nbsp;한국/일본에서 최다 시술 경험 보유
           </Description>
           <Career>
-            {/* <Year>2025</Year> */}
             <Description>
               ✶&nbsp;&nbsp;&nbsp;국제 아트메이크 콘테스트 심사위원
             </Description>
             <Description>
               ✶&nbsp;&nbsp;&nbsp;국제 아트메이크 콘테스트 수상 경력
             </Description>
-            {/* <Year>2024</Year> */}
             <Description>
               ✶&nbsp;&nbsp;&nbsp;메이크업 아티스트 출신, 7년 이상의 미용 경력
             </Description>
             <Description>✶&nbsp;&nbsp;&nbsp;아카데미 운영 </Description>
-            <br />
-            <br />
-            {/* <ImageS isDesktop={isDesktop} src={imageLink + '/artist/artist0.jpeg'} alt="artist" /> */}
           </Career>
         </Content>
       </IaC>

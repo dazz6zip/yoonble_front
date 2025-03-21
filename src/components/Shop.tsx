@@ -1,14 +1,15 @@
 import img1 from "../images/img1.jpg";
 import img2 from "../images/img4.png";
 import img3 from "../images/img5.jpg";
+import video from "../images/yb.mp4";
 import { useEffect, useState } from "react";
 import {
   Container,
   Content,
   Description,
-  ImageWrapper,
   Title,
-  Image,
+  Video,
+  VideoWrapper,
 } from "./styled-components/DefaultStyle";
 
 export default function Shop() {
@@ -24,8 +25,14 @@ export default function Shop() {
 
   return (
     <Container>
+      <VideoWrapper>
+        <Video autoPlay muted loop>
+          <source src={video} type="video/mp4"></source>
+        </Video>
+      </VideoWrapper>
       <Content>
         <Title>About</Title>
+
         <Description>
           세계적 수준의 디자인 감각과 정교한 기술력을 갖춘 프리미엄 디자인
           컨설팅 아트메이크 스튜디오입니다. 메이크업 아티스트 출신의 전문가가
@@ -33,9 +40,6 @@ export default function Shop() {
           있습니다. 한 사람 한 사람의 개성과 아름다움을 극대화하는 맞춤형
           아트메이크로, 차원이 다른 품격을 경험하세요.
         </Description>
-        <br />
-        <br />
-        <br />
 
         <Title>Design</Title>
         <Description>
@@ -45,9 +49,6 @@ export default function Shop() {
           디자인을 제안합니다. 고객님의 취향을 세심하게 반영한 맞춤 컨설팅과
           전문적인 심미적 접근을 통해, 완성도 높은 결과를 약속드립니다.
         </Description>
-        <br />
-        <br />
-        <br />
 
         <Title>1:1 예약제</Title>
         <Description>
@@ -59,9 +60,6 @@ export default function Shop() {
           편리하게 하차하실 수 있습니다.
         </Description>
       </Content>
-      <ImageWrapper>
-        <Image src={images[currentImage]} alt="shop" />
-      </ImageWrapper>
     </Container>
   );
 }

@@ -59,7 +59,7 @@ export const HeaderContainer = styled.div<MenuItemProps>`
   height: ${(props) => (props.isDesktop ? "12vh" : "9vh")};
   display: flex;
   align-items: center;
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", "Noto Sans", "Noto Sans KR", sans-serif;
   width: 100%;
   padding: ${(props) => (props.isDesktop ? "1vh 0" : "0")};
   border-bottom: 1px solid #cfb3a6;

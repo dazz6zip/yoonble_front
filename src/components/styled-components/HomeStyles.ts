@@ -27,7 +27,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", "Noto Sans", "Noto Sans KR", sans-serif;
   font-size: 60px;
   color: ${colors.brown3};
   margin-bottom: 20px;

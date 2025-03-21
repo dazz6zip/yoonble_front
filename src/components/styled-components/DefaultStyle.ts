@@ -32,7 +32,7 @@ export const Title = styled.h2<MenuProps>`
   color: ${colors.brown1};
   padding: 5px 0;
   margin-bottom: 8px;
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", "Noto Sans", "Noto Sans KR", sans-serif;
 
   background: linear -
     gradient(to bottom, rgb(117, 105, 94, 0.6), rgba(117, 105, 94, 0));
@@ -44,16 +44,8 @@ export const Title = styled.h2<MenuProps>`
 export const Description = styled.p`
   font-size: 0.8rem;
   color: #555;
-  text-align: center;
+  line-height: 1.5;
   margin-bottom: 20px;
-`;
-
-export const Image = styled.img<{ isDesktop?: boolean }>`
-  border-radius: 10px;
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  margin-bottom: 15px;
 `;
 
 export const ContentBox = styled.div<MenuProps>`
@@ -78,7 +70,8 @@ export const ContentBox = styled.div<MenuProps>`
 
 export const Content = styled.div<{ isDesktop?: boolean }>`
   display: flex;
-  width: 70%;
+  width: 100%;
+
   flex-direction: column;
   gap: 15px;
 `;
@@ -124,7 +117,7 @@ export const Answer = styled.div<{ isOpen: boolean }>`
 
 export const SubTitle = styled.div`
   text-align: center;
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", "Noto Sans", "Noto Sans KR", sans-serif;
   font-weight: bold;
   color: ${colors.brown1};
   font-size: 1.7rem;
@@ -137,6 +130,10 @@ export const Card = styled.div`
   align-items: stretch;
   width: 80%;
   overflow: hidden;
+  @media (max-width: 780px) {
+    display: block;
+    padding-top: 10px;
+  }
 `;
 
 export const Sidebar = styled.div`
@@ -147,6 +144,19 @@ export const Sidebar = styled.div`
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
+
+  @media (max-width: 780px) {
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    gap: 50px;
+    height: auto;
+    background-color: ${colors.pink1};
+    border-radius: 50px;
+    margin: 0 auto;
+  }
 `;
 
 export const MenuItem = styled.h1<{ selected: boolean }>`
@@ -154,7 +164,7 @@ export const MenuItem = styled.h1<{ selected: boolean }>`
   color: ${({ selected }) =>
     selected ? `${colors.brown0}` : `${colors.brown3}`};
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
 
   &:hover {
@@ -176,25 +186,74 @@ export const ContentArea = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 780px) {
+    padding: 20px;
+  }
 `;
 
 export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding-right: 15px;
+  @media (min-width: 900px) {
+    width: 100%;
+    padding-right: 30px;
+  }
+`;
+
+export const Image = styled.img<{ isDesktop?: boolean }>`
+  border-radius: 10px;
+  width: 100%;
+  height: 20vh;
+  min-height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  @media (max-width: 900px) {
+    width: 20vw;
+    height: auto;
+  }
+`;
+
+export const ProfileImage = styled.img<{ isDesktop?: boolean }>`
+  border-radius: 10px;
+  width: 100%;
+  height: 20vh;
+  min-height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  @media (min-width: 900px) {
+    min-width: 300px;
+    height: auto;
+  }
+`;
+
+export const VideoWrapper = styled.div`
+  width: 100%;
+  aspect-ratio: 16/9;
+`;
+
+export const Video = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 `;
 
 export const ImageS = styled.img<MenuProps>`
   max-width: 200px;
-  width: ${(props) => (props.isDesktop ? "15vw" : "40vw")};
+  width: 100%;
+  height: auto;
   border-radius: 10px;
 `;
 
 export const Career = styled.div``;
 
 export const IaC = styled.div<MenuProps>`
-  display: ${(props) => (props.isDesktop ? "flex" : "block")};
+  display: block;
+  width: 100%;
+  @media (min-width: 900px) {
+    display: flex;
+  }
 `;
 
 export const MenuTitle = styled.div``;
