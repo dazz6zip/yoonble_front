@@ -12,6 +12,7 @@ export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -23,7 +24,7 @@ export const ContentWrapper = styled.div`
   flex-wrap: wrap;
   gap: 20px 40px;
   justify-content: center;
-  width: 100%;
+  width: 80%;
 `;
 
 export const Title = styled.h2<MenuProps>`
@@ -71,9 +72,12 @@ export const ContentBox = styled.div<MenuProps>`
 export const Content = styled.div<{ isDesktop?: boolean }>`
   display: flex;
   width: 100%;
-
   flex-direction: column;
   gap: 15px;
+
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 `;
 
 export const FAQItem = styled.div`
@@ -137,7 +141,7 @@ export const Card = styled.div`
 `;
 
 export const Sidebar = styled.div`
-  width: 10vw;
+  width: 100px;
   height: 20vh;
   padding: 40px 20px;
   display: flex;
@@ -198,6 +202,24 @@ export const ImageWrapper = styled.div`
   @media (min-width: 900px) {
     width: 100%;
     padding-right: 30px;
+  }
+`;
+
+export const AcademyWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+`;
+
+export const MenuImage = styled.img<{ isDesktop?: boolean }>`
+  border-radius: 10px;
+  width: 100%;
+  height: 20vh;
+  min-height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  @media (max-width: 780px) {
+    height: 40vh;
   }
 `;
 

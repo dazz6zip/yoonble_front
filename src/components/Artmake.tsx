@@ -8,7 +8,7 @@ import {
   ContentBox,
   ContentWrapper,
   Description,
-  Image,
+  MenuImage,
   SubTitle,
   Title,
 } from "./styled-components/DefaultStyle";
@@ -42,7 +42,7 @@ export default function Artmake() {
             key={category.id}
             onClick={() => navigate(category.path)}
           >
-            <Image src={category.img} alt={category.name} />
+            <MenuImage src={category.img} alt={category.name} />
             <Title isDesktop={isDesktop}>{category.name}</Title>
             <Description>{category.description}</Description>
           </ContentBox>

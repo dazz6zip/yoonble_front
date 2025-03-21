@@ -7,7 +7,7 @@ import {
   Content,
   Description,
   Image,
-  ImageWrapper,
+  AcademyWrapper,
   Title,
 } from "./styled-components/DefaultStyle";
 
@@ -15,7 +15,7 @@ export default function Academy() {
   const isDesktop = useRecoilValue(isDesktopState);
   return (
     <Container>
-      <ImageWrapper>
+      <AcademyWrapper>
         <Image
           isDesktop={isDesktop}
           src={imageLink + "/academy/0.jpeg"}
@@ -31,7 +31,7 @@ export default function Academy() {
           src={imageLink + "/academy/2.jpeg"}
           alt="shop"
         />
-      </ImageWrapper>
+      </AcademyWrapper>
       <Content isDesktop={isDesktop}>
         <Title isDesktop={isDesktop}>Academy</Title>
         <Description>
