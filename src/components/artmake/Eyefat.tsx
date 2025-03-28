@@ -1,10 +1,11 @@
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../../recoil/atom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { getMenus, IMenu } from "../../fetcher";
 import { useTranslation } from "react-i18next";
 import { Container, Image, SubTitle } from "../styled-components/DefaultStyle";
+import { ImageSliderModal } from "../../ImageModal";
 
 export const DetailWrapper = styled.div`
   display: flex;
@@ -45,6 +46,10 @@ export function Eyefat() {
   const { t } = useTranslation();
   const isDesktop = useRecoilValue(isDesktopState);
   const [menu, setMenu] = useState<IMenu | null>(null);
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const eyefatImgLink = "https://d206helh22e0a3.cloudfront.net/images/eyefat";
 
   useEffect(() => {
@@ -58,6 +63,18 @@ export function Eyefat() {
     };
     fetchMenu();
   }, []);
+
+  useEffect(() => {
+    if (menu) {
+      const urls = Array.from({ length: menu.imgCnt }, (_, i) => `${eyefatImgLink}/eyefat${i}.jpeg`);
+      setImageUrls(urls);
+    }
+  }, [menu]);
+
+  const handleImageClick = (index: number) => {
+    setSelectedIndex(index);
+    setIsModalOpen(true);
+  };
 
   if (!menu) {
     return (
@@ -73,7 +90,7 @@ export function Eyefat() {
       <DetailWrapper>{t(menu.description)}</DetailWrapper>
       <ImgWrapper>
         {Array.from({ length: menu.imgCnt }, (_, i) => (
-          <ImgBox key={i}>
+          <ImgBox key={i} onClick={() => handleImageClick(i)}>
             <Image
               src={`${eyefatImgLink}/eyefat${i}.jpeg`}
               alt={`${menu.name} 이미지 ${i + 1}`}
@@ -81,6 +98,14 @@ export function Eyefat() {
           </ImgBox>
         ))}
       </ImgWrapper>
+      <ImageSliderModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={t(menu.name)}
+        images={imageUrls}
+        initialIndex={selectedIndex}
+      />
     </Container>
+
   );
 }
