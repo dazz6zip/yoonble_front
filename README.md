@@ -10,4 +10,4 @@
 `npm install dayjs`
 `npm install framer-motion`
 `npm install react-i18next i18next --legacy-peer-deps`
-
+`npm install react-modal react-slick slick-carousel --legacy-peer-deps`
