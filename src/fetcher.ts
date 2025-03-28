@@ -21,6 +21,12 @@ export interface IMenu {
   imgCnt: number; // 메뉴별 이미지 개수
 }
 
+export interface IReview {
+  id: number;
+  language: string;
+  img: string;
+}
+
 // export const getArtmakes = async (): Promise<IArtmake[]> => {
 //   try {
 //     const response = await axios.get<IArtmake[]>("/api/artmake");
@@ -113,6 +119,8 @@ export const getCategories = async (): Promise<ICategory[]> => {
     throw err;
   }
 };
+
+
 
 const menuData: Record<number, IMenu[]> = {
   1: [
@@ -258,3 +266,26 @@ export const getMenus = async (categoryId?: number): Promise<IMenu[]> => {
     throw err;
   }
 };
+
+
+export const getReviews = async (): Promise<IReview[]> => {
+  try {
+    const reviews: IReview[] = [];
+    const languages = ['ko', 'ja'];
+
+    languages.forEach((lang) => {
+      for (let i = 0; i < 29; i++) { // 둘 다 28까지 존재..!
+        reviews.push({
+          id: reviews.length,
+          img: `${imageLink}/review/${lang}/${i}.jpeg`,
+          language: lang,
+        });
+      }
+    });
+    return reviews;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
+

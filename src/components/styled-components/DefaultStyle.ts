@@ -73,6 +73,7 @@ export const Content = styled.div<{ isDesktop?: boolean }>`
   display: flex;
   width: 100%;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
 
   align-items: center;
