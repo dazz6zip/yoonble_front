@@ -80,6 +80,7 @@ export const Content = styled.div<{ isDesktop?: boolean }>`
   display: flex;
   width: 70%;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
 `;
 
