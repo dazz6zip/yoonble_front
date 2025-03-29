@@ -79,10 +79,19 @@ export const TitleImg = styled.img<MenuItemProps>`
 
 export const Menu = styled.div<MenuItemProps>`
   display: ${(props) => (props.isDesktop ? "flex" : "none")};
+  align-items: center;
+  justify-content: space-between; 
   gap: 2vw;
+  width: 100%;
+  padding-right: 3rem;
 `;
 
-export const MenuItem = styled(Link)<{ active: boolean }>`
+export const MenuItemContainer = styled.div`
+  display: flex;
+  gap: 1.5rem
+`
+
+export const MenuItem = styled(Link) <{ active: boolean }>`
   position: relative;
   font-size: 0.8rem;
   font-weight: ${(props) => (props.active ? "bold" : "normal")};
