@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { getMenus, IMenu } from "../../fetcher";
 import { useTranslation } from "react-i18next";
 import { Container, Image, SubTitle } from "../styled-components/DefaultStyle";
-import { ImageSliderModal } from "../../ImageModal";
+import { ImageSliderModal } from "../ImageModal";
 
 export const DetailWrapper = styled.div`
   display: flex;

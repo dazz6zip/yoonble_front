@@ -1,10 +1,9 @@
 import Modal from "react-modal";
 import Slider from "react-slick";
 import { useRef, useEffect, useState } from "react";
-import { CloseButtonTopRight, ModalImage, modalStyles, ModalTitle, NextButton, PrevButton } from "./components/styled-components/ImageModalStyle";
+import { CloseButtonTopRight, ModalImage, modalStyles, ModalTitle, NextButton, PrevButton } from "./styled-components/ImageModalStyle";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { IMenu } from "./fetcher";
 
 interface ImageSliderModalProps {
     isOpen: boolean;
@@ -52,4 +51,5 @@ export function ImageSliderModal({ isOpen, onClose, title, images, initialIndex 
         </Modal>
     );
 }
+
 
