@@ -26,7 +26,6 @@ export default function Artmake() {
       try {
         const fetchedCategories = await getCategories();
         setCategories(fetchedCategories);
-        // setImageStates(fetchedCategories.map(() => img1));
       } catch (err) {
         console.error("artmakes 불러오기 실패: ", err);
       }
@@ -35,11 +34,7 @@ export default function Artmake() {
   }, []);
 
   const handleNavigation = (path: string) => {
-    if (path === "brow" || path === "eyeline") {
-      navigate(path);
-    } else {
-      navigate("general", { state: { path } });
-    }
+    navigate((path === "brow" || path === "eyeline") ? path : `general/${path}`);
   };
 
   return (

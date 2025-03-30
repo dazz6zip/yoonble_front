@@ -1,12 +1,12 @@
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../../recoil/atom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getMenus, imageLink, IMenu } from "../../fetcher";
 import { useTranslation } from "react-i18next";
 import { Container, Image, SubTitle } from "../styled-components/DefaultStyle";
 import { ImageSliderModal } from "../ImageModal";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const DetailWrapper = styled.div`
   display: flex;
@@ -46,8 +46,7 @@ export const ImgBox = styled.div`
 export function Common() {
   const { t } = useTranslation();
   const isDesktop = useRecoilValue(isDesktopState);
-  const location = useLocation();
-  const { path } = location.state || {};
+  const { path } = useParams();
   const [menu, setMenu] = useState<IMenu>();
   const link = `${imageLink}/${path}/${path}`;
   const [imageUrls, setImageUrls] = useState<string[]>([]);
@@ -58,7 +57,7 @@ export function Common() {
     const fetchMenu = async () => {
       try {
         const fetchedMenu = await getMenus(path);
-        if (fetchedMenu) setMenu(fetchedMenu[0]); // 애교살은 메뉴가 1개뿐
+        if (fetchedMenu) setMenu(fetchedMenu[0]);
       } catch (err) {
         console.error("메뉴 데이터 로딩 실패:", err);
       }
