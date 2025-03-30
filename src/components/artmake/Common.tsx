@@ -2,10 +2,11 @@ import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../../recoil/atom";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { getMenus, IMenu } from "../../fetcher";
+import { getMenus, imageLink, IMenu } from "../../fetcher";
 import { useTranslation } from "react-i18next";
 import { Container, Image, SubTitle } from "../styled-components/DefaultStyle";
 import { ImageSliderModal } from "../ImageModal";
+import { useLocation } from "react-router-dom";
 
 export const DetailWrapper = styled.div`
   display: flex;
@@ -42,21 +43,22 @@ export const ImgBox = styled.div`
   }
 `;
 
-export function Eyefat() {
+export function Common() {
   const { t } = useTranslation();
   const isDesktop = useRecoilValue(isDesktopState);
-  const [menu, setMenu] = useState<IMenu | null>(null);
+  const location = useLocation();
+  const { path } = location.state || {};
+  const [menu, setMenu] = useState<IMenu>();
+  const link = `${imageLink}/${path}/${path}`;
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const eyefatImgLink = "https://d206helh22e0a3.cloudfront.net/images/eyefat";
-
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const fetchedMenus = await getMenus(3);
-        if (fetchedMenus.length > 0) setMenu(fetchedMenus[0]); // 애교살은 메뉴가 1개뿐
+        const fetchedMenu = await getMenus(path);
+        if (fetchedMenu) setMenu(fetchedMenu[0]); // 애교살은 메뉴가 1개뿐
       } catch (err) {
         console.error("메뉴 데이터 로딩 실패:", err);
       }
@@ -66,7 +68,7 @@ export function Eyefat() {
 
   useEffect(() => {
     if (menu) {
-      const urls = Array.from({ length: menu.imgCnt }, (_, i) => `${eyefatImgLink}/eyefat${i}.jpeg`);
+      const urls = Array.from({ length: menu.imgCnt }, (_, i) => `${link}${i}.jpeg`);
       setImageUrls(urls);
     }
   }, [menu]);
@@ -78,9 +80,7 @@ export function Eyefat() {
 
   if (!menu) {
     return (
-      <Container>
-        <SubTitle>애교살 시술 정보를 불러올 수 없습니다.</SubTitle>
-      </Container>
+      <Container><SubTitle>시술 정보를 불러올 수 없습니다.</SubTitle></Container>
     );
   }
 
@@ -92,7 +92,7 @@ export function Eyefat() {
         {Array.from({ length: menu.imgCnt }, (_, i) => (
           <ImgBox key={i} onClick={() => handleImageClick(i)}>
             <Image
-              src={`${eyefatImgLink}/eyefat${i}.jpeg`}
+              src={`${link}${i}.jpeg`}
               alt={`${menu.name} 이미지 ${i + 1}`}
             />
           </ImgBox>

@@ -70,7 +70,7 @@ export const getCategories = async (): Promise<ICategory[]> => {
       {
         id: 4,
         name: "categories.eyelash.name",
-        img: `${imageLink}/eyelash/perm.jpeg`,
+        img: `${imageLink}/eyelash/eyelash.jpeg`,
         src: `${imageLink}/eyelash`,
         description: "categories.eyelash.description",
         path: "eyelash",

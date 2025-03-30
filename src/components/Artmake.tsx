@@ -34,13 +34,21 @@ export default function Artmake() {
     fetchData();
   }, []);
 
+  const handleNavigation = (path: string) => {
+    if (path === "brow" || path === "eyeline") {
+      navigate(path);
+    } else {
+      navigate("general", { state: { path } });
+    }
+  };
+
   return (
     <Container>
       <SubTitle>Menu</SubTitle>
       <ContentWrapper>
         {categories.map((category) => (
           <ContentBox isDesktop={isDesktop} key={category.id}
-            onClick={() => navigate(category.path)}>
+            onClick={() => handleNavigation(category.path)}>
             <MenuImage
               src={category.img}
               alt={category.name}
