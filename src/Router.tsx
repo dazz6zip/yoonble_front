@@ -7,19 +7,12 @@ import Faq from "./components/FAQ";
 import Home from "./components/Home";
 import Reservation from "./components/Reservation";
 import Review from "./components/Review";
-import Shop from "./components/Shop";
 import { AnimatePresence, motion } from "framer-motion";
-import { isDesktopState } from "./recoil/atom";
-import { useRecoilValue } from "recoil";
 import About from "./components/About";
-import { Eyefat } from "./components/artmake/Eyefat";
 import { Brow } from "./components/artmake/Brow";
-import { Eyelash } from "./components/artmake/Eyelash";
 import { Eyeline } from "./components/artmake/Eyeline";
-import { Lip } from "./components/artmake/Lip";
-import { Mark } from "./components/artmake/Mark";
-import { Scar } from "./components/artmake/Scar";
 import { colors } from "./GlobalStyle";
+import { Common } from "./components/artmake/Common";
 
 const MainContainer = styled.div`
   height: 79vh;
@@ -73,12 +66,8 @@ export default function Router() {
               <Route path="/artist" element={<Artist />} />
               <Route path="/artmake" element={<Artmake />} />
               <Route path="/artmake/brow" element={<Brow />} />
-              <Route path="/artmake/eyefat" element={<Eyefat />} />
               <Route path="/artmake/eyeline" element={<Eyeline />} />
-              <Route path="/artmake/eyelash" element={<Eyelash />} />
-              <Route path="/artmake/lip" element={<Lip />} />
-              <Route path="/artmake/mark" element={<Mark />} />
-              <Route path="/artmake/scar" element={<Scar />} />
+              <Route path="/artmake/general" element={<Common />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/reservation" element={<Reservation />} />
               <Route path="/review" element={<Review />} />

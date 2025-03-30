@@ -5,6 +5,7 @@ import { getMenus, IMenu } from "../../fetcher";
 import { isDesktopState } from "../../recoil/atom";
 import { colors } from "../../GlobalStyle";
 import { useTranslation } from "react-i18next";
+import { ImageSliderModal } from "../ImageModal";
 
 const Container = styled.div`
   display: flex;
@@ -88,10 +89,14 @@ export function Brow() {
   const [menus, setMenu] = useState<IMenu[]>([]);
   const [currentPages, setCurrentPages] = useState<number[]>([]);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const fetchedMenus = await getMenus(1);
+        const fetchedMenus = await getMenus('brow');
         if (fetchedMenus.length > 0) {
           setMenu(fetchedMenus);
           setCurrentPages(new Array(fetchedMenus.length).fill(0)); // 모든 카드 페이지를 0으로 초기화
@@ -102,6 +107,13 @@ export function Brow() {
     };
     fetchMenu();
   }, [])
+
+  const handleImageClick = (menuIndex: number, imageIndex: number) => {
+    setSelectedMenuIndex(menuIndex);
+    setSelectedImageIndex(imageIndex);
+    setIsModalOpen(true);
+  };
+
 
   const changePage = (cardIndex: number, direction: "prev" | "next") => {
     setCurrentPages((prev) => {
@@ -133,9 +145,11 @@ export function Brow() {
               {Array.from({ length: menu.imgCnt })
                 .map((_, i) => `${menu.img}${i}.jpeg`)
                 .slice(currentPage * 4, (currentPage + 1) * 4)
-                .map((imgSrc, i) => (
-                  <SquareImage key={i} src={imgSrc} alt={`${menu.name}-${i}`} />
-                ))}
+                .map((imgSrc, i) => {
+                  return (
+                    <SquareImage key={i} src={imgSrc} alt={`${menu.name}-${i}`}
+                      onClick={() => handleImageClick(index, i)} />)
+                })}
             </Grid>
 
             {totalPages > 1 && (
@@ -158,6 +172,17 @@ export function Brow() {
           </Card>
         );
       })}
+
+      {selectedMenuIndex !== null && (
+        <ImageSliderModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title={t(menus[selectedMenuIndex].name)}
+          images={Array.from({ length: menus[selectedMenuIndex].imgCnt }, (_, i) => `${menus[selectedMenuIndex].img}${i}.jpeg`)}
+          initialIndex={selectedImageIndex}
+        />
+      )}
+
     </Container>
   );
 };

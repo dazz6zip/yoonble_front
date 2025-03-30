@@ -26,7 +26,6 @@ export default function Artmake() {
       try {
         const fetchedCategories = await getCategories();
         setCategories(fetchedCategories);
-        // setImageStates(fetchedCategories.map(() => img1));
       } catch (err) {
         console.error("artmakes 불러오기 실패: ", err);
       }
@@ -34,13 +33,17 @@ export default function Artmake() {
     fetchData();
   }, []);
 
+  const handleNavigation = (path: string) => {
+    navigate((path === "brow" || path === "eyeline") ? path : `general/${path}`);
+  };
+
   return (
     <Container>
       <SubTitle>Menu</SubTitle>
       <ContentWrapper>
         {categories.map((category) => (
           <ContentBox isDesktop={isDesktop} key={category.id}
-            onClick={() => navigate(category.path)}>
+            onClick={() => handleNavigation(category.path)}>
             <MenuImage
               src={category.img}
               alt={category.name}

@@ -70,7 +70,7 @@ export const getCategories = async (): Promise<ICategory[]> => {
       {
         id: 4,
         name: "categories.eyelash.name",
-        img: `${imageLink}/eyelash/perm.jpeg`,
+        img: `${imageLink}/eyelash/eyelash.jpeg`,
         src: `${imageLink}/eyelash`,
         description: "categories.eyelash.description",
         path: "eyelash",
@@ -255,9 +255,21 @@ const menuData: Record<number, IMenu[]> = {
   ]
 };
 
-export const getMenus = async (categoryId?: number): Promise<IMenu[]> => {
+const pathToCategoryId: Record<string, number> = {
+  brow: 1,
+  lip: 2,
+  eyefat: 3,
+  eyelash: 4,
+  eyeline: 5,
+  mark: 6,
+  scar: 7,
+  hairline: 8,
+};
+
+export const getMenus = async (path?: string): Promise<IMenu[]> => {
   try {
-    if (categoryId !== undefined) {
+    if (path !== undefined) {
+      const categoryId = pathToCategoryId[path];
       return menuData[categoryId] || [];
     }
     return Object.values(menuData).flat();
@@ -266,7 +278,6 @@ export const getMenus = async (categoryId?: number): Promise<IMenu[]> => {
     throw err;
   }
 };
-
 
 export const getReviews = async (): Promise<IReview[]> => {
   try {
