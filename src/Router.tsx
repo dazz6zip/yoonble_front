@@ -67,7 +67,7 @@ export default function Router() {
               <Route path="/artmake" element={<Artmake />} />
               <Route path="/artmake/brow" element={<Brow />} />
               <Route path="/artmake/eyeline" element={<Eyeline />} />
-              <Route path="/artmake/general" element={<Common />} />
+              <Route path="/artmake/general/:path" element={<Common />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/reservation" element={<Reservation />} />
               <Route path="/review" element={<Review />} />
