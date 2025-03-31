@@ -68,19 +68,19 @@ export const HeaderContainer = styled.div<MenuItemProps>`
 export const TitleContainer = styled.div<MenuItemProps>`
   display: flex;
   padding-left: ${(props) =>
-    props.isDesktop ? "0" : `calc(50% - 40px - 2.5vw)`};
+    props.isDesktop ? "0" : `calc(50vw  - 1.5vw - 15px)`};
   justify-content: center;
 `;
 
 export const TitleImg = styled.img<MenuItemProps>`
-  margin-left: 50px;
+  margin-left: ${(props) => (props.isDesktop ? "50px" : "0")};
   width: ${(props) => (props.isDesktop ? "60px" : "40px")};
 `;
 
 export const Menu = styled.div<MenuItemProps>`
   display: ${(props) => (props.isDesktop ? "flex" : "none")};
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
   gap: 2vw;
   width: 100%;
   padding-right: 3rem;
@@ -88,10 +88,10 @@ export const Menu = styled.div<MenuItemProps>`
 
 export const MenuItemContainer = styled.div`
   display: flex;
-  gap: 1.5rem
-`
+  gap: 1.5rem;
+`;
 
-export const MenuItem = styled(Link) <{ active: boolean }>`
+export const MenuItem = styled(Link)<{ active: boolean }>`
   position: relative;
   font-size: 0.8rem;
   font-weight: ${(props) => (props.active ? "bold" : "normal")};
