@@ -24,6 +24,17 @@ export const ServiceItemContainer = styled.div`
   }
 `;
 
+export const ServiceEtc = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ServiceDescript = styled.div`
+  color: ${colors.brown3};
+  font-size: 0.8rem;
+  padding-top: 5px;
+`;
+
 export const ServiceItem = styled.div<{ selected: boolean }>`
   display: flex;
   align-items: center;

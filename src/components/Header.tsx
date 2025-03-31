@@ -13,6 +13,7 @@ import {
   MenuItem,
   DropdownMenu,
   DropdownItem,
+  MenuItemContainer,
 } from "./styled-components/FooterAndHeaderStyled";
 import { useState } from "react";
 import { AboutProps } from "./styled-components/interface";
@@ -45,53 +46,55 @@ export default function Header() {
         </Link>
       </TitleContainer>
       <Menu isDesktop={isDesktop}>
-        &nbsp;
-        <MenuItem
-          to="/about"
-          state={{ selected: "Yoonble" } as AboutProps}
-          onMouseEnter={() => setAboutOpen(true)}
-          onMouseLeave={() => setAboutOpen(false)}
-          active={location.pathname.startsWith("/about")}
-        >
-          ABOUT
-          {aboutOpen && (
-            <DropdownMenu>
-              <DropdownItem
-                to="/about"
-                state={{ selected: "Yoonble" } as AboutProps}
-              >
-                Yoonble
-              </DropdownItem>
-              <DropdownItem
-                to="/about"
-                state={{ selected: "Artist" } as AboutProps}
-              >
-                Artist
-              </DropdownItem>
-              <DropdownItem
-                to="/about"
-                state={{ selected: "Academy" } as AboutProps}
-              >
-                Academy
-              </DropdownItem>
-            </DropdownMenu>
-          )}
-        </MenuItem>
-        <MenuItem to="/artmake" active={location.pathname === "/artmake"}>
-          MENU
-        </MenuItem>
-        <MenuItem to="/faq" active={location.pathname === "/faq"}>
-          FAQ
-        </MenuItem>
-        <MenuItem
-          to="/reservation"
-          active={location.pathname === "/reservation"}
-        >
-          BOOKING
-        </MenuItem>
-        <MenuItem to="/review" active={location.pathname === "/review"}>
-          REVIEW
-        </MenuItem>
+        <MenuItemContainer>
+          &nbsp;
+          <MenuItem
+            to="/about"
+            state={{ selected: "Yoonble" } as AboutProps}
+            onMouseEnter={() => setAboutOpen(true)}
+            onMouseLeave={() => setAboutOpen(false)}
+            active={location.pathname.startsWith("/about")}
+          >
+            ABOUT
+            {aboutOpen && (
+              <DropdownMenu>
+                <DropdownItem
+                  to="/about"
+                  state={{ selected: "Yoonble" } as AboutProps}
+                >
+                  Yoonble
+                </DropdownItem>
+                <DropdownItem
+                  to="/about"
+                  state={{ selected: "Artist" } as AboutProps}
+                >
+                  Artist
+                </DropdownItem>
+                <DropdownItem
+                  to="/about"
+                  state={{ selected: "Academy" } as AboutProps}
+                >
+                  Academy
+                </DropdownItem>
+              </DropdownMenu>
+            )}
+          </MenuItem>
+          <MenuItem to="/artmake" active={location.pathname === "/artmake"}>
+            MENU
+          </MenuItem>
+          <MenuItem to="/faq" active={location.pathname === "/faq"}>
+            FAQ
+          </MenuItem>
+          <MenuItem
+            to="/reservation"
+            active={location.pathname === "/reservation"}
+          >
+            REVERVATION
+          </MenuItem>
+          <MenuItem to="/review" active={location.pathname === "/review"}>
+            REVIEW
+          </MenuItem>
+        </MenuItemContainer>
         <Translator />
       </Menu>
     </HeaderContainer>

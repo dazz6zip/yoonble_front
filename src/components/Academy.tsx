@@ -7,24 +7,17 @@ import {
   Content,
   Description,
   Image,
-  ImageWrapper,
+  AcademyWrapper,
   Title,
 } from "./styled-components/DefaultStyle";
 import { useTranslation } from "react-i18next";
 
 export default function Academy() {
-  const isDesktop = useRecoilValue(isDesktopState);
   const { t } = useTranslation();
+  const isDesktop = useRecoilValue(isDesktopState);
   return (
     <Container>
-      <Content isDesktop={isDesktop}>
-        <Title isDesktop={isDesktop}>Academy</Title>
-        <Description>
-          {t("academy.description1")}</Description><br />
-        <Description>
-          {t("academy.description2")}</Description>
-      </Content>
-      <ImageWrapper>
+      <AcademyWrapper>
         <Image
           isDesktop={isDesktop}
           src={imageLink + "/academy/0.jpeg"}
@@ -40,8 +33,13 @@ export default function Academy() {
           src={imageLink + "/academy/2.jpeg"}
           alt="shop"
         />
-      </ImageWrapper>
-      {/* </IaC> */}
+      </AcademyWrapper>
+      <Content isDesktop={isDesktop}>
+        <Title isDesktop={isDesktop}>Academy</Title>
+        <Description>{t("academy.description1")}</Description>
+
+        <Description>{t("academy.description2")}</Description>
+      </Content>
     </Container>
   );
 }

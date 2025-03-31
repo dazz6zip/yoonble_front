@@ -5,6 +5,8 @@ import { useRecoilState } from "recoil";
 import { selectedArtsState } from "../recoil/atom";
 import { Button } from "./styled-components/ButtonStyle";
 import {
+  ServiceDescript,
+  ServiceEtc,
   ServiceItem,
   ServiceItemContainer,
 } from "./styled-components/CheckStyle";
@@ -55,9 +57,10 @@ export default function Reservation() {
               ) : (
                 <AiOutlineBorder size={24} />
               )}
-              <span>
-                {t(artmake.name)} ({artmake.duration}분)
-              </span>
+              <ServiceEtc>
+                <span>{t(artmake.name)}</span>
+                <ServiceDescript>{artmake.duration}분</ServiceDescript>
+              </ServiceEtc>
             </ServiceItem>
           ))}
         </ServiceItemContainer>

@@ -8,7 +8,7 @@ import {
   ContentBox,
   ContentWrapper,
   Description,
-  Image,
+  MenuImage,
   SubTitle,
   Title,
 } from "./styled-components/DefaultStyle";
@@ -17,11 +17,10 @@ import { useTranslation } from "react-i18next";
 export default function Artmake() {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [imageStates, setImageStates] = useState<string[]>([]);
+  const { t } = useTranslation();
   const isDesktop = useRecoilValue(isDesktopState);
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
-  // 언어가 바뀔 때마다 재호출
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,19 +31,23 @@ export default function Artmake() {
       }
     };
     fetchData();
-  }, [t]); // <- t 또는 언어 변경 시 재호출
+  }, []);
+
+  const handleNavigation = (path: string) => {
+    navigate(path === "brow" || path === "eyeline" ? path : `general/${path}`);
+  };
 
   return (
     <Container>
-      <SubTitle>Menu</SubTitle>
+      <SubTitle>ArtMake</SubTitle>
       <ContentWrapper>
         {categories.map((category) => (
-          <ContentBox isDesktop={isDesktop} key={category.id}
-            onClick={() => navigate(category.path)}>
-            <Image
-              src={category.img}
-              alt={category.name}
-            />
+          <ContentBox
+            isDesktop={isDesktop}
+            key={category.id}
+            onClick={() => handleNavigation(category.path)}
+          >
+            <MenuImage src={category.img} alt={category.name} />
             <Title isDesktop={isDesktop}>{t(category.name)}</Title>
             <Description>{t(category.description)}</Description>
           </ContentBox>

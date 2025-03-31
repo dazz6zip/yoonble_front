@@ -25,14 +25,14 @@ const LangButton = styled.button`
 `;
 
 export default function Translator() {
-    const { i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
-    return (
-        <ButtonContainer>
-            <LangButton onClick={() => i18n.changeLanguage('en')}>English</LangButton>
-            <LangButton onClick={() => i18n.changeLanguage('ko')}>한국어</LangButton>
-            <LangButton onClick={() => i18n.changeLanguage('ja')}>日本語</LangButton>
-            <LangButton onClick={() => i18n.changeLanguage('zh')}>中文</LangButton>
-        </ButtonContainer>
-    );
+  return (
+    <ButtonContainer>
+      <LangButton onClick={() => i18n.changeLanguage('en')}>English</LangButton>
+      <LangButton onClick={() => i18n.changeLanguage('ko')}>한국어</LangButton>
+      <LangButton onClick={() => i18n.changeLanguage('ja')}>日本語</LangButton>
+      <LangButton onClick={() => i18n.changeLanguage('zh')}>中文</LangButton>
+    </ButtonContainer>
+  );
 }

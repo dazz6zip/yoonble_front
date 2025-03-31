@@ -56,10 +56,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html, body, #root {
-    margin: 0 auto; /* 페이지를 가운데 정렬 */
+    margin: 0 auto; 
     padding: 0;
     width: 100%;
-    overflow-x: hidden; /* 가로 스크롤 방지 */
+    overflow-x: hidden; 
     box-sizing: border-box;
   }
 

@@ -53,7 +53,7 @@ export function Eyeline() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const fetchedMenus = await getMenus(5);
+        const fetchedMenus = await getMenus('eyeline');
         if (fetchedMenus.length > 0) {
           setMenu(fetchedMenus);
         }

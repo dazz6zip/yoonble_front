@@ -49,13 +49,6 @@ function NavigationBar() {
           <CustomIcon>✶</CustomIcon>ABOUT
         </StyledMenuItem>
         <StyledMenuItem
-          isActive={location.pathname === "/artist"}
-          to="/artist"
-          onClick={closeMenu}
-        >
-          <CustomIcon>✶</CustomIcon>ARTIST
-        </StyledMenuItem>
-        <StyledMenuItem
           isActive={location.pathname === "/artmake"}
           to="/artmake"
           onClick={closeMenu}
@@ -85,8 +78,10 @@ function NavigationBar() {
           <CustomIcon>✷</CustomIcon>REVIEW
         </StyledMenuItem>
         <br />
-        <StyledMenuItem isActive={location.pathname === ""} to="">
-        </StyledMenuItem>
+        <StyledMenuItem
+          isActive={location.pathname === ""}
+          to=""
+        ></StyledMenuItem>
         <Translator />
       </BurgerMenu>
     </>

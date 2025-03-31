@@ -5,6 +5,7 @@ import React from "react";
 const today = dayjs().date();
 
 export const CalendarContainer = styled.div`
+  padding: 50px 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
