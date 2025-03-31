@@ -22,9 +22,17 @@ export const DetailWrapper = styled.div`
 export const ImgWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 2%;
   justify-content: center;
   width: 100%;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+
+  & > div {
+    width: 20%;
+  }
 `;
 
 export const ImgBox = styled.div`
@@ -67,7 +75,10 @@ export function Common() {
 
   useEffect(() => {
     if (menu) {
-      const urls = Array.from({ length: menu.imgCnt }, (_, i) => `${link}${i}.jpeg`);
+      const urls = Array.from(
+        { length: menu.imgCnt },
+        (_, i) => `${link}${i}.jpeg`
+      );
       setImageUrls(urls);
     }
   }, [menu]);
@@ -79,13 +90,15 @@ export function Common() {
 
   if (!menu) {
     return (
-      <Container><SubTitle>시술 정보를 불러올 수 없습니다.</SubTitle></Container>
+      <Container>
+        <SubTitle>시술 정보를 불러올 수 없습니다.</SubTitle>
+      </Container>
     );
   }
 
   return (
     <Container>
-      <SubTitle>{t(menu.name)}</SubTitle>
+      <SubTitle>ArtMake - {t(menu.name)}</SubTitle>
       <DetailWrapper>{t(menu.description)}</DetailWrapper>
       <ImgWrapper>
         {Array.from({ length: menu.imgCnt }, (_, i) => (
@@ -105,6 +118,5 @@ export function Common() {
         initialIndex={selectedIndex}
       />
     </Container>
-
   );
 }

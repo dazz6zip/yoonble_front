@@ -6,18 +6,27 @@ import { isDesktopState } from "../../recoil/atom";
 import { colors } from "../../GlobalStyle";
 import { useTranslation } from "react-i18next";
 import { ImageSliderModal } from "../ImageModal";
+import { Container, SubTitle } from "../styled-components/DefaultStyle";
 
-const Container = styled.div`
+const ContentWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
-  padding: 20px;
+  gap: 30px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Card = styled.div`
-  width: 25vw;
+  width: 30vw;
+  gap: 5%;
   text-align: center;
+  background-color: ${colors.pink4};
+  box-shadow: 0px 4px 12px rgba(170, 163, 156, 0.2);
   padding: 20px;
-  border: 1px solid ${colors.brown4}
+  border-radius: 12px;
+  @media (max-width: 768px) {
+    width: 70vw;
+  }
 `;
 
 const Title = styled.h2`
@@ -31,7 +40,7 @@ const CircleImage = styled.img`
   border-radius: 50%;
   display: block;
   margin: 10px auto;
-  background-color:${colors.white1};
+  background-color: ${colors.white1};
   object-fit: cover;
 `;
 
@@ -45,15 +54,20 @@ const Description = styled.p`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 20px;
   margin-top: 10px;
 `;
 
 const SquareImage = styled.img`
-  width: 10vw;
-  height: 10vw;
-  border: 1px solid ${colors.brown1};
+  width: 13vw;
+  height: 13vw;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px ${colors.white};
   object-fit: cover;
+  @media (max-width: 768px) {
+    width: 30vw;
+    height: 30vw;
+  }
 `;
 
 const PaginationContainer = styled.div`
@@ -66,7 +80,7 @@ const PaginationContainer = styled.div`
 
 const Page = styled.span`
   font-size: 0.8em;
-  color: ${colors.brown3}
+  color: ${colors.brown3};
 `;
 
 const PageButton = styled.button<{ disabled: boolean }>`
@@ -82,7 +96,6 @@ const PageButton = styled.button<{ disabled: boolean }>`
   }
 `;
 
-
 export function Brow() {
   const isDesktop = useRecoilValue(isDesktopState);
   const { t } = useTranslation();
@@ -90,30 +103,31 @@ export function Brow() {
   const [currentPages, setCurrentPages] = useState<number[]>([]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(null);
+  const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(
+    null
+  );
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const fetchedMenus = await getMenus('brow');
+        const fetchedMenus = await getMenus("brow");
         if (fetchedMenus.length > 0) {
           setMenu(fetchedMenus);
           setCurrentPages(new Array(fetchedMenus.length).fill(0)); // 모든 카드 페이지를 0으로 초기화
         }
       } catch (err) {
-        console.error("메뉴 데이터 로딩 실패:", err)
+        console.error("메뉴 데이터 로딩 실패:", err);
       }
     };
     fetchMenu();
-  }, [])
+  }, []);
 
   const handleImageClick = (menuIndex: number, imageIndex: number) => {
     setSelectedMenuIndex(menuIndex);
     setSelectedImageIndex(imageIndex);
     setIsModalOpen(true);
   };
-
 
   const changePage = (cardIndex: number, direction: "prev" | "next") => {
     setCurrentPages((prev) => {
@@ -122,37 +136,31 @@ export function Brow() {
 
       if (direction === "prev" && updatedPages[cardIndex] > 0) {
         updatedPages[cardIndex] -= 1;
-      } else if (direction === "next" && updatedPages[cardIndex] < totalPages - 1) {
+      } else if (
+        direction === "next" &&
+        updatedPages[cardIndex] < totalPages - 1
+      ) {
         updatedPages[cardIndex] += 1;
       }
 
       return updatedPages;
     });
-  }
+  };
 
   return (
     <Container>
-      {menus.map((menu, index) => {
-        const totalPages = Math.ceil(menu.imgCnt / 4); // 4개씩 페이징
-        const currentPage = currentPages[index];
+      <SubTitle>ArtMake - Eyebrow</SubTitle>
+      <ContentWrapper>
+        {menus.map((menu, index) => {
+          const totalPages = Math.ceil(menu.imgCnt / 4); // 4개씩 페이징
+          const currentPage = currentPages[index];
 
-        return (
-          <Card>
-            <Title>{t(menu.name)}</Title>
-            <CircleImage src={menu.img + ".png"} alt="Circle" />
-            <Description>{t(menu.description)}</Description>
-            <Grid>
-              {Array.from({ length: menu.imgCnt })
-                .map((_, i) => `${menu.img}${i}.jpeg`)
-                .slice(currentPage * 4, (currentPage + 1) * 4)
-                .map((imgSrc, i) => {
-                  return (
-                    <SquareImage key={i} src={imgSrc} alt={`${menu.name}-${i}`}
-                      onClick={() => handleImageClick(index, i)} />)
-                })}
-            </Grid>
+          return (
+            <Card>
+              <Title>{t(menu.name)}</Title>
+              <CircleImage src={menu.img + ".png"} alt="Circle" />
+              <Description>{t(menu.description)}</Description>
 
-            {totalPages > 1 && (
               <PaginationContainer>
                 <PageButton
                   disabled={currentPage === 0}
@@ -168,22 +176,39 @@ export function Brow() {
                   {">"}
                 </PageButton>
               </PaginationContainer>
+
+              <Grid>
+                {Array.from({ length: menu.imgCnt })
+                  .map((_, i) => `${menu.img}${i}.jpeg`)
+                  .slice(currentPage * 4, (currentPage + 1) * 4)
+                  .map((imgSrc, i) => {
+                    return (
+                      <SquareImage
+                        key={i}
+                        src={imgSrc}
+                        alt={`${menu.name}-${i}`}
+                        onClick={() => handleImageClick(index, i)}
+                      />
+                    );
+                  })}
+              </Grid>
+            </Card>
+          );
+        })}
+
+        {selectedMenuIndex !== null && (
+          <ImageSliderModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            title={t(menus[selectedMenuIndex].name)}
+            images={Array.from(
+              { length: menus[selectedMenuIndex].imgCnt },
+              (_, i) => `${menus[selectedMenuIndex].img}${i}.jpeg`
             )}
-          </Card>
-        );
-      })}
-
-      {selectedMenuIndex !== null && (
-        <ImageSliderModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          title={t(menus[selectedMenuIndex].name)}
-          images={Array.from({ length: menus[selectedMenuIndex].imgCnt }, (_, i) => `${menus[selectedMenuIndex].img}${i}.jpeg`)}
-          initialIndex={selectedImageIndex}
-        />
-      )}
-
+            initialIndex={selectedImageIndex}
+          />
+        )}
+      </ContentWrapper>
     </Container>
   );
-};
-
+}
