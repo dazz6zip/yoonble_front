@@ -8,7 +8,11 @@ const ButtonContainer = styled.div`
   gap: 3px;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+
+  @media (max-width: 708px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const LangButton = styled.button<{ now: boolean }>`

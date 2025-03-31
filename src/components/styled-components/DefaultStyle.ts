@@ -143,6 +143,7 @@ export const Card = styled.div`
 
 export const Sidebar = styled.div`
   width: 100px;
+  min-width: 300px;
   height: 20vh;
   padding: 40px 20px;
   display: flex;
@@ -156,11 +157,11 @@ export const Sidebar = styled.div`
     align-items: center;
     flex-direction: row;
     padding: 10px;
-    gap: 50px;
+    gap: 35px;
     height: auto;
+
     background-color: ${colors.pink1};
     border-radius: 50px;
-    margin: 0 auto;
   }
 `;
 

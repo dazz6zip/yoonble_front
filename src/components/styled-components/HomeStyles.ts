@@ -24,6 +24,9 @@ export const Card = styled.div`
 export const Content = styled.div`
   flex: 1;
   text-align: left;
+  @media (max-width: 780px) {
+    margin-bottom: 25vh;
+  }
 `;
 
 export const Title = styled.h1`
@@ -32,18 +35,28 @@ export const Title = styled.h1`
   color: ${colors.brown3};
   margin-bottom: 20px;
   line-height: 1.1;
+  @media (max-width: 780px) {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
 `;
 
 export const Description = styled.p`
   font-size: 0.8rem;
   color: ${colors.brown2};
   line-height: 1.6;
+  @media (max-width: 780px) {
+    font-size: 0.7rem;
+  }
 `;
 
 export const Bold = styled.span`
   font-size: 0.8rem;
   font-weight: bold;
   color: ${colors.brown0};
+  @media (max-width: 780px) {
+    font-size: 0.7rem;
+  }
 `;
 
 export const ImgContainer = styled.div`
