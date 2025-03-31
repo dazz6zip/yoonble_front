@@ -39,7 +39,7 @@ export default function Artmake() {
 
   return (
     <Container>
-      <SubTitle>ArtMake</SubTitle>
+      <SubTitle>ArtMake Menu</SubTitle>
       <ContentWrapper>
         {categories.map((category) => (
           <ContentBox
