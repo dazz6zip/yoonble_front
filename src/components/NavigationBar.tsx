@@ -30,7 +30,7 @@ function NavigationBar() {
     <>
       <BurgerMenu
         customBurgerIcon={
-          isDesktop ? <></> : <GiHamburgerMenu size={"2.5vw"} />
+          isDesktop ? <></> : <GiHamburgerMenu size={"0.5vw"} />
         }
         customCrossIcon={isDesktop ? <></> : <FaArrowLeft size={"2.5vw"} />}
         width={isDesktop ? "20vw" : "35vw"}
@@ -38,8 +38,8 @@ function NavigationBar() {
         onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}
         styles={MenuStyles}
       >
-        <br />
-        <StyledMenu>ABOUT</StyledMenu>
+        <br /><br />
+        {/* <StyledMenu>ABOUT</StyledMenu> */}
         <StyledMenuItem
           isActive={location.pathname === "/about"}
           to="/about"
@@ -49,11 +49,11 @@ function NavigationBar() {
           <CustomIcon>✶</CustomIcon>ABOUT
         </StyledMenuItem>
         <StyledMenuItem
-          isActive={location.pathname === "/artmake"}
-          to="/artmake"
+          isActive={location.pathname === "/menu"}
+          to="/menu"
           onClick={closeMenu}
         >
-          <CustomIcon>✶</CustomIcon>ARTMAKE
+          <CustomIcon>✶</CustomIcon>MENU
         </StyledMenuItem>
         <StyledMenuItem
           isActive={location.pathname === "/faq"}
@@ -62,14 +62,14 @@ function NavigationBar() {
         >
           <CustomIcon>✶</CustomIcon>FAQ
         </StyledMenuItem>
-        <StyledMenu>BOOKING</StyledMenu>
-        <StyledMenuItem
+        {/* <StyledMenu>BOOKING</StyledMenu> */}
+        {/* <StyledMenuItem
           isActive={location.pathname === "/reservation"}
           to="/reservation"
           onClick={closeMenu}
         >
           <CustomIcon>✷</CustomIcon>RESERVATION
-        </StyledMenuItem>
+        </StyledMenuItem> */}
         <StyledMenuItem
           isActive={location.pathname === "/review"}
           to="/review"

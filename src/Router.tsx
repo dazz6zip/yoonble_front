@@ -64,10 +64,10 @@ export default function Router() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/artist" element={<Artist />} />
-              <Route path="/artmake" element={<Artmake />} />
-              <Route path="/artmake/brow" element={<Brow />} />
-              <Route path="/artmake/eyeline" element={<Eyeline />} />
-              <Route path="/artmake/general/:path" element={<Common />} />
+              <Route path="/menu" element={<Artmake />} />
+              <Route path="/menu/brow" element={<Brow />} />
+              <Route path="/menu/eyeline" element={<Eyeline />} />
+              <Route path="/menu/general/:path" element={<Common />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/reservation" element={<Reservation />} />
               <Route path="/review" element={<Review />} />

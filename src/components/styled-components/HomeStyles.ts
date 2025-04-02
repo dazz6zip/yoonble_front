@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../GlobalStyle";
 import back from "../../images/back.gif";
+import { MenuProps } from "./interface";
 
 export const BackgroundDiv = styled.div`
   width: 100vw;
@@ -19,6 +20,7 @@ export const Card = styled.div`
   gap: 1vw;
   max-width: 75vw;
   width: 90%;
+  padding-top: 25vh;
 `;
 
 export const Content = styled.div`
@@ -68,5 +70,32 @@ export const ImgContainer = styled.div`
 export const Img = styled.img`
   width: 40vw;
   max-width: 500px;
+  object-fit: cover;
+`;
+
+export const HomeMenuWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 3열
+  gap: 5px 5px;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const HomeMenuBox = styled.div<MenuProps>`
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  background-color: ${colors.pink4};
+  box-shadow: 0px 4px 12px rgba(170, 163, 156, 0.2);
+  justify-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+`;
+
+export const HomeMenuImage = styled.img<{ isDesktop?: boolean }>`
+  border-radius: 10px;
+  width: 100%;
+  height: 20vh;
+  min-height: 100px;
   object-fit: cover;
 `;

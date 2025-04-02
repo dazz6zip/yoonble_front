@@ -12,7 +12,7 @@ export const FooterContainer = styled.footer<MenuProps>`
   align-items: center;
   background-color: ${colors.background};
   opacity: 0.7;
-  font-size: 12px;
+  font-size: ${(props) => (props.isDesktop ? "12px" : "9px")};
   padding: 20px 0;
 `;
 
@@ -46,7 +46,7 @@ export const SocialLinks = styled.div<MenuProps>`
 
 export const Copyright = styled.div<MenuProps>`
   padding-top: ${(props) => (props.isDesktop ? "0.5%" : "2%")};
-  font-size: 0.7rem;
+  font-size: ${(props) => (props.isDesktop ? "0.7rem" : "0.7rem")};
   color: ${colors.brown0};
 `;
 
@@ -91,7 +91,7 @@ export const MenuItemContainer = styled.div`
   gap: 1.5rem;
 `;
 
-export const MenuItem = styled(Link)<{ active: boolean }>`
+export const MenuItem = styled(Link) <{ active: boolean }>`
   position: relative;
   font-size: 0.8rem;
   font-weight: ${(props) => (props.active ? "bold" : "normal")};

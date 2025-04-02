@@ -12,11 +12,11 @@ export const StyledMenu = styled.div`
   margin-bottom: 2vh;
 `;
 
-export const StyledMenuItem = styled(Link)<{ isActive: boolean }>`
+export const StyledMenuItem = styled(Link) <{ isActive: boolean }>`
   display: block;
   text-decoration: none;
   color: ${(props) => (props.isActive ? colors.white3 : colors.white)};
-  font-size: ${(props) => (props.isActive ? "0.8rem" : "0.7rem")};
+  font-size: ${(props) => (props.isActive ? "1.0rem" : "0.8rem")};
   padding-left: 2vw;
   margin-top: 2vh;
   margin-bottom: 2vh;

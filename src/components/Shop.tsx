@@ -27,11 +27,6 @@ export default function Shop() {
 
   return (
     <Container>
-      <VideoWrapper>
-        <Video autoPlay muted loop>
-          <source src={video} type="video/mp4"></source>
-        </Video>
-      </VideoWrapper>
       <Content>
         <Title>About</Title>
         <Description>{t("shop.about.description")}</Description>
@@ -48,6 +43,11 @@ export default function Shop() {
         <Title>1:1 예약제</Title>
         <Description>{t("shop.reservation.description")}</Description>
       </Content>
+      <VideoWrapper>
+        <Video autoPlay muted loop>
+          <source src={video} type="video/mp4"></source>
+        </Video>
+      </VideoWrapper>
     </Container>
   );
 }
