@@ -14,13 +14,13 @@ export const BackgroundDiv = styled.div`
   height: 79vh;
 `;
 
-export const Card = styled.div`
+export const Card = styled.div<MenuProps>`
   display: flex;
   align-items: center;
   gap: 1vw;
   max-width: 75vw;
   width: 90%;
-  padding-top: 25vh;
+  padding-top: ${(props) => (props.isDesktop ? "0vh" : "25vh")};
 `;
 
 export const Content = styled.div`

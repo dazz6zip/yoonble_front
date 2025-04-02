@@ -25,19 +25,11 @@ export const ImgWrapper = styled.div`
   gap: 2%;
   justify-content: center;
   width: 100%;
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-    gap: 5%;
-  }
-
-  & > div {
-    width: 20%;
-  }
 `;
 
-export const ImgBox = styled.div`
-  width: 100%;
-  max-width: 250px;
+export const ImgBox = styled.div<{ isDesktop?: boolean }>`
+  width: ${(props) => (props.isDesktop ? "20%" : "100%")};
+  max-width: ${(props) => (props.isDesktop ? "250px" : "100%")};
   padding: 1px;
   display: flex;
   flex-direction: column;
@@ -45,10 +37,6 @@ export const ImgBox = styled.div`
   align-items: center;
   text-align: center;
   transition: transform 0.3s ease;
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
 `;
 
 export function Common() {
@@ -102,7 +90,7 @@ export function Common() {
       <DetailWrapper>{t(menu.description)}</DetailWrapper>
       <ImgWrapper>
         {Array.from({ length: menu.imgCnt }, (_, i) => (
-          <ImgBox key={i} onClick={() => handleImageClick(i)}>
+          <ImgBox key={i} isDesktop={isDesktop} onClick={() => handleImageClick(i)}>
             <Image
               src={`${link}${i}.jpeg`}
               alt={`${menu.name} 이미지 ${i + 1}`}

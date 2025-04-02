@@ -228,14 +228,10 @@ export const MenuImage = styled.img<{ isDesktop?: boolean }>`
 export const Image = styled.img<{ isDesktop?: boolean }>`
   border-radius: 10px;
   width: 100%;
-  height: 20vh;
+  height: ${(props) => (props.isDesktop ? "20vh" : "35vh")};
   min-height: 200px;
   object-fit: cover;
   margin-bottom: 15px;
-  @media (max-width: 900px) {
-    width: 20vw;
-    height: auto;
-  }
 `;
 
 export const ProfileImage = styled.img<{ isDesktop?: boolean }>`

@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <>
       <BackgroundDiv>
-        <Card>
+        <Card isDesktop={isDesktop}>
           <Content>
             {isDesktop ? (
               <>
