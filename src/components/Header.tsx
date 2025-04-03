@@ -79,7 +79,7 @@ export default function Header() {
               </DropdownMenu>
             )}
           </MenuItem>
-          <MenuItem to="/artmake" active={location.pathname === "/menu"}>
+          <MenuItem to="/menu" active={location.pathname === "/menu"}>
             MENU
           </MenuItem>
           <MenuItem to="/faq" active={location.pathname === "/faq"}>

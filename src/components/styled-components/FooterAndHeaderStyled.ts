@@ -44,6 +44,30 @@ export const SocialLinks = styled.div<MenuProps>`
   }
 `;
 
+export const MobileSocialLinks = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  line-height: 2;
+
+  a {
+    color: ${colors.brown0};
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: ${colors.brown2};
+    }
+  }
+`;
+
 export const Copyright = styled.div<MenuProps>`
   padding-top: ${(props) => (props.isDesktop ? "0.5%" : "2%")};
   font-size: ${(props) => (props.isDesktop ? "0.7rem" : "0.7rem")};

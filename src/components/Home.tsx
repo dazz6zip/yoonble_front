@@ -16,7 +16,7 @@ import {
 } from "./styled-components/HomeStyles";
 import { AiFillInstagram } from "react-icons/ai";
 import { RiKakaoTalkFill } from "react-icons/ri";
-import { SocialLinks } from "./styled-components/FooterAndHeaderStyled";
+import { MobileSocialLinks, SocialLinks } from "./styled-components/FooterAndHeaderStyled";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -80,7 +80,7 @@ export default function Home() {
             ) : (
               <>
                 <Description>
-                  KOREA NO.1 BEAUTY STUDIO
+                  KOREA'S NO.1 BEAUTY STUDIO
                 </Description><br />
                 <Title>
                   YOONBLE
@@ -96,16 +96,12 @@ export default function Home() {
                     </HomeMenuBox>
                   ))}
                 </HomeMenuWrapper><br /><br />
-                <SocialLinks isDesktop={isDesktop}>
+
+                <MobileSocialLinks>
                   <a href="https://www.instagram.com/yoonble_studio" target="_blank">
-                    <AiFillInstagram />
-                    insta. yoonble_studio
+                    <AiFillInstagram />insta.&nbsp;&nbsp;yoonble_studio
                   </a>
-                  <a href="https://pf.kakao.com/_KxkGWb?from=qr" target="_blank">
-                    <RiKakaoTalkFill />
-                    kakao. 윤블스튜디오
-                  </a>
-                </SocialLinks>
+                </MobileSocialLinks>
               </>
             )}
           </Content>

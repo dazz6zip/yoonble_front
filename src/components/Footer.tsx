@@ -34,13 +34,17 @@ function Footer() {
         </>
       ) : (
         <>
-          <Copyright isDesktop={isDesktop}>© 2025 YOONBLE</Copyright><br />
           <SocialLinks isDesktop={isDesktop}>
+            <a href="https://pf.kakao.com/_KxkGWb?from=qr" target="_blank">
+              <RiKakaoTalkFill />
+              kakao.&emsp;&nbsp;&nbsp; 윤블스튜디오
+            </a>
             <a href="mailto:lovellehyo@gmail.com" target="_blank">
               <MdEmail />
               website.&nbsp;&nbsp;&nbsp; we.develop.your@gmail.com
             </a>
-          </SocialLinks>
+          </SocialLinks><br />
+          <Copyright isDesktop={isDesktop}>© 2025 YOONBLE</Copyright>
         </>
       )
       }

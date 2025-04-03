@@ -24,10 +24,26 @@ export const ContentWrapper = styled.div`
   flex-wrap: wrap;
   gap: 20px 40px;
   justify-content: center;
-  width: 80%;
+  width: 90%;
 `;
 
 export const Title = styled.h2<MenuProps>`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${colors.brown1};
+  padding: 5px 0;
+  margin-bottom: 8px;
+  font-family: "Playfair Display", "Noto Sans", "Noto Sans KR", sans-serif;
+
+  background: linear -
+    gradient(to bottom, rgb(117, 105, 94, 0.6), rgba(117, 105, 94, 0));
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100 % 3px;
+`;
+
+export const AboutTitle = styled.h2<MenuProps>`
+  align-self: flex-start;
   font-size: 1.2rem;
   font-weight: bold;
   color: ${colors.brown1};
@@ -221,7 +237,7 @@ export const MenuImage = styled.img<{ isDesktop?: boolean }>`
   object-fit: cover;
   margin-bottom: 15px;
   @media (max-width: 780px) {
-    height: 40vh;
+    height: 25vh;
   }
 `;
 

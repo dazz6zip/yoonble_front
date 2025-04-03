@@ -3,7 +3,7 @@ import { colors } from "../../GlobalStyle";
 import back from "../../images/back.gif";
 import { MenuProps } from "./interface";
 
-export const BackgroundDiv = styled.div`
+export const BackgroundDiv = styled.div<MenuProps>`
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@ export const BackgroundDiv = styled.div`
   background-image: url(${back});
   background-size: cover;
   overflow: hidden;
-  height: 79vh;
+  height: ${(props) => (props.isDesktop ? "79vh" : "79vh")};
 `;
 
 export const Card = styled.div<MenuProps>`

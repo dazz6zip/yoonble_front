@@ -26,7 +26,7 @@ const ImageGrid = styled.div`
   width: 100%;
   @media (max-width: 720px) {
     column-count: 1;
-    width: 60%;
+    width: 85%;
   }
 `;
 
@@ -37,7 +37,7 @@ const Img = styled.img`
   margin-bottom: 1rem;
   break-inside: avoid;
   @media (max-width: 780px) {
-    max-width: 500px;
+    max-width: 700px;
   }
 `;
 
