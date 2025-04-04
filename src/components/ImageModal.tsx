@@ -1,9 +1,11 @@
 import Modal from "react-modal";
 import Slider from "react-slick";
 import { useRef, useEffect, useState } from "react";
-import { CloseButtonTopRight, ModalImage, modalStyles, ModalTitle, NextButton, PrevButton } from "./styled-components/ImageModalStyle";
+import { CloseButton, CloseButtonTopRight, MobileImageScrollArea, MobileImageWrapper, ModalImage, ModalMobileTitle, modalStyles, ModalTitle, NextButton, PrevButton } from "./styled-components/ImageModalStyle";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useRecoilValue } from "recoil";
+import { isDesktopState } from "../recoil/atom";
 
 interface ImageSliderModalProps {
     isOpen: boolean;
@@ -14,6 +16,7 @@ interface ImageSliderModalProps {
 }
 
 export function ImageSliderModal({ isOpen, onClose, title, images, initialIndex = 0 }: ImageSliderModalProps) {
+    const isDesktop = useRecoilValue(isDesktopState);
     const sliderRef = useRef<Slider>(null);
 
     useEffect(() => {
@@ -31,23 +34,41 @@ export function ImageSliderModal({ isOpen, onClose, title, images, initialIndex 
             onRequestClose={onClose}
             style={modalStyles}
         >
-            <CloseButtonTopRight onClick={onClose}>×</CloseButtonTopRight>
-            <PrevButton onClick={handlePrev}>❮</PrevButton>
-            <NextButton onClick={handleNext}>❯</NextButton>
-            <Slider
-                ref={sliderRef}
-                initialSlide={initialIndex}
-                dots={false}
-                arrows={false}
-                infinite={false}
-            >
-                {images.map((src, idx) => (
-                    <div key={idx}>
-                        <ModalImage src={src} alt={`modal-${idx}`} />
-                    </div>
-                ))}
-            </Slider>
-            <ModalTitle>{title}</ModalTitle>
+
+            {isDesktop ? (
+                <>
+                    <CloseButtonTopRight onClick={onClose}>×</CloseButtonTopRight>
+                    <PrevButton onClick={handlePrev}>❮</PrevButton>
+                    <NextButton onClick={handleNext}>❯</NextButton>
+                    <Slider
+                        ref={sliderRef}
+                        initialSlide={initialIndex}
+                        dots={false}
+                        arrows={false}
+                        infinite={false}
+                    >
+                        {images.map((src, idx) => (
+                            <div key={idx}>
+                                <ModalImage src={src} alt={`modal-${idx}`} />
+                            </div>
+                        ))}
+                    </Slider>
+                    <ModalTitle>{title}</ModalTitle>
+                </>) : (
+                <>
+                    <ModalMobileTitle>{title}</ModalMobileTitle>
+                    <MobileImageScrollArea>
+                        {images.map((src, idx) => (
+                            <MobileImageWrapper key={idx}>
+                                <ModalImage src={src} alt={`modal-${idx}`} />
+                            </MobileImageWrapper>
+                        ))}
+                    </MobileImageScrollArea>
+                    <CloseButton onClick={onClose}>닫기</CloseButton>
+                </>
+            )}
+
+
         </Modal>
     );
 }

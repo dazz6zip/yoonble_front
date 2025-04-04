@@ -103,9 +103,7 @@ export function Brow() {
   const [currentPages, setCurrentPages] = useState<number[]>([]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(
-    null
-  );
+  const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {

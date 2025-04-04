@@ -6,6 +6,7 @@ import { isDesktopState } from "../../recoil/atom";
 import { colors } from "../../GlobalStyle";
 import { useTranslation } from "react-i18next";
 import { Container, SubTitle } from "../styled-components/DefaultStyle";
+import { ImageSliderModal } from "../ImageModal";
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -63,6 +64,10 @@ export function Eyeline() {
   const isDesktop = useRecoilValue(isDesktopState);
   const [menus, setMenu] = useState<IMenu[]>([]);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
   useEffect(() => {
     const fetchMenu = async () => {
       try {
@@ -77,11 +82,17 @@ export function Eyeline() {
     fetchMenu();
   }, []);
 
+  const handleImageClick = (menuIndex: number, imageIndex: number) => {
+    setSelectedMenuIndex(menuIndex);
+    setSelectedImageIndex(imageIndex);
+    setIsModalOpen(true);
+  };
+
   return (
     <Container>
       <SubTitle>ArtMake - Eyeline</SubTitle>
       <ContentWrapper>
-        {menus.map((menu) => (
+        {menus.map((menu, index) => (
           <Card>
             <Title>{t(menu.name)}</Title>
             <Description>{t(menu.description)}</Description>
@@ -89,11 +100,25 @@ export function Eyeline() {
               {Array.from({ length: menu.imgCnt })
                 .map((_, i) => `${menu.img}${i}.jpeg`)
                 .map((imgSrc, i) => (
-                  <SquareImage key={i} src={imgSrc} alt={`${menu.name}-${i}`} />
+                  <SquareImage key={i} src={imgSrc} alt={`${menu.name}-${i}`}
+                    onClick={() => handleImageClick(index, i)} />
                 ))}
             </Grid>
           </Card>
         ))}{" "}
+
+        {selectedMenuIndex !== null && (
+          <ImageSliderModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            title={t(menus[selectedMenuIndex].name)}
+            images={Array.from(
+              { length: menus[selectedMenuIndex].imgCnt },
+              (_, i) => `${menus[selectedMenuIndex].img}${i}.jpeg`
+            )}
+            initialIndex={selectedImageIndex}
+          />
+        )}
       </ContentWrapper>
     </Container>
   );
