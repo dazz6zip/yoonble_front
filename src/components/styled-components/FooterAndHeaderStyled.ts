@@ -44,14 +44,14 @@ export const SocialLinks = styled.div<MenuProps>`
   }
 `;
 
-export const MobileSocialLinks = styled.div`
+export const MailLinks = styled.div<MenuProps>`
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 3%;
+  grid-template-columns: ${(props) =>
+    props.isDesktop ? "repeat(3, 2fr)" : "repeat(1, 1fr)"};
+  gap: ${(props) => (props.isDesktop ? "20px" : "3%")};
   align-items: center;
   justify-content: center;
-  margin-top: 0;
-  line-height: 2;
+  margin-top: ${(props) => (props.isDesktop ? "4px" : 0)};
 
   a {
     color: ${colors.brown0};
@@ -59,7 +59,40 @@ export const MobileSocialLinks = styled.div`
     align-items: center;
     gap: 6px;
     text-decoration: none;
-    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: ${colors.brown2};
+    }
+
+    svg {
+      font-size: 12px;
+    }
+  }
+`;
+
+export const MobileSocialLinks = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  line-height: 2.2;
+  font-family: 'GowunBatang-Bold';
+  
+  span {
+    font-family: 'GowunBatang-Regular';
+  }
+
+  a {
+    color: ${colors.brown0};
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-size: 12px;
     transition: color 0.3s ease;
 
     &:hover {
@@ -83,7 +116,7 @@ export const HeaderContainer = styled.div<MenuItemProps>`
   height: ${(props) => (props.isDesktop ? "12vh" : "9vh")};
   display: flex;
   align-items: center;
-  font-family: "Playfair Display", "Noto Sans", "Noto Sans KR", sans-serif;
+  font-family: "Playfair Display", sans-serif;
   width: 100%;
   padding: ${(props) => (props.isDesktop ? "1vh 0" : "0")};
   border-bottom: 1px solid #cfb3a6;
@@ -135,7 +168,7 @@ export const DropdownMenu = styled.div`
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
-  font-family: "Noto Sans", "Noto Sans KR", sans-serif;
+  font-family: sans-serif;
   font-size: 0.7rem;
   z-index: 10;
 

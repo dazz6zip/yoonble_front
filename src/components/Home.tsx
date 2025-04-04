@@ -99,7 +99,12 @@ export default function Home() {
 
                 <MobileSocialLinks>
                   <a href="https://www.instagram.com/yoonble_studio" target="_blank">
-                    <AiFillInstagram />insta.&nbsp;&nbsp;yoonble_studio
+                    <AiFillInstagram />insta.&nbsp;<span>yoonble_studio</span>
+                  </a>
+                </MobileSocialLinks>
+                <MobileSocialLinks>
+                  <a href="https://pf.kakao.com/_KxkGWb?from=qr" target="_blank">
+                    <RiKakaoTalkFill />kakao.&nbsp;<span>윤블스튜디오</span>
                   </a>
                 </MobileSocialLinks>
               </>

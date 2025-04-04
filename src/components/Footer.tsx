@@ -6,6 +6,7 @@ import { isDesktopState } from "../recoil/atom";
 import {
   Copyright,
   FooterContainer,
+  MailLinks,
   SocialLinks,
 } from "./styled-components/FooterAndHeaderStyled";
 
@@ -34,17 +35,13 @@ function Footer() {
         </>
       ) : (
         <>
-          <SocialLinks isDesktop={isDesktop}>
-            <a href="https://pf.kakao.com/_KxkGWb?from=qr" target="_blank">
-              <RiKakaoTalkFill />
-              kakao.&emsp;&nbsp;&nbsp; 윤블스튜디오
-            </a>
+          <Copyright isDesktop={isDesktop}>© 2025 YOONBLE</Copyright><br />
+          <MailLinks isDesktop={isDesktop}>
             <a href="mailto:lovellehyo@gmail.com" target="_blank">
               <MdEmail />
-              website.&nbsp;&nbsp;&nbsp; we.develop.your@gmail.com
+              website.&nbsp;&nbsp; we.develop.your@gmail.com
             </a>
-          </SocialLinks><br />
-          <Copyright isDesktop={isDesktop}>© 2025 YOONBLE</Copyright>
+          </MailLinks>
         </>
       )
       }

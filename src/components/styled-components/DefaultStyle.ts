@@ -46,10 +46,10 @@ export const AboutTitle = styled.h2<MenuProps>`
   align-self: flex-start;
   font-size: 1.2rem;
   font-weight: bold;
+  font-family: 'GowunBatang-Bold';
   color: ${colors.brown1};
   padding: 5px 0;
   margin-bottom: 8px;
-  font-family: "Playfair Display", "Noto Sans", "Noto Sans KR", sans-serif;
 
   background: linear -
     gradient(to bottom, rgb(117, 105, 94, 0.6), rgba(117, 105, 94, 0));
