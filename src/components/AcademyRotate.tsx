@@ -1,18 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { imageLink } from "../fetcher";
 import { AcademyImage } from "./styled-components/DefaultStyle";
 
 export default function RotatingImage() {
     const [index, setIndex] = useState(0);
 
-    useEffect(() => {
-        const maxIndex = 10; // 마지막 이미지 번호
-        const interval = setInterval(() => {
-            setIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
-        }, 2000); // 2초마다 변경
-
-        return () => clearInterval(interval); // 언마운트 시 정리
+    // 이미지 미리 로드
+    const images = useMemo(() => {
+        return Array.from({ length: 11 }, (_, i) => {
+            const img = new Image();
+            img.src = `${imageLink}/academy/${i}.jpeg`;
+            return img.src;
+        });
     }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % images.length);
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [images.length]);
 
     return (
         <AcademyImage
