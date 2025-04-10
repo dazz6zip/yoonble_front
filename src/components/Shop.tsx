@@ -35,7 +35,7 @@ export default function Shop() {
         <AboutTitle>Design</AboutTitle>
         <Description>{t("shop.design.description")}</Description>
 
-        <AboutTitle>1:1 예약제</AboutTitle>
+        <AboutTitle>{t("shop.title")}</AboutTitle>
         <Description>{t("shop.reservation.description")}</Description>
       </Content>
       <VideoWrapper>

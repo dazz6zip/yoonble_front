@@ -56,7 +56,7 @@ export function ImageSliderModal({ isOpen, onClose, title, images, initialIndex 
                     <ModalTitle>{title}</ModalTitle>
                 </>) : (
                 <>
-                    <ModalMobileTitle>{title}</ModalMobileTitle>
+                    <ModalMobileTitle>{title}</ModalMobileTitle><br />
                     <MobileImageScrollArea>
                         {images.map((src, idx) => (
                             <MobileImageWrapper key={idx}>
@@ -64,7 +64,7 @@ export function ImageSliderModal({ isOpen, onClose, title, images, initialIndex 
                             </MobileImageWrapper>
                         ))}
                     </MobileImageScrollArea>
-                    <CloseButton onClick={onClose}>닫기</CloseButton>
+                    <CloseButton onClick={onClose}>close</CloseButton>
                 </>
             )}
 

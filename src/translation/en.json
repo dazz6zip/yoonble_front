@@ -42,7 +42,8 @@
         },
         "reservation": {
             "description": "工作室位于江南豪华顶层公寓，为您提供私密且惬意的体验环境。在宁静舒适的氛围中，享受顶级服务。我们采用预约制，确保每位客户都能获得个性化关怀。交通便利，门前即有机场直达巴士站。"
-        }
+        },
+        "title": "One-on-One Service"
     },
     "artist": {
         "description": "With refined technique and artistic sensibility, I create natural and sophisticated beauty.",

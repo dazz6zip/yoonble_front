@@ -34,9 +34,9 @@ const Title = styled.h2`
   color: ${colors.brown0};
 `;
 
-const CircleImage = styled.img`
-  width: 10vw;
-  height: 10vw;
+const CircleImage = styled.img<{ isDesktop: boolean }>`
+  width: ${(props) => (props.isDesktop ? "10vw" : "40vw")};
+  height: ${(props) => (props.isDesktop ? "10vw" : "40vw")};
   border-radius: 50%;
   display: block;
   margin: 10px auto;
@@ -55,7 +55,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 const SquareImage = styled.img`
@@ -156,25 +156,8 @@ export function Brow() {
           return (
             <Card>
               <Title>{t(menu.name)}</Title>
-              <CircleImage src={menu.img + ".png"} alt="Circle" />
+              <CircleImage isDesktop={isDesktop} src={menu.img + ".png"} alt="Circle" />
               <Description>{t(menu.description)}</Description>
-
-              <PaginationContainer>
-                <PageButton
-                  disabled={currentPage === 0}
-                  onClick={() => changePage(index, "prev")}
-                >
-                  {"<"}
-                </PageButton>
-                <Page>{`${currentPage + 1} / ${totalPages}`}</Page>
-                <PageButton
-                  disabled={currentPage === totalPages - 1}
-                  onClick={() => changePage(index, "next")}
-                >
-                  {">"}
-                </PageButton>
-              </PaginationContainer>
-
               <Grid>
                 {Array.from({ length: menu.imgCnt })
                   .map((_, i) => `${menu.img}${i}.jpeg`)
@@ -190,6 +173,23 @@ export function Brow() {
                     );
                   })}
               </Grid>
+              {totalPages > 1 && (
+                <PaginationContainer>
+                  <PageButton
+                    disabled={currentPage === 0}
+                    onClick={() => changePage(index, "prev")}
+                  >
+                    {"<"}
+                  </PageButton>
+                  <Page>{`${currentPage + 1} / ${totalPages}`}</Page>
+                  <PageButton
+                    disabled={currentPage === totalPages - 1}
+                    onClick={() => changePage(index, "next")}
+                  >
+                    {">"}
+                  </PageButton>
+                </PaginationContainer>
+              )}
             </Card>
           );
         })}

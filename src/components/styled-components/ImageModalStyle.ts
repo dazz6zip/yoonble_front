@@ -31,6 +31,7 @@ export const ModalTitle = styled.h2`
   font-size: 20px;
   color: ${colors.brown5};
   margin-top: 1.5rem;
+  font-family: "GowunBatang-Regular";
 `;
 
 export const CloseButtonTopRight = styled.button`
@@ -97,6 +98,7 @@ export const ModalMobileTitle = styled.button`
   color: ${colors.brown5};
   cursor: pointer;
   left: 50%;
+  font-family: "GowunBatang-Regular";
   transform: translate(-50%, -50%);
 `;
 
@@ -109,5 +111,6 @@ export const CloseButton = styled.button`
   position: absolute;
   left: 50%;
   margin-top: 3.5vh;
+  font-family: "GowunBatang-Regular";
   transform: translate(-50%, -50%);
 `;
