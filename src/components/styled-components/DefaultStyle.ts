@@ -316,19 +316,27 @@ export const MenuDescript = styled.div`
   opacity: 80%;
 `;
 
+// 페이드 효과용 이미지
 export const FadeImage = styled.img<{ isVisible: boolean }>`
   width: 100%;
-  height: auto;
+  height: 30vh;
+  min-height: 150px;
   object-fit: cover;
+  border-radius: 10px;
+
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1); // 더 부드럽고 자연스럽게
   position: absolute;
+  top: 0;
+  left: 0;
 `;
 
+// 이미지 래퍼
 export const AcademyImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: auto;
+  height: 30vh;
+  min-height: 150px;
   overflow: hidden;
 `;
 
