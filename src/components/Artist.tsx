@@ -1,7 +1,7 @@
 import { useRecoilValue } from "recoil";
 import { isDesktopState } from "../recoil/atom";
 import {
-  Career,
+  ArtistDescription,
   Container,
   Content,
   Description,
@@ -34,11 +34,11 @@ export default function Artist() {
         <Content isDesktop={isDesktop}>
           <Title isDesktop={isDesktop}>Artist. Yoon</Title>
           <Description>{t("artist.description")}</Description>
-          <Career>
+          <ArtistDescription>
             {qualifications.map((qualification) => (
-              <Description>✶&nbsp;&nbsp;&nbsp;{qualification}</Description>
+              <ArtistDescription>✶&nbsp;&nbsp;&nbsp;{qualification}</ArtistDescription>
             ))}
-          </Career>
+          </ArtistDescription>
         </Content>
       </IaC>
     </Container>

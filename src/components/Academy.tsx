@@ -9,35 +9,47 @@ import {
   Image,
   AcademyWrapper,
   Title,
+  AcademyImageWrapper,
 } from "./styled-components/DefaultStyle";
 import { useTranslation } from "react-i18next";
+import RotatingImage from "./AcademyRotate";
 
 export default function Academy() {
   const { t } = useTranslation();
   const isDesktop = useRecoilValue(isDesktopState);
   return (
     <Container>
-      <AcademyWrapper>
-        <Image
-          isDesktop={isDesktop}
-          src={imageLink + "/academy/0.jpeg"}
-          alt="shop"
-        />
-        <Image
-          isDesktop={isDesktop}
-          src={imageLink + "/academy/1.jpeg"}
-          alt="shop"
-        />
-        <Image
-          isDesktop={isDesktop}
-          src={imageLink + "/academy/2.jpeg"}
-          alt="shop"
-        />
-      </AcademyWrapper>
+      {isDesktop
+        ? (
+          <AcademyWrapper isDesktop={isDesktop}>
+            <Image
+              isDesktop={isDesktop}
+              src={imageLink + "/academy/0.jpeg"}
+              alt="shop"
+            />
+            <Image
+              isDesktop={isDesktop}
+              src={imageLink + "/academy/1.jpeg"}
+              alt="shop"
+            />
+            <Image
+              isDesktop={isDesktop}
+              src={imageLink + "/academy/2.jpeg"}
+              alt="shop"
+            />
+          </AcademyWrapper>
+        ) : (
+          <>
+            <AcademyImageWrapper>
+              <RotatingImage />
+            </AcademyImageWrapper>
+          </>
+        )
+      }
+
       <Content isDesktop={isDesktop}>
         <Title isDesktop={isDesktop}>Academy</Title>
         <Description>{t("academy.description1")}</Description>
-
         <Description>{t("academy.description2")}</Description>
       </Content>
     </Container>

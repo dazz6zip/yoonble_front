@@ -33,13 +33,7 @@ export default function Shop() {
         <Description>{t("shop.about.description")}</Description>
 
         <AboutTitle>Design</AboutTitle>
-        <Description>
-          대표원장이 상담부터 디자인, 시술까지 전 과정을 직접 진행하며, 고객 한
-          분 한 분을 위한 최상의 결과를 제공합니다. 디자인 단계에서는 얼굴형과
-          이미지를 정밀 분석하여 개개인의 조화로운 아름다움을 극대화할 수 있는
-          디자인을 제안합니다. 고객님의 취향을 세심하게 반영한 맞춤 컨설팅과
-          전문적인 심미적 접근을 통해, 완성도 높은 결과를 약속드립니다.
-        </Description>
+        <Description>{t("shop.design.description")}</Description>
 
         <AboutTitle>1:1 예약제</AboutTitle>
         <Description>{t("shop.reservation.description")}</Description>

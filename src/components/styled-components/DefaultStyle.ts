@@ -58,9 +58,17 @@ export const AboutTitle = styled.h2<MenuProps>`
 `;
 
 export const Description = styled.p`
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #555;
   line-height: 1.5;
+  margin-bottom: 20px;
+  white-space: pre-line;
+`;
+
+export const ArtistDescription = styled.p`
+  font-size: 0.7rem;
+  color: #555;
+  line-height: 1.1;
   margin-bottom: 20px;
   white-space: pre-line;
 `;
@@ -90,11 +98,10 @@ export const Content = styled.div<{ isDesktop?: boolean }>`
   width: 100%;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 
   align-items: center;
   justify-content: center;
-  height: 100%;
 `;
 
 export const FAQItem = styled.div`
@@ -154,6 +161,7 @@ export const Card = styled.div`
   @media (max-width: 780px) {
     display: block;
     padding-top: 10px;
+    width: 90%;
   }
 `;
 
@@ -168,6 +176,7 @@ export const Sidebar = styled.div`
   align-items: flex-start;
 
   @media (max-width: 780px) {
+    align-self: center;
     width: 70%;
     justify-content: center;
     align-items: center;
@@ -175,6 +184,7 @@ export const Sidebar = styled.div`
     padding: 10px;
     gap: 35px;
     height: auto;
+    justify-content: center;
 
     background-color: ${colors.pink1};
     border-radius: 50px;
@@ -223,11 +233,19 @@ export const ImageWrapper = styled.div`
   }
 `;
 
-export const AcademyWrapper = styled.div`
-  display: flex;
+export const AcademyWrapper = styled.div<{ isDesktop?: boolean }>`
+  display: ${({ isDesktop }) => (isDesktop ? "grid" : "flex")};
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  overflow-x: ${({ isDesktop }) => (isDesktop ? "visible" : "auto")};
   justify-content: center;
-  gap: 20px;
+
+  & > img {
+    flex: 0 0 auto; // 모바일에서 가로 스크롤이 가능하도록
+    width: ${({ isDesktop }) => (isDesktop ? "100%" : "80%")};
+  }
 `;
+
 
 export const MenuImage = styled.img<{ isDesktop?: boolean }>`
   border-radius: 10px;
@@ -252,7 +270,7 @@ export const Image = styled.img<{ isDesktop?: boolean }>`
 
 export const ProfileImage = styled.img<{ isDesktop?: boolean }>`
   border-radius: 10px;
-  width: 100%;
+  width: 95%;
   height: 30vh;
   min-height: 200px;
   object-fit: cover;
@@ -282,8 +300,6 @@ export const ImageS = styled.img<MenuProps>`
   border-radius: 10px;
 `;
 
-export const Career = styled.div``;
-
 export const IaC = styled.div<MenuProps>`
   display: block;
   width: 100%;
@@ -298,4 +314,28 @@ export const MenuDescript = styled.div`
   padding-top: 5px;
   font-size: 0.8rem;
   opacity: 80%;
+`;
+
+export const FadeImage = styled.img<{ isVisible: boolean }>`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transition: opacity 0.8s ease-in-out;
+  position: absolute;
+`;
+
+export const AcademyImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+`;
+
+export const AcademyImage = styled.img`
+  border-radius: 10px;
+  width: 100%;
+  height: 30vh;
+  min-height: 150px;
+  object-fit: cover;
 `;
