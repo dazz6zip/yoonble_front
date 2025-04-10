@@ -2,35 +2,35 @@
     "categories": {
         "brow": {
             "name": "眉毛",
-            "description": "自然眉｜柔和眉｜雾眉"
+            "description": "自然眉｜柔雾线条眉｜雾眉／渐变雾眉"
         },
         "lip": {
             "name": "唇部",
-            "description": "雾感渐变唇"
+            "description": "雾唇"
         },
         "eyefat": {
             "name": "卧蚕",
-            "description": "卧蚕阴影打造"
+            "description": "卧蚕阴影｜玻尿酸水光高光"
         },
         "eyelash": {
             "name": "睫毛",
-            "description": "允宝烫睫｜角蛋白滋养烫"
+            "description": "Glow定型 ｜ 三重营养定型 ｜ 黑色定型染"
         },
         "eyeline": {
             "name": "眼线",
-            "description": "半永久眼线"
+            "description": "丝滑眼线 ｜ 明星棕色眼线"
         },
         "mark": {
             "name": "美人痣",
-            "description": "定制美人痣咨询"
+            "description": "美人痣定制"
         },
         "scar": {
-            "name": "疤痕遮盖",
-            "description": "疤痕修复和遮盖管理"
+            "name": "纹眉去除",
+            "description": "半永久残留&疤痕护理"
         },
         "hairline": {
             "name": "发际线",
-            "description": "空姐发际线设计"
+            "description": "空姐发际线 | 男士发际线修饰"
         }
     },
     "artist": {
@@ -65,7 +65,7 @@
         },
         "2": {
             "blurring_lip": {
-                "name": "模糊唇",
+                "name": "雾唇",
                 "description": "为双唇增添自然、健康的色泽，使轮廓更加清晰立体。"
             }
         },
@@ -77,8 +77,8 @@
         },
         "4": {
             "yoonble_perm": {
-                "name": "Yoonble 烫睫",
-                "description": "根据个人眼型与睫毛结构，提供定制化卷翘效果，展现自然魅力。"
+                "name": "Glow 睫毛定型",
+                "description": "这是一款根据个人眼型与气质定制的高端睫毛烫发，卷翘自然，即使随着时间放松，也能维持优雅的弧度。我们拥有多种型号的硅胶卷杠，能够为不同眼型和风格需求提供专属定制方案。"
             },
             "keratin_lash": {
                 "name": "角蛋白睫毛护理",
@@ -104,7 +104,7 @@
         "7": {
             "scar_removal": {
                 "name": "疤痕遮盖",
-                "description": "使用高级色素遮盖技术，有效淡化疤痕，使肌肤更均匀。"
+                "description": "通过集中清除旧有纹眉残留，帮助后续的纹绣效果更加自然美观。"
             }
         },
         "8": {

@@ -147,7 +147,7 @@ export function Brow() {
 
   return (
     <Container>
-      <SubTitle>ArtMake - Eyebrow</SubTitle>
+      <SubTitle>Eyebrow</SubTitle>
       <ContentWrapper>
         {menus.map((menu, index) => {
           const totalPages = Math.ceil(menu.imgCnt / 4); // 4개씩 페이징

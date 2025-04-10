@@ -8,15 +8,16 @@ import { Container, Image, SubTitle } from "../styled-components/DefaultStyle";
 import { ImageSliderModal } from "../ImageModal";
 import { useParams } from "react-router-dom";
 
-export const DetailWrapper = styled.div`
+export const DetailWrapper = styled.div<{ isDesktop?: boolean }>`
   display: flex;
   font-size: 14px;
   color: rgb(98, 90, 82);
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 100%;
-  max-width: 70vw;
+  width: ${(props) => (props.isDesktop ? "70%" : "100%")};
+  max-width: 80vw;
+  line-height: 1.5;
 `;
 
 export const ImgWrapper = styled.div`
@@ -86,8 +87,8 @@ export function Common() {
 
   return (
     <Container>
-      <SubTitle>ArtMake - {t(menu.name)}</SubTitle>
-      <DetailWrapper>{t(menu.description)}</DetailWrapper>
+      <SubTitle>{t(menu.name)}</SubTitle>
+      <DetailWrapper isDesktop={isDesktop}>{t(menu.description)}</DetailWrapper>
       <ImgWrapper>
         {Array.from({ length: menu.imgCnt }, (_, i) => (
           <ImgBox key={i} isDesktop={isDesktop} onClick={() => handleImageClick(i)}>

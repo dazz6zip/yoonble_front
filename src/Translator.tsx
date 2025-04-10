@@ -40,9 +40,6 @@ export default function Translator() {
 
   return (
     <ButtonContainer>
-      <LangButton now={langState === "en"} onClick={() => changeProc("en")}>
-        English
-      </LangButton>
       <LangButton now={langState === "ko"} onClick={() => changeProc("ko")}>
         한국어
       </LangButton>
@@ -51,6 +48,9 @@ export default function Translator() {
       </LangButton>
       <LangButton now={langState === "zh"} onClick={() => changeProc("zh")}>
         中文
+      </LangButton>
+      <LangButton now={langState === "en"} onClick={() => changeProc("en")}>
+        English
       </LangButton>
     </ButtonContainer>
   );

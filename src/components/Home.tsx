@@ -55,7 +55,7 @@ export default function Home() {
                 </Title>
                 <Description>
                   <Bold>KOREA'S LEADING HIGH-END COSMETIC TATTOO STUDIO</Bold>
-                </Description><br /><br />
+                </Description><br /><br /><br />
                 <Description>
                   <Bold>Yoonble</Bold> is a high-end cosmetic tattoo brand known for
                   its <Bold>precision</Bold> and <Bold>meticulous design</Bold>.
@@ -70,12 +70,10 @@ export default function Home() {
                   <Bold>Experience refined beauty and confidence</Bold> with
                   Yoonble.
                 </Description>
-                <br />
-                <br />
-                <br />
+                {/* <br />
                 <Description>
                   More Info &nbsp;&nbsp; <Bold>SHOP | MENU | ACADEMY</Bold>
-                </Description>
+                </Description> */}
               </>
             ) : (
               <>

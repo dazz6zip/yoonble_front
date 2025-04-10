@@ -46,7 +46,6 @@ export const AboutTitle = styled.h2<MenuProps>`
   align-self: flex-start;
   font-size: 1.2rem;
   font-weight: bold;
-  font-family: 'GowunBatang-Bold';
   color: ${colors.brown1};
   padding: 5px 0;
   margin-bottom: 8px;
@@ -59,10 +58,11 @@ export const AboutTitle = styled.h2<MenuProps>`
 `;
 
 export const Description = styled.p`
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #555;
   line-height: 1.5;
   margin-bottom: 20px;
+  white-space: pre-line;
 `;
 
 export const ContentBox = styled.div<MenuProps>`

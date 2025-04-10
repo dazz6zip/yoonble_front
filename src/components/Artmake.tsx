@@ -39,7 +39,7 @@ export default function Artmake() {
 
   return (
     <Container>
-      <SubTitle>ArtMake Menu</SubTitle>
+      <SubTitle>Menu</SubTitle>
       <ContentWrapper>
         {categories.map((category) => (
           <ContentBox
@@ -49,7 +49,13 @@ export default function Artmake() {
           >
             <MenuImage src={category.img} alt={category.name} />
             <Title isDesktop={isDesktop}>{t(category.name)}</Title>
-            <Description>{t(category.description)}</Description>
+            <Description>
+              {/* {isDesktop
+                ? t(category.description)
+                : t(category.description).replace(/ \| /g, '\n')} */}
+              {t(category.description)}
+            </Description>
+
           </ContentBox>
         ))}
       </ContentWrapper>

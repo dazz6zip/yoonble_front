@@ -90,7 +90,7 @@ export function Eyeline() {
 
   return (
     <Container>
-      <SubTitle>ArtMake - Eyeline</SubTitle>
+      <SubTitle>Eyeline</SubTitle>
       <ContentWrapper>
         {menus.map((menu, index) => (
           <Card>

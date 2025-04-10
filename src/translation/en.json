@@ -2,35 +2,35 @@
     "categories": {
         "brow": {
             "name": "Eyebrow",
-            "description": "Enhance your natural beauty with our precision eyebrow artistry."
+            "description": "Natural Brows | Soft Combo Brows | Powder Brows"
         },
         "lip": {
-            "name": "Lips",
-            "description": "Achieve perfectly defined and naturally tinted lips."
+            "name": "Lip",
+            "description": "Blurred Lip"
         },
         "eyefat": {
-            "name": "Aegyo-sal Contouring",
-            "description": "Add volume and a youthful glow to your under-eye area."
+            "name": "Aegyosal Contouring",
+            "description": "Aegyosal Shading | Hyaluronic Glow Highlighter"
         },
         "eyelash": {
             "name": "Eyelash Perm",
-            "description": "Create a long-lasting curl that enhances your eye shape."
+            "description": "Glow Lash Lift | Triple Nutrition Lift | Black Tint Lift"
         },
         "eyeline": {
             "name": "Eyeliner",
-            "description": "Define your eyes with a precise, natural-looking liner."
+            "description": "Silk Line | Idol Brown Liner"
         },
         "mark": {
             "name": "Beauty Spot",
-            "description": "Add a touch of elegance with a custom beauty mark."
+            "description": "Personalized Beauty Mark"
         },
         "scar": {
-            "name": "Scar Cover",
-            "description": "Conceal scars seamlessly with our expert pigmentation techniques."
+            "name": "Brow Tattoo Removal",
+            "description": "PMU Residue & Scar Care"
         },
         "hairline": {
             "name": "Hairline Microblading",
-            "description": "Achieve a fuller, more youthful hairline with natural shading."
+            "description": "Flight Attendant Hairline | Men’s Hairline Shaping"
         }
     },
     "shop": {
@@ -76,20 +76,20 @@
         },
         "2": {
             "blurring_lip": {
-                "name": "Blurring Lip",
+                "name": "Blurred Lip",
                 "description": "A treatment that enhances your lips with a natural, vibrant tint for a healthy and well-defined appearance."
             }
         },
         "3": {
             "aegyo_sal": {
-                "name": "Aegyo-sal Contouring",
+                "name": "Aegyosal Contouring",
                 "description": "A technique that adds natural volume to the under-eye area, creating a bright and youthful expression."
             }
         },
         "4": {
             "yoonble_perm": {
-                "name": "Yoonble Perm",
-                "description": "A customized curling treatment that enhances the natural shape of your eyes and lashes."
+                "name": "Glow Lash Lift",
+                "description": "A high-end, fully customized lash lift designed to suit each client’s unique eye shape and facial impression. Even as the curl softens over time, it maintains a graceful, natural curve. With the largest selection of rods available, we provide tailored consultations for every lash style and eye shape."
             },
             "keratin_lash": {
                 "name": "Keratin Lash Treatment",
@@ -115,7 +115,7 @@
         "7": {
             "scar_removal": {
                 "name": "Scar Removal",
-                "description": "A specialized treatment that reduces the appearance of scars using advanced pigmentation techniques."
+                "description": "This treatment focuses on removing leftover pigment from previous procedures to help your next session heal cleaner and look even more beautiful."
             }
         },
         "8": {

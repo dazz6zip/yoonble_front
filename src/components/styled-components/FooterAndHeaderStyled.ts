@@ -80,11 +80,11 @@ export const MobileSocialLinks = styled.div`
   justify-content: center;
   margin-top: 0;
   line-height: 2.2;
-  font-family: 'GowunBatang-Bold';
+  // font-family: 'GowunBatang-Bold';
   
-  span {
-    font-family: 'GowunBatang-Regular';
-  }
+  // span {
+  //   font-family: 'GowunBatang-Regular';
+  // }
 
   a {
     color: ${colors.brown0};
