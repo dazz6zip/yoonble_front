@@ -1,14 +1,21 @@
-`npm install styled-components`
-`npm install react-modal`
-`npm install react-router-dom@^6.0.0`
-`npm install --save-dev @types/react-router-dom`
-`npm install recoil`
-`npm install axios`
-`npm install --save-dev @types/axios`
-`npm install --save-dev @types/react-burger-menu`
-`npm install react-icons`
-`npm install dayjs`
-`npm install framer-motion`
-`npm install react-i18next i18next --legacy-peer-deps`
-`npm install react-modal react-slick slick-carousel --legacy-peer-deps`
-`npm install --save-dev @types/react-modal @types/react-slick --legacy-peer-deps`
+## 📬 고마워써 KOMAWATSIR
+
+모바일 웹 연하장 프로젝트 고마워써 프론트엔드 코드 저장소입니다
+```
+start("2025-02-20");
+end("2025-04-11");
+```
+
+## STACK
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white)
+
+
+## MEMBER
+<a href="https://github.com/hyoseonlim" target="_blank">
+   <img src="https://img.shields.io/badge/GitHub-@hyoseonlim-181717?style=flat-square&logo=GitHub&logoColor=white&label=BE_FE"/>
+</a>
+<br/>
+<a href="https://github.com/dazz6zip" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-@dazz6zip-181717?style=flat-square&logo=GitHub&logoColor=white&label=FE_Design"/>
+</a>
